@@ -33,7 +33,7 @@ module TriglavClientBase
 
     # Deletes an existing Job item
     # 
-    # @param id_or_uri Resource Id or URI
+    # @param id_or_uri Job Id or URI
     # @param [Hash] opts the optional parameters
     # @return [nil]
     def api_v1_jobs_destroy(id_or_uri, opts = {})
@@ -43,7 +43,7 @@ module TriglavClientBase
 
     # Deletes an existing Job item
     # 
-    # @param id_or_uri Resource Id or URI
+    # @param id_or_uri Job Id or URI
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def api_v1_jobs_destroy_with_http_info(id_or_uri, opts = {})
@@ -89,7 +89,7 @@ module TriglavClientBase
 
     # Fetches a single Job
     # 
-    # @param id_or_uri Resource Id or URI
+    # @param id_or_uri Job Id or URI
     # @param [Hash] opts the optional parameters
     # @return [Resource]
     def api_v1_jobs_show(id_or_uri, opts = {})
@@ -99,7 +99,7 @@ module TriglavClientBase
 
     # Fetches a single Job
     # 
-    # @param id_or_uri Resource Id or URI
+    # @param id_or_uri Job Id or URI
     # @param [Hash] opts the optional parameters
     # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
     def api_v1_jobs_show_with_http_info(id_or_uri, opts = {})
@@ -148,8 +148,8 @@ module TriglavClientBase
     # Input and output resources are also created if they do not exist. Use Resource API to update.
     # @param uri Job URI
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<Object>] :input_resources Input Resources
-    # @option opts [Array<Object>] :output_resources Output Resources
+    # @option opts [Array<Resource>] :input_resources Input Resources
+    # @option opts [Array<Resource>] :output_resources Output Resources
     # @return [nil]
     def api_v1_jobs_update(uri, opts = {})
       api_v1_jobs_update_with_http_info(uri, opts)
@@ -160,8 +160,8 @@ module TriglavClientBase
     # Input and output resources are also created if they do not exist. Use Resource API to update.
     # @param uri Job URI
     # @param [Hash] opts the optional parameters
-    # @option opts [Array<Object>] :input_resources Input Resources
-    # @option opts [Array<Object>] :output_resources Output Resources
+    # @option opts [Array<Resource>] :input_resources Input Resources
+    # @option opts [Array<Resource>] :output_resources Output Resources
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def api_v1_jobs_update_with_http_info(uri, opts = {})
       if @api_client.config.debugging

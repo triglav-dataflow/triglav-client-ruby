@@ -282,7 +282,7 @@ module TriglavClientBase
     # @option opts [String] :description Description
     # @option opts [String] :authenticator Local or ldap
     # @option opts [String] :email Email
-    # @option opts [Array<Object>] :groups Groups
+    # @option opts [Array<String>] :groups Groups
     # @option opts [String] :password Password for local authentication
     # @return [nil]
     def api_v1_users_update(id, opts = {})
@@ -298,7 +298,7 @@ module TriglavClientBase
     # @option opts [String] :description Description
     # @option opts [String] :authenticator Local or ldap
     # @option opts [String] :email Email
-    # @option opts [Array<Object>] :groups Groups
+    # @option opts [Array<String>] :groups Groups
     # @option opts [String] :password Password for local authentication
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def api_v1_users_update_with_http_info(id, opts = {})

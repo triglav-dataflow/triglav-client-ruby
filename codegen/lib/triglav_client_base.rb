@@ -28,6 +28,7 @@ require 'triglav_client_base/version'
 require 'triglav_client_base/configuration'
 
 # Models
+require 'triglav_client_base/models/resource'
 
 # APIs
 require 'triglav_client_base/api/clusters_api'

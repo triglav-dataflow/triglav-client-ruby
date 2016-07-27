@@ -21,7 +21,7 @@ require 'triglav_client_base'
 
 api_instance = TriglavClientBase::JobsApi.new
 
-id_or_uri = "id_or_uri_example" # String | Resource Id or URI
+id_or_uri = "id_or_uri_example" # String | Job Id or URI
 
 
 begin
@@ -36,7 +36,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_or_uri** | **String**| Resource Id or URI | 
+ **id_or_uri** | **String**| Job Id or URI | 
 
 ### Return type
 
@@ -65,7 +65,7 @@ require 'triglav_client_base'
 
 api_instance = TriglavClientBase::JobsApi.new
 
-id_or_uri = "id_or_uri_example" # String | Resource Id or URI
+id_or_uri = "id_or_uri_example" # String | Job Id or URI
 
 
 begin
@@ -81,7 +81,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **id_or_uri** | **String**| Resource Id or URI | 
+ **id_or_uri** | **String**| Job Id or URI | 
 
 ### Return type
 
@@ -115,8 +115,8 @@ api_instance = TriglavClientBase::JobsApi.new
 uri = "uri_example" # String | Job URI
 
 opts = { 
-  input_resources: nil, # Array<Object> | Input Resources
-  output_resources: nil # Array<Object> | Output Resources
+  input_resources: [TriglavClientBase::Resource.new], # Array<Resource> | Input Resources
+  output_resources: [TriglavClientBase::Resource.new] # Array<Resource> | Output Resources
 }
 
 begin
@@ -132,8 +132,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uri** | **String**| Job URI | 
- **input_resources** | [**Array&lt;Object&gt;**](Object.md)| Input Resources | [optional] 
- **output_resources** | [**Array&lt;Object&gt;**](Object.md)| Output Resources | [optional] 
+ **input_resources** | [**Array&lt;Resource&gt;**](Resource.md)| Input Resources | [optional] 
+ **output_resources** | [**Array&lt;Resource&gt;**](Resource.md)| Output Resources | [optional] 
 
 ### Return type
 

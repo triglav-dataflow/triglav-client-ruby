@@ -27,7 +27,7 @@ name = "name_example" # String | Name
 
 authenticator = "authenticator_example" # String | local or ldap.dena.local
 
-groups = nil # Array<Object> | Groups
+groups = ["groups_example"] # Array<String> | Groups
 
 password = "password_example" # String | Password
 
@@ -50,7 +50,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name** | **String**| Name | 
  **authenticator** | **String**| local or ldap.dena.local | 
- **groups** | [**Array&lt;Object&gt;**](Object.md)| Groups | 
+ **groups** | [**Array&lt;String&gt;**](String.md)| Groups | 
  **password** | **String**| Password | 
  **description** | **String**| Description | [optional] 
  **email** | **String**| Email | [optional] 
@@ -218,7 +218,7 @@ opts = {
   description: "description_example", # String | Description
   authenticator: "authenticator_example", # String | Local or ldap
   email: "email_example", # String | Email
-  groups: nil, # Array<Object> | Groups
+  groups: ["groups_example"], # Array<String> | Groups
   password: "password_example" # String | Password for local authentication
 }
 
@@ -239,7 +239,7 @@ Name | Type | Description  | Notes
  **description** | **String**| Description | [optional] 
  **authenticator** | **String**| Local or ldap | [optional] 
  **email** | **String**| Email | [optional] 
- **groups** | [**Array&lt;Object&gt;**](Object.md)| Groups | [optional] 
+ **groups** | [**Array&lt;String&gt;**](String.md)| Groups | [optional] 
  **password** | **String**| Password for local authentication | [optional] 
 
 ### Return type
