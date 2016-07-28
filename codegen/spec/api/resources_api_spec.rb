@@ -43,43 +43,43 @@ describe 'ResourcesApi' do
     end
   end
 
-  # unit tests for add_resource
+  # unit tests for create_resource
   # 
   # Creates a new resource
   # @param resource Resource to add
   # @param [Hash] opts the optional parameters
   # @return [Resource]
-  describe 'add_resource test' do
+  describe 'create_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for delete_resource_by_id_or_uri
+  # unit tests for delete_resource
   # 
   # Deletes single resource
   # @param id_or_uri ID or URI of resource to fetch
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe 'delete_resource_by_id_or_uri test' do
+  describe 'delete_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_resource_by_id_or_uri
+  # unit tests for get_resource
   # 
   # Returns a single resource
   # @param id_or_uri ID or URI of resource to fetch
   # @param [Hash] opts the optional parameters
   # @return [Resource]
-  describe 'find_resource_by_id_or_uri test' do
+  describe 'get_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_resources
+  # unit tests for list_resources
   # 
   # Returns all resources from the system
   # @param cluster_id ID of Cluster
@@ -87,20 +87,20 @@ describe 'ResourcesApi' do
   # @param notifiable Notifiable
   # @param [Hash] opts the optional parameters
   # @return [Array<ResourceEach>]
-  describe 'find_resources test' do
+  describe 'list_resources test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for update_resource_by_id_or_uri
+  # unit tests for update_resource
   # 
   # Updates a single resource
   # @param id_or_uri ID or URI of resource to fetch
   # @param resource Resource parameters to update
   # @param [Hash] opts the optional parameters
   # @return [Resource]
-  describe 'update_resource_by_id_or_uri test' do
+  describe 'update_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

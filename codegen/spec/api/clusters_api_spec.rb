@@ -43,61 +43,61 @@ describe 'ClustersApi' do
     end
   end
 
-  # unit tests for add_cluster
+  # unit tests for create_cluster
   # 
   # Creates a new cluster
   # @param cluster Cluster to add
   # @param [Hash] opts the optional parameters
   # @return [Cluster]
-  describe 'add_cluster test' do
+  describe 'create_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for delete_cluster_by_id_or_name
+  # unit tests for delete_cluster
   # 
   # Deletes single cluster
   # @param id_or_name ID or Name of cluster to fetch
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe 'delete_cluster_by_id_or_name test' do
+  describe 'delete_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_cluster_by_id_or_name
+  # unit tests for get_cluster
   # 
   # Returns a single cluster
   # @param id_or_name ID or Name of cluster to fetch
   # @param [Hash] opts the optional parameters
   # @return [Cluster]
-  describe 'find_cluster_by_id_or_name test' do
+  describe 'get_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_clusters
+  # unit tests for list_clusters
   # 
   # Returns all clusters from the system
   # @param [Hash] opts the optional parameters
   # @return [Array<ClusterEach>]
-  describe 'find_clusters test' do
+  describe 'list_clusters test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for update_cluster_by_id_or_name
+  # unit tests for update_cluster
   # 
   # Updates a single cluster
   # @param id_or_name ID or Name of cluster to fetch
   # @param cluster Cluster parameters to update
   # @param [Hash] opts the optional parameters
   # @return [Cluster]
-  describe 'update_cluster_by_id_or_name test' do
+  describe 'update_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

@@ -55,36 +55,36 @@ describe 'JobsApi' do
     end
   end
 
-  # unit tests for delete_job_by_id_or_uri
+  # unit tests for delete_job
   # 
   # Deletes single job
   # @param id_or_uri ID or URI of job to fetch
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe 'delete_job_by_id_or_uri test' do
+  describe 'delete_job test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_job_by_id_or_uri
+  # unit tests for get_job
   # 
   # Returns a single job
   # @param id_or_uri ID or URI of job to fetch
   # @param [Hash] opts the optional parameters
   # @return [Job]
-  describe 'find_job_by_id_or_uri test' do
+  describe 'get_job test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_jobs
+  # unit tests for list_jobs
   # 
   # Returns all jobs
   # @param [Hash] opts the optional parameters
   # @return [Array<JobEach>]
-  describe 'find_jobs test' do
+  describe 'list_jobs test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

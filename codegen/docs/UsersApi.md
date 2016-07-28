@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_user**](UsersApi.md#add_user) | **POST** /users | 
-[**delete_user_by_id**](UsersApi.md#delete_user_by_id) | **DELETE** /users/{id} | 
-[**find_user_by_id**](UsersApi.md#find_user_by_id) | **GET** /users/{id} | 
-[**find_users**](UsersApi.md#find_users) | **GET** /users | 
-[**update_user_by_id**](UsersApi.md#update_user_by_id) | **PATCH** /users/{id} | 
+[**create_user**](UsersApi.md#create_user) | **POST** /users | 
+[**delete_user**](UsersApi.md#delete_user) | **DELETE** /users/{id} | 
+[**get_user**](UsersApi.md#get_user) | **GET** /users/{id} | 
+[**list_users**](UsersApi.md#list_users) | **GET** /users | 
+[**update_user**](UsersApi.md#update_user) | **PATCH** /users/{id} | 
 
 
-# **add_user**
-> User add_user(user)
+# **create_user**
+> User create_user(user)
 
 
 
@@ -36,10 +36,10 @@ user = TriglavClientBase::UserInput.new # UserInput | User to add to the store
 
 
 begin
-  result = api_instance.add_user(user)
+  result = api_instance.create_user(user)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UsersApi->add_user: #{e}"
+  puts "Exception when calling UsersApi->create_user: #{e}"
 end
 ```
 
@@ -64,8 +64,8 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_user_by_id**
-> delete_user_by_id(id)
+# **delete_user**
+> delete_user(id)
 
 
 
@@ -89,9 +89,9 @@ id = 789 # Integer | ID of user to fetch
 
 
 begin
-  api_instance.delete_user_by_id(id)
+  api_instance.delete_user(id)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UsersApi->delete_user_by_id: #{e}"
+  puts "Exception when calling UsersApi->delete_user: #{e}"
 end
 ```
 
@@ -116,8 +116,8 @@ nil (empty response body)
 
 
 
-# **find_user_by_id**
-> User find_user_by_id(id)
+# **get_user**
+> User get_user(id)
 
 
 
@@ -141,10 +141,10 @@ id = 789 # Integer | ID of user to fetch
 
 
 begin
-  result = api_instance.find_user_by_id(id)
+  result = api_instance.get_user(id)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UsersApi->find_user_by_id: #{e}"
+  puts "Exception when calling UsersApi->get_user: #{e}"
 end
 ```
 
@@ -169,8 +169,8 @@ Name | Type | Description  | Notes
 
 
 
-# **find_users**
-> Array&lt;UserEach&gt; find_users
+# **list_users**
+> Array&lt;UserEach&gt; list_users
 
 
 
@@ -191,10 +191,10 @@ end
 api_instance = TriglavClientBase::UsersApi.new
 
 begin
-  result = api_instance.find_users
+  result = api_instance.list_users
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UsersApi->find_users: #{e}"
+  puts "Exception when calling UsersApi->list_users: #{e}"
 end
 ```
 
@@ -216,8 +216,8 @@ This endpoint does not need any parameter.
 
 
 
-# **update_user_by_id**
-> User update_user_by_id(id, user)
+# **update_user**
+> User update_user(id, user)
 
 
 
@@ -243,10 +243,10 @@ user = TriglavClientBase::UserInput.new # UserInput | User parameters to update
 
 
 begin
-  result = api_instance.update_user_by_id(id, user)
+  result = api_instance.update_user(id, user)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UsersApi->update_user_by_id: #{e}"
+  puts "Exception when calling UsersApi->update_user: #{e}"
 end
 ```
 

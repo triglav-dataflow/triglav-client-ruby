@@ -43,61 +43,61 @@ describe 'UsersApi' do
     end
   end
 
-  # unit tests for add_user
+  # unit tests for create_user
   # 
   # Creates a new user in the store
   # @param user User to add to the store
   # @param [Hash] opts the optional parameters
   # @return [User]
-  describe 'add_user test' do
+  describe 'create_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for delete_user_by_id
+  # unit tests for delete_user
   # 
   # Deletes single user
   # @param id ID of user to fetch
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe 'delete_user_by_id test' do
+  describe 'delete_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_user_by_id
+  # unit tests for get_user
   # 
   # Returns a single user
   # @param id ID of user to fetch
   # @param [Hash] opts the optional parameters
   # @return [User]
-  describe 'find_user_by_id test' do
+  describe 'get_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for find_users
+  # unit tests for list_users
   # 
   # Returns all users from the system that the user has access to
   # @param [Hash] opts the optional parameters
   # @return [Array<UserEach>]
-  describe 'find_users test' do
+  describe 'list_users test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  # unit tests for update_user_by_id
+  # unit tests for update_user
   # 
   # Updates a single user
   # @param id ID of user to fetch
   # @param user User parameters to update
   # @param [Hash] opts the optional parameters
   # @return [User]
-  describe 'update_user_by_id test' do
+  describe 'update_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

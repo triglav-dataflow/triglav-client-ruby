@@ -5,9 +5,9 @@ All URIs are relative to *http://localhost/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**create_or_update_job**](JobsApi.md#create_or_update_job) | **PATCH** /jobs | 
-[**delete_job_by_id_or_uri**](JobsApi.md#delete_job_by_id_or_uri) | **DELETE** /jobs/{id_or_uri} | 
-[**find_job_by_id_or_uri**](JobsApi.md#find_job_by_id_or_uri) | **GET** /jobs/{id_or_uri} | 
-[**find_jobs**](JobsApi.md#find_jobs) | **GET** /jobs | 
+[**delete_job**](JobsApi.md#delete_job) | **DELETE** /jobs/{id_or_uri} | 
+[**get_job**](JobsApi.md#get_job) | **GET** /jobs/{id_or_uri} | 
+[**list_jobs**](JobsApi.md#list_jobs) | **GET** /jobs | 
 
 
 # **create_or_update_job**
@@ -63,8 +63,8 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_job_by_id_or_uri**
-> delete_job_by_id_or_uri(id_or_uri)
+# **delete_job**
+> delete_job(id_or_uri)
 
 
 
@@ -88,9 +88,9 @@ id_or_uri = "id_or_uri_example" # String | ID or URI of job to fetch
 
 
 begin
-  api_instance.delete_job_by_id_or_uri(id_or_uri)
+  api_instance.delete_job(id_or_uri)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobsApi->delete_job_by_id_or_uri: #{e}"
+  puts "Exception when calling JobsApi->delete_job: #{e}"
 end
 ```
 
@@ -115,8 +115,8 @@ nil (empty response body)
 
 
 
-# **find_job_by_id_or_uri**
-> Job find_job_by_id_or_uri(id_or_uri)
+# **get_job**
+> Job get_job(id_or_uri)
 
 
 
@@ -140,10 +140,10 @@ id_or_uri = "id_or_uri_example" # String | ID or URI of job to fetch
 
 
 begin
-  result = api_instance.find_job_by_id_or_uri(id_or_uri)
+  result = api_instance.get_job(id_or_uri)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobsApi->find_job_by_id_or_uri: #{e}"
+  puts "Exception when calling JobsApi->get_job: #{e}"
 end
 ```
 
@@ -168,8 +168,8 @@ Name | Type | Description  | Notes
 
 
 
-# **find_jobs**
-> Array&lt;JobEach&gt; find_jobs
+# **list_jobs**
+> Array&lt;JobEach&gt; list_jobs
 
 
 
@@ -190,10 +190,10 @@ end
 api_instance = TriglavClientBase::JobsApi.new
 
 begin
-  result = api_instance.find_jobs
+  result = api_instance.list_jobs
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobsApi->find_jobs: #{e}"
+  puts "Exception when calling JobsApi->list_jobs: #{e}"
 end
 ```
 

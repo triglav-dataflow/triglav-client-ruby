@@ -36,8 +36,8 @@ module TriglavClientBase
     # @param user User to add to the store
     # @param [Hash] opts the optional parameters
     # @return [User]
-    def add_user(user, opts = {})
-      data, _status_code, _headers = add_user_with_http_info(user, opts)
+    def create_user(user, opts = {})
+      data, _status_code, _headers = create_user_with_http_info(user, opts)
       return data
     end
 
@@ -46,12 +46,12 @@ module TriglavClientBase
     # @param user User to add to the store
     # @param [Hash] opts the optional parameters
     # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
-    def add_user_with_http_info(user, opts = {})
+    def create_user_with_http_info(user, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: UsersApi.add_user ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.create_user ..."
       end
       # verify the required parameter 'user' is set
-      fail ArgumentError, "Missing the required parameter 'user' when calling UsersApi.add_user" if user.nil?
+      fail ArgumentError, "Missing the required parameter 'user' when calling UsersApi.create_user" if user.nil?
       # resource path
       local_var_path = "/users".sub('{format}','json')
 
@@ -83,7 +83,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'User')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#add_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#create_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -93,8 +93,8 @@ module TriglavClientBase
     # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_user_by_id(id, opts = {})
-      delete_user_by_id_with_http_info(id, opts)
+    def delete_user(id, opts = {})
+      delete_user_with_http_info(id, opts)
       return nil
     end
 
@@ -103,12 +103,12 @@ module TriglavClientBase
     # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_user_by_id_with_http_info(id, opts = {})
+    def delete_user_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: UsersApi.delete_user_by_id ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.delete_user ..."
       end
       # verify the required parameter 'id' is set
-      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.delete_user_by_id" if id.nil?
+      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.delete_user" if id.nil?
       # resource path
       local_var_path = "/users/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
 
@@ -139,7 +139,7 @@ module TriglavClientBase
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#delete_user_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#delete_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -149,8 +149,8 @@ module TriglavClientBase
     # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
     # @return [User]
-    def find_user_by_id(id, opts = {})
-      data, _status_code, _headers = find_user_by_id_with_http_info(id, opts)
+    def get_user(id, opts = {})
+      data, _status_code, _headers = get_user_with_http_info(id, opts)
       return data
     end
 
@@ -159,12 +159,12 @@ module TriglavClientBase
     # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
-    def find_user_by_id_with_http_info(id, opts = {})
+    def get_user_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: UsersApi.find_user_by_id ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.get_user ..."
       end
       # verify the required parameter 'id' is set
-      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.find_user_by_id" if id.nil?
+      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.get_user" if id.nil?
       # resource path
       local_var_path = "/users/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
 
@@ -196,7 +196,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'User')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#find_user_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#get_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -205,8 +205,8 @@ module TriglavClientBase
     # Returns all users from the system that the user has access to
     # @param [Hash] opts the optional parameters
     # @return [Array<UserEach>]
-    def find_users(opts = {})
-      data, _status_code, _headers = find_users_with_http_info(opts)
+    def list_users(opts = {})
+      data, _status_code, _headers = list_users_with_http_info(opts)
       return data
     end
 
@@ -214,9 +214,9 @@ module TriglavClientBase
     # Returns all users from the system that the user has access to
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<UserEach>, Fixnum, Hash)>] Array<UserEach> data, response status code and response headers
-    def find_users_with_http_info(opts = {})
+    def list_users_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: UsersApi.find_users ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.list_users ..."
       end
       # resource path
       local_var_path = "/users".sub('{format}','json')
@@ -249,7 +249,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Array<UserEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#find_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#list_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -260,8 +260,8 @@ module TriglavClientBase
     # @param user User parameters to update
     # @param [Hash] opts the optional parameters
     # @return [User]
-    def update_user_by_id(id, user, opts = {})
-      data, _status_code, _headers = update_user_by_id_with_http_info(id, user, opts)
+    def update_user(id, user, opts = {})
+      data, _status_code, _headers = update_user_with_http_info(id, user, opts)
       return data
     end
 
@@ -271,14 +271,14 @@ module TriglavClientBase
     # @param user User parameters to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
-    def update_user_by_id_with_http_info(id, user, opts = {})
+    def update_user_with_http_info(id, user, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: UsersApi.update_user_by_id ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.update_user ..."
       end
       # verify the required parameter 'id' is set
-      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.update_user_by_id" if id.nil?
+      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.update_user" if id.nil?
       # verify the required parameter 'user' is set
-      fail ArgumentError, "Missing the required parameter 'user' when calling UsersApi.update_user_by_id" if user.nil?
+      fail ArgumentError, "Missing the required parameter 'user' when calling UsersApi.update_user" if user.nil?
       # resource path
       local_var_path = "/users/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
 
@@ -310,7 +310,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'User')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: UsersApi#update_user_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#update_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_cluster**](ClustersApi.md#add_cluster) | **POST** /clusters | 
-[**delete_cluster_by_id_or_name**](ClustersApi.md#delete_cluster_by_id_or_name) | **DELETE** /clusters/{id_or_name} | 
-[**find_cluster_by_id_or_name**](ClustersApi.md#find_cluster_by_id_or_name) | **GET** /clusters/{id_or_name} | 
-[**find_clusters**](ClustersApi.md#find_clusters) | **GET** /clusters | 
-[**update_cluster_by_id_or_name**](ClustersApi.md#update_cluster_by_id_or_name) | **PATCH** /clusters/{id_or_name} | 
+[**create_cluster**](ClustersApi.md#create_cluster) | **POST** /clusters | 
+[**delete_cluster**](ClustersApi.md#delete_cluster) | **DELETE** /clusters/{id_or_name} | 
+[**get_cluster**](ClustersApi.md#get_cluster) | **GET** /clusters/{id_or_name} | 
+[**list_clusters**](ClustersApi.md#list_clusters) | **GET** /clusters | 
+[**update_cluster**](ClustersApi.md#update_cluster) | **PATCH** /clusters/{id_or_name} | 
 
 
-# **add_cluster**
-> Cluster add_cluster(cluster)
+# **create_cluster**
+> Cluster create_cluster(cluster)
 
 
 
@@ -36,10 +36,10 @@ cluster = TriglavClientBase::ClusterInput.new # ClusterInput | Cluster to add
 
 
 begin
-  result = api_instance.add_cluster(cluster)
+  result = api_instance.create_cluster(cluster)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClustersApi->add_cluster: #{e}"
+  puts "Exception when calling ClustersApi->create_cluster: #{e}"
 end
 ```
 
@@ -64,8 +64,8 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_cluster_by_id_or_name**
-> delete_cluster_by_id_or_name(id_or_name)
+# **delete_cluster**
+> delete_cluster(id_or_name)
 
 
 
@@ -89,9 +89,9 @@ id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 
 
 begin
-  api_instance.delete_cluster_by_id_or_name(id_or_name)
+  api_instance.delete_cluster(id_or_name)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClustersApi->delete_cluster_by_id_or_name: #{e}"
+  puts "Exception when calling ClustersApi->delete_cluster: #{e}"
 end
 ```
 
@@ -116,8 +116,8 @@ nil (empty response body)
 
 
 
-# **find_cluster_by_id_or_name**
-> Cluster find_cluster_by_id_or_name(id_or_name)
+# **get_cluster**
+> Cluster get_cluster(id_or_name)
 
 
 
@@ -141,10 +141,10 @@ id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 
 
 begin
-  result = api_instance.find_cluster_by_id_or_name(id_or_name)
+  result = api_instance.get_cluster(id_or_name)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClustersApi->find_cluster_by_id_or_name: #{e}"
+  puts "Exception when calling ClustersApi->get_cluster: #{e}"
 end
 ```
 
@@ -169,8 +169,8 @@ Name | Type | Description  | Notes
 
 
 
-# **find_clusters**
-> Array&lt;ClusterEach&gt; find_clusters
+# **list_clusters**
+> Array&lt;ClusterEach&gt; list_clusters
 
 
 
@@ -191,10 +191,10 @@ end
 api_instance = TriglavClientBase::ClustersApi.new
 
 begin
-  result = api_instance.find_clusters
+  result = api_instance.list_clusters
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClustersApi->find_clusters: #{e}"
+  puts "Exception when calling ClustersApi->list_clusters: #{e}"
 end
 ```
 
@@ -216,8 +216,8 @@ This endpoint does not need any parameter.
 
 
 
-# **update_cluster_by_id_or_name**
-> Cluster update_cluster_by_id_or_name(id_or_name, cluster)
+# **update_cluster**
+> Cluster update_cluster(id_or_name, cluster)
 
 
 
@@ -243,10 +243,10 @@ cluster = TriglavClientBase::ClusterInput.new # ClusterInput | Cluster parameter
 
 
 begin
-  result = api_instance.update_cluster_by_id_or_name(id_or_name, cluster)
+  result = api_instance.update_cluster(id_or_name, cluster)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClustersApi->update_cluster_by_id_or_name: #{e}"
+  puts "Exception when calling ClustersApi->update_cluster: #{e}"
 end
 ```
 

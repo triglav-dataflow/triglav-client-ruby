@@ -36,8 +36,8 @@ module TriglavClientBase
     # @param resource Resource to add
     # @param [Hash] opts the optional parameters
     # @return [Resource]
-    def add_resource(resource, opts = {})
-      data, _status_code, _headers = add_resource_with_http_info(resource, opts)
+    def create_resource(resource, opts = {})
+      data, _status_code, _headers = create_resource_with_http_info(resource, opts)
       return data
     end
 
@@ -46,12 +46,12 @@ module TriglavClientBase
     # @param resource Resource to add
     # @param [Hash] opts the optional parameters
     # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
-    def add_resource_with_http_info(resource, opts = {})
+    def create_resource_with_http_info(resource, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourcesApi.add_resource ..."
+        @api_client.config.logger.debug "Calling API: ResourcesApi.create_resource ..."
       end
       # verify the required parameter 'resource' is set
-      fail ArgumentError, "Missing the required parameter 'resource' when calling ResourcesApi.add_resource" if resource.nil?
+      fail ArgumentError, "Missing the required parameter 'resource' when calling ResourcesApi.create_resource" if resource.nil?
       # resource path
       local_var_path = "/resources".sub('{format}','json')
 
@@ -83,7 +83,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Resource')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourcesApi#add_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ResourcesApi#create_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -93,8 +93,8 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of resource to fetch
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_resource_by_id_or_uri(id_or_uri, opts = {})
-      delete_resource_by_id_or_uri_with_http_info(id_or_uri, opts)
+    def delete_resource(id_or_uri, opts = {})
+      delete_resource_with_http_info(id_or_uri, opts)
       return nil
     end
 
@@ -103,12 +103,12 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of resource to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_resource_by_id_or_uri_with_http_info(id_or_uri, opts = {})
+    def delete_resource_with_http_info(id_or_uri, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourcesApi.delete_resource_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: ResourcesApi.delete_resource ..."
       end
       # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourcesApi.delete_resource_by_id_or_uri" if id_or_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourcesApi.delete_resource" if id_or_uri.nil?
       # resource path
       local_var_path = "/resources/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
 
@@ -139,7 +139,7 @@ module TriglavClientBase
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourcesApi#delete_resource_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ResourcesApi#delete_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -149,8 +149,8 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of resource to fetch
     # @param [Hash] opts the optional parameters
     # @return [Resource]
-    def find_resource_by_id_or_uri(id_or_uri, opts = {})
-      data, _status_code, _headers = find_resource_by_id_or_uri_with_http_info(id_or_uri, opts)
+    def get_resource(id_or_uri, opts = {})
+      data, _status_code, _headers = get_resource_with_http_info(id_or_uri, opts)
       return data
     end
 
@@ -159,12 +159,12 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of resource to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
-    def find_resource_by_id_or_uri_with_http_info(id_or_uri, opts = {})
+    def get_resource_with_http_info(id_or_uri, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourcesApi.find_resource_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: ResourcesApi.get_resource ..."
       end
       # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourcesApi.find_resource_by_id_or_uri" if id_or_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourcesApi.get_resource" if id_or_uri.nil?
       # resource path
       local_var_path = "/resources/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
 
@@ -196,7 +196,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Resource')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourcesApi#find_resource_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ResourcesApi#get_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -208,8 +208,8 @@ module TriglavClientBase
     # @param notifiable Notifiable
     # @param [Hash] opts the optional parameters
     # @return [Array<ResourceEach>]
-    def find_resources(cluster_id, consumable, notifiable, opts = {})
-      data, _status_code, _headers = find_resources_with_http_info(cluster_id, consumable, notifiable, opts)
+    def list_resources(cluster_id, consumable, notifiable, opts = {})
+      data, _status_code, _headers = list_resources_with_http_info(cluster_id, consumable, notifiable, opts)
       return data
     end
 
@@ -220,16 +220,16 @@ module TriglavClientBase
     # @param notifiable Notifiable
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ResourceEach>, Fixnum, Hash)>] Array<ResourceEach> data, response status code and response headers
-    def find_resources_with_http_info(cluster_id, consumable, notifiable, opts = {})
+    def list_resources_with_http_info(cluster_id, consumable, notifiable, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourcesApi.find_resources ..."
+        @api_client.config.logger.debug "Calling API: ResourcesApi.list_resources ..."
       end
       # verify the required parameter 'cluster_id' is set
-      fail ArgumentError, "Missing the required parameter 'cluster_id' when calling ResourcesApi.find_resources" if cluster_id.nil?
+      fail ArgumentError, "Missing the required parameter 'cluster_id' when calling ResourcesApi.list_resources" if cluster_id.nil?
       # verify the required parameter 'consumable' is set
-      fail ArgumentError, "Missing the required parameter 'consumable' when calling ResourcesApi.find_resources" if consumable.nil?
+      fail ArgumentError, "Missing the required parameter 'consumable' when calling ResourcesApi.list_resources" if consumable.nil?
       # verify the required parameter 'notifiable' is set
-      fail ArgumentError, "Missing the required parameter 'notifiable' when calling ResourcesApi.find_resources" if notifiable.nil?
+      fail ArgumentError, "Missing the required parameter 'notifiable' when calling ResourcesApi.list_resources" if notifiable.nil?
       # resource path
       local_var_path = "/resources".sub('{format}','json')
 
@@ -264,7 +264,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Array<ResourceEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourcesApi#find_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ResourcesApi#list_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -275,8 +275,8 @@ module TriglavClientBase
     # @param resource Resource parameters to update
     # @param [Hash] opts the optional parameters
     # @return [Resource]
-    def update_resource_by_id_or_uri(id_or_uri, resource, opts = {})
-      data, _status_code, _headers = update_resource_by_id_or_uri_with_http_info(id_or_uri, resource, opts)
+    def update_resource(id_or_uri, resource, opts = {})
+      data, _status_code, _headers = update_resource_with_http_info(id_or_uri, resource, opts)
       return data
     end
 
@@ -286,14 +286,14 @@ module TriglavClientBase
     # @param resource Resource parameters to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
-    def update_resource_by_id_or_uri_with_http_info(id_or_uri, resource, opts = {})
+    def update_resource_with_http_info(id_or_uri, resource, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourcesApi.update_resource_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: ResourcesApi.update_resource ..."
       end
       # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourcesApi.update_resource_by_id_or_uri" if id_or_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourcesApi.update_resource" if id_or_uri.nil?
       # verify the required parameter 'resource' is set
-      fail ArgumentError, "Missing the required parameter 'resource' when calling ResourcesApi.update_resource_by_id_or_uri" if resource.nil?
+      fail ArgumentError, "Missing the required parameter 'resource' when calling ResourcesApi.update_resource" if resource.nil?
       # resource path
       local_var_path = "/resources/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
 
@@ -325,7 +325,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Resource')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourcesApi#update_resource_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ResourcesApi#update_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

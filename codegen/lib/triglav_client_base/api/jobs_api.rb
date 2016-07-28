@@ -93,8 +93,8 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of job to fetch
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_job_by_id_or_uri(id_or_uri, opts = {})
-      delete_job_by_id_or_uri_with_http_info(id_or_uri, opts)
+    def delete_job(id_or_uri, opts = {})
+      delete_job_with_http_info(id_or_uri, opts)
       return nil
     end
 
@@ -103,12 +103,12 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of job to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_job_by_id_or_uri_with_http_info(id_or_uri, opts = {})
+    def delete_job_with_http_info(id_or_uri, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: JobsApi.delete_job_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: JobsApi.delete_job ..."
       end
       # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling JobsApi.delete_job_by_id_or_uri" if id_or_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling JobsApi.delete_job" if id_or_uri.nil?
       # resource path
       local_var_path = "/jobs/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
 
@@ -139,7 +139,7 @@ module TriglavClientBase
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: JobsApi#delete_job_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: JobsApi#delete_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -149,8 +149,8 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of job to fetch
     # @param [Hash] opts the optional parameters
     # @return [Job]
-    def find_job_by_id_or_uri(id_or_uri, opts = {})
-      data, _status_code, _headers = find_job_by_id_or_uri_with_http_info(id_or_uri, opts)
+    def get_job(id_or_uri, opts = {})
+      data, _status_code, _headers = get_job_with_http_info(id_or_uri, opts)
       return data
     end
 
@@ -159,12 +159,12 @@ module TriglavClientBase
     # @param id_or_uri ID or URI of job to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(Job, Fixnum, Hash)>] Job data, response status code and response headers
-    def find_job_by_id_or_uri_with_http_info(id_or_uri, opts = {})
+    def get_job_with_http_info(id_or_uri, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: JobsApi.find_job_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: JobsApi.get_job ..."
       end
       # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling JobsApi.find_job_by_id_or_uri" if id_or_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling JobsApi.get_job" if id_or_uri.nil?
       # resource path
       local_var_path = "/jobs/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
 
@@ -196,7 +196,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Job')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: JobsApi#find_job_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: JobsApi#get_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -205,8 +205,8 @@ module TriglavClientBase
     # Returns all jobs
     # @param [Hash] opts the optional parameters
     # @return [Array<JobEach>]
-    def find_jobs(opts = {})
-      data, _status_code, _headers = find_jobs_with_http_info(opts)
+    def list_jobs(opts = {})
+      data, _status_code, _headers = list_jobs_with_http_info(opts)
       return data
     end
 
@@ -214,9 +214,9 @@ module TriglavClientBase
     # Returns all jobs
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<JobEach>, Fixnum, Hash)>] Array<JobEach> data, response status code and response headers
-    def find_jobs_with_http_info(opts = {})
+    def list_jobs_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: JobsApi.find_jobs ..."
+        @api_client.config.logger.debug "Calling API: JobsApi.list_jobs ..."
       end
       # resource path
       local_var_path = "/jobs".sub('{format}','json')
@@ -249,7 +249,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Array<JobEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: JobsApi#find_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: JobsApi#list_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

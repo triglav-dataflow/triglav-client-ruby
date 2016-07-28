@@ -36,8 +36,8 @@ module TriglavClientBase
     # @param cluster Cluster to add
     # @param [Hash] opts the optional parameters
     # @return [Cluster]
-    def add_cluster(cluster, opts = {})
-      data, _status_code, _headers = add_cluster_with_http_info(cluster, opts)
+    def create_cluster(cluster, opts = {})
+      data, _status_code, _headers = create_cluster_with_http_info(cluster, opts)
       return data
     end
 
@@ -46,12 +46,12 @@ module TriglavClientBase
     # @param cluster Cluster to add
     # @param [Hash] opts the optional parameters
     # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
-    def add_cluster_with_http_info(cluster, opts = {})
+    def create_cluster_with_http_info(cluster, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClustersApi.add_cluster ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.create_cluster ..."
       end
       # verify the required parameter 'cluster' is set
-      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClustersApi.add_cluster" if cluster.nil?
+      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClustersApi.create_cluster" if cluster.nil?
       # resource path
       local_var_path = "/clusters".sub('{format}','json')
 
@@ -83,7 +83,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Cluster')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClustersApi#add_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#create_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -93,8 +93,8 @@ module TriglavClientBase
     # @param id_or_name ID or Name of cluster to fetch
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_cluster_by_id_or_name(id_or_name, opts = {})
-      delete_cluster_by_id_or_name_with_http_info(id_or_name, opts)
+    def delete_cluster(id_or_name, opts = {})
+      delete_cluster_with_http_info(id_or_name, opts)
       return nil
     end
 
@@ -103,12 +103,12 @@ module TriglavClientBase
     # @param id_or_name ID or Name of cluster to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_cluster_by_id_or_name_with_http_info(id_or_name, opts = {})
+    def delete_cluster_with_http_info(id_or_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClustersApi.delete_cluster_by_id_or_name ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.delete_cluster ..."
       end
       # verify the required parameter 'id_or_name' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.delete_cluster_by_id_or_name" if id_or_name.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.delete_cluster" if id_or_name.nil?
       # resource path
       local_var_path = "/clusters/{id_or_name}".sub('{format}','json').sub('{' + 'id_or_name' + '}', id_or_name.to_s)
 
@@ -139,7 +139,7 @@ module TriglavClientBase
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClustersApi#delete_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#delete_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -149,8 +149,8 @@ module TriglavClientBase
     # @param id_or_name ID or Name of cluster to fetch
     # @param [Hash] opts the optional parameters
     # @return [Cluster]
-    def find_cluster_by_id_or_name(id_or_name, opts = {})
-      data, _status_code, _headers = find_cluster_by_id_or_name_with_http_info(id_or_name, opts)
+    def get_cluster(id_or_name, opts = {})
+      data, _status_code, _headers = get_cluster_with_http_info(id_or_name, opts)
       return data
     end
 
@@ -159,12 +159,12 @@ module TriglavClientBase
     # @param id_or_name ID or Name of cluster to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
-    def find_cluster_by_id_or_name_with_http_info(id_or_name, opts = {})
+    def get_cluster_with_http_info(id_or_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClustersApi.find_cluster_by_id_or_name ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.get_cluster ..."
       end
       # verify the required parameter 'id_or_name' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.find_cluster_by_id_or_name" if id_or_name.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.get_cluster" if id_or_name.nil?
       # resource path
       local_var_path = "/clusters/{id_or_name}".sub('{format}','json').sub('{' + 'id_or_name' + '}', id_or_name.to_s)
 
@@ -196,7 +196,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Cluster')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClustersApi#find_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#get_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -205,8 +205,8 @@ module TriglavClientBase
     # Returns all clusters from the system
     # @param [Hash] opts the optional parameters
     # @return [Array<ClusterEach>]
-    def find_clusters(opts = {})
-      data, _status_code, _headers = find_clusters_with_http_info(opts)
+    def list_clusters(opts = {})
+      data, _status_code, _headers = list_clusters_with_http_info(opts)
       return data
     end
 
@@ -214,9 +214,9 @@ module TriglavClientBase
     # Returns all clusters from the system
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ClusterEach>, Fixnum, Hash)>] Array<ClusterEach> data, response status code and response headers
-    def find_clusters_with_http_info(opts = {})
+    def list_clusters_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClustersApi.find_clusters ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.list_clusters ..."
       end
       # resource path
       local_var_path = "/clusters".sub('{format}','json')
@@ -249,7 +249,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Array<ClusterEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClustersApi#find_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#list_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -260,8 +260,8 @@ module TriglavClientBase
     # @param cluster Cluster parameters to update
     # @param [Hash] opts the optional parameters
     # @return [Cluster]
-    def update_cluster_by_id_or_name(id_or_name, cluster, opts = {})
-      data, _status_code, _headers = update_cluster_by_id_or_name_with_http_info(id_or_name, cluster, opts)
+    def update_cluster(id_or_name, cluster, opts = {})
+      data, _status_code, _headers = update_cluster_with_http_info(id_or_name, cluster, opts)
       return data
     end
 
@@ -271,14 +271,14 @@ module TriglavClientBase
     # @param cluster Cluster parameters to update
     # @param [Hash] opts the optional parameters
     # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
-    def update_cluster_by_id_or_name_with_http_info(id_or_name, cluster, opts = {})
+    def update_cluster_with_http_info(id_or_name, cluster, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClustersApi.update_cluster_by_id_or_name ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.update_cluster ..."
       end
       # verify the required parameter 'id_or_name' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.update_cluster_by_id_or_name" if id_or_name.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.update_cluster" if id_or_name.nil?
       # verify the required parameter 'cluster' is set
-      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClustersApi.update_cluster_by_id_or_name" if cluster.nil?
+      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClustersApi.update_cluster" if cluster.nil?
       # resource path
       local_var_path = "/clusters/{id_or_name}".sub('{format}','json').sub('{' + 'id_or_name' + '}', id_or_name.to_s)
 
@@ -310,7 +310,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Cluster')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClustersApi#update_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#update_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

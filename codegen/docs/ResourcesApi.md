@@ -4,15 +4,15 @@ All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_resource**](ResourcesApi.md#add_resource) | **POST** /resources | 
-[**delete_resource_by_id_or_uri**](ResourcesApi.md#delete_resource_by_id_or_uri) | **DELETE** /resources/{id_or_uri} | 
-[**find_resource_by_id_or_uri**](ResourcesApi.md#find_resource_by_id_or_uri) | **GET** /resources/{id_or_uri} | 
-[**find_resources**](ResourcesApi.md#find_resources) | **GET** /resources | 
-[**update_resource_by_id_or_uri**](ResourcesApi.md#update_resource_by_id_or_uri) | **PATCH** /resources/{id_or_uri} | 
+[**create_resource**](ResourcesApi.md#create_resource) | **POST** /resources | 
+[**delete_resource**](ResourcesApi.md#delete_resource) | **DELETE** /resources/{id_or_uri} | 
+[**get_resource**](ResourcesApi.md#get_resource) | **GET** /resources/{id_or_uri} | 
+[**list_resources**](ResourcesApi.md#list_resources) | **GET** /resources | 
+[**update_resource**](ResourcesApi.md#update_resource) | **PATCH** /resources/{id_or_uri} | 
 
 
-# **add_resource**
-> Resource add_resource(resource)
+# **create_resource**
+> Resource create_resource(resource)
 
 
 
@@ -36,10 +36,10 @@ resource = TriglavClientBase::ResourceInput.new # ResourceInput | Resource to ad
 
 
 begin
-  result = api_instance.add_resource(resource)
+  result = api_instance.create_resource(resource)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourcesApi->add_resource: #{e}"
+  puts "Exception when calling ResourcesApi->create_resource: #{e}"
 end
 ```
 
@@ -64,8 +64,8 @@ Name | Type | Description  | Notes
 
 
 
-# **delete_resource_by_id_or_uri**
-> delete_resource_by_id_or_uri(id_or_uri)
+# **delete_resource**
+> delete_resource(id_or_uri)
 
 
 
@@ -89,9 +89,9 @@ id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 
 
 begin
-  api_instance.delete_resource_by_id_or_uri(id_or_uri)
+  api_instance.delete_resource(id_or_uri)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourcesApi->delete_resource_by_id_or_uri: #{e}"
+  puts "Exception when calling ResourcesApi->delete_resource: #{e}"
 end
 ```
 
@@ -116,8 +116,8 @@ nil (empty response body)
 
 
 
-# **find_resource_by_id_or_uri**
-> Resource find_resource_by_id_or_uri(id_or_uri)
+# **get_resource**
+> Resource get_resource(id_or_uri)
 
 
 
@@ -141,10 +141,10 @@ id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 
 
 begin
-  result = api_instance.find_resource_by_id_or_uri(id_or_uri)
+  result = api_instance.get_resource(id_or_uri)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourcesApi->find_resource_by_id_or_uri: #{e}"
+  puts "Exception when calling ResourcesApi->get_resource: #{e}"
 end
 ```
 
@@ -169,8 +169,8 @@ Name | Type | Description  | Notes
 
 
 
-# **find_resources**
-> Array&lt;ResourceEach&gt; find_resources(cluster_id, consumable, notifiable)
+# **list_resources**
+> Array&lt;ResourceEach&gt; list_resources(cluster_id, consumable, notifiable)
 
 
 
@@ -198,10 +198,10 @@ notifiable = true # BOOLEAN | Notifiable
 
 
 begin
-  result = api_instance.find_resources(cluster_id, consumable, notifiable)
+  result = api_instance.list_resources(cluster_id, consumable, notifiable)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourcesApi->find_resources: #{e}"
+  puts "Exception when calling ResourcesApi->list_resources: #{e}"
 end
 ```
 
@@ -228,8 +228,8 @@ Name | Type | Description  | Notes
 
 
 
-# **update_resource_by_id_or_uri**
-> Resource update_resource_by_id_or_uri(id_or_uri, resource)
+# **update_resource**
+> Resource update_resource(id_or_uri, resource)
 
 
 
@@ -255,10 +255,10 @@ resource = TriglavClientBase::ResourceInput.new # ResourceInput | Resource param
 
 
 begin
-  result = api_instance.update_resource_by_id_or_uri(id_or_uri, resource)
+  result = api_instance.update_resource(id_or_uri, resource)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourcesApi->update_resource_by_id_or_uri: #{e}"
+  puts "Exception when calling ResourcesApi->update_resource: #{e}"
 end
 ```
 
