@@ -25,49 +25,26 @@ require 'date'
 
 module TriglavClientBase
 
-  class Resource
-    attr_accessor :uri
+  class AccessToken
+    attr_accessor :access_token
 
-    attr_accessor :description
-
-    attr_accessor :cluster_id
-
-    attr_accessor :consumable
-
-    attr_accessor :notifiable
-
-    attr_accessor :id
-
-    attr_accessor :created_at
-
-    attr_accessor :updated_at
+    # unix timestamp
+    attr_accessor :expires_at
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uri' => :'uri',
-        :'description' => :'description',
-        :'cluster_id' => :'cluster_id',
-        :'consumable' => :'consumable',
-        :'notifiable' => :'notifiable',
-        :'id' => :'id',
-        :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at'
+        :'access_token' => :'access_token',
+        :'expires_at' => :'expires_at'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uri' => :'String',
-        :'description' => :'String',
-        :'cluster_id' => :'Integer',
-        :'consumable' => :'BOOLEAN',
-        :'notifiable' => :'BOOLEAN',
-        :'id' => :'Integer',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'access_token' => :'String',
+        :'expires_at' => :'Integer'
       }
     end
 
@@ -79,36 +56,12 @@ module TriglavClientBase
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uri')
-        self.uri = attributes[:'uri']
+      if attributes.has_key?(:'access_token')
+        self.access_token = attributes[:'access_token']
       end
 
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'cluster_id')
-        self.cluster_id = attributes[:'cluster_id']
-      end
-
-      if attributes.has_key?(:'consumable')
-        self.consumable = attributes[:'consumable']
-      end
-
-      if attributes.has_key?(:'notifiable')
-        self.notifiable = attributes[:'notifiable']
-      end
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
+      if attributes.has_key?(:'expires_at')
+        self.expires_at = attributes[:'expires_at']
       end
 
     end
@@ -123,8 +76,6 @@ module TriglavClientBase
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @uri.nil?
-      return false if @cluster_id.nil?
       return true
     end
 
@@ -133,14 +84,8 @@ module TriglavClientBase
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uri == o.uri &&
-          description == o.description &&
-          cluster_id == o.cluster_id &&
-          consumable == o.consumable &&
-          notifiable == o.notifiable &&
-          id == o.id &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          access_token == o.access_token &&
+          expires_at == o.expires_at
     end
 
     # @see the `==` method
@@ -152,7 +97,7 @@ module TriglavClientBase
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, description, cluster_id, consumable, notifiable, id, created_at, updated_at].hash
+      [access_token, expires_at].hash
     end
 
     # Builds the object from hash

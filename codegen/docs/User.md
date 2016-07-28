@@ -1,14 +1,14 @@
-# TriglavClientBase::Resource
+# TriglavClientBase::User
 
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**uri** | **String** |  | 
+**id** | **Integer** |  | 
+**name** | **String** |  | 
 **description** | **String** |  | [optional] 
-**cluster_id** | **Integer** |  | 
-**consumable** | **BOOLEAN** |  | [optional] 
-**notifiable** | **BOOLEAN** |  | [optional] 
-**id** | **Integer** |  | [optional] 
+**authenticator** | **String** | local or ldap | [optional] 
+**groups** | **Array&lt;String&gt;** |  | [optional] 
+**email** | **String** |  | [optional] 
 **created_at** | **Integer** |  | [optional] 
 **updated_at** | **Integer** |  | [optional] 
 

@@ -25,49 +25,55 @@ require 'date'
 
 module TriglavClientBase
 
-  class Resource
-    attr_accessor :uri
-
-    attr_accessor :description
-
-    attr_accessor :cluster_id
-
-    attr_accessor :consumable
-
-    attr_accessor :notifiable
-
+  class UserEach
     attr_accessor :id
 
-    attr_accessor :created_at
+    attr_accessor :name
 
-    attr_accessor :updated_at
+    # local or ldap
+    attr_accessor :authenticator
 
+    attr_accessor :email
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uri' => :'uri',
-        :'description' => :'description',
-        :'cluster_id' => :'cluster_id',
-        :'consumable' => :'consumable',
-        :'notifiable' => :'notifiable',
         :'id' => :'id',
-        :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at'
+        :'name' => :'name',
+        :'authenticator' => :'authenticator',
+        :'email' => :'email'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uri' => :'String',
-        :'description' => :'String',
-        :'cluster_id' => :'Integer',
-        :'consumable' => :'BOOLEAN',
-        :'notifiable' => :'BOOLEAN',
         :'id' => :'Integer',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'name' => :'String',
+        :'authenticator' => :'String',
+        :'email' => :'String'
       }
     end
 
@@ -79,36 +85,20 @@ module TriglavClientBase
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uri')
-        self.uri = attributes[:'uri']
-      end
-
-      if attributes.has_key?(:'description')
-        self.description = attributes[:'description']
-      end
-
-      if attributes.has_key?(:'cluster_id')
-        self.cluster_id = attributes[:'cluster_id']
-      end
-
-      if attributes.has_key?(:'consumable')
-        self.consumable = attributes[:'consumable']
-      end
-
-      if attributes.has_key?(:'notifiable')
-        self.notifiable = attributes[:'notifiable']
-      end
-
       if attributes.has_key?(:'id')
         self.id = attributes[:'id']
       end
 
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
+      if attributes.has_key?(:'authenticator')
+        self.authenticator = attributes[:'authenticator']
+      end
+
+      if attributes.has_key?(:'email')
+        self.email = attributes[:'email']
       end
 
     end
@@ -123,9 +113,21 @@ module TriglavClientBase
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @uri.nil?
-      return false if @cluster_id.nil?
+      return false if @id.nil?
+      return false if @name.nil?
+      authenticator_validator = EnumAttributeValidator.new('String', ["local", "ldap"])
+      return false unless authenticator_validator.valid?(@authenticator)
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] authenticator Object to be assigned
+    def authenticator=(authenticator)
+      validator = EnumAttributeValidator.new('String', ["local", "ldap"])
+      unless validator.valid?(authenticator)
+        fail ArgumentError, "invalid value for 'authenticator', must be one of #{validator.allowable_values}."
+      end
+      @authenticator = authenticator
     end
 
     # Checks equality by comparing each attribute.
@@ -133,14 +135,10 @@ module TriglavClientBase
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uri == o.uri &&
-          description == o.description &&
-          cluster_id == o.cluster_id &&
-          consumable == o.consumable &&
-          notifiable == o.notifiable &&
           id == o.id &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          name == o.name &&
+          authenticator == o.authenticator &&
+          email == o.email
     end
 
     # @see the `==` method
@@ -152,7 +150,7 @@ module TriglavClientBase
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, description, cluster_id, consumable, notifiable, id, created_at, updated_at].hash
+      [id, name, authenticator, email].hash
     end
 
     # Builds the object from hash

@@ -25,7 +25,7 @@ require 'date'
 
 module TriglavClientBase
 
-  class Resource
+  class ResourceInput
     attr_accessor :uri
 
     attr_accessor :description
@@ -36,12 +36,6 @@ module TriglavClientBase
 
     attr_accessor :notifiable
 
-    attr_accessor :id
-
-    attr_accessor :created_at
-
-    attr_accessor :updated_at
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -50,10 +44,7 @@ module TriglavClientBase
         :'description' => :'description',
         :'cluster_id' => :'cluster_id',
         :'consumable' => :'consumable',
-        :'notifiable' => :'notifiable',
-        :'id' => :'id',
-        :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at'
+        :'notifiable' => :'notifiable'
       }
     end
 
@@ -64,10 +55,7 @@ module TriglavClientBase
         :'description' => :'String',
         :'cluster_id' => :'Integer',
         :'consumable' => :'BOOLEAN',
-        :'notifiable' => :'BOOLEAN',
-        :'id' => :'Integer',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'notifiable' => :'BOOLEAN'
       }
     end
 
@@ -99,18 +87,6 @@ module TriglavClientBase
         self.notifiable = attributes[:'notifiable']
       end
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -137,10 +113,7 @@ module TriglavClientBase
           description == o.description &&
           cluster_id == o.cluster_id &&
           consumable == o.consumable &&
-          notifiable == o.notifiable &&
-          id == o.id &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at
+          notifiable == o.notifiable
     end
 
     # @see the `==` method
@@ -152,7 +125,7 @@ module TriglavClientBase
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, description, cluster_id, consumable, notifiable, id, created_at, updated_at].hash
+      [uri, description, cluster_id, consumable, notifiable].hash
     end
 
     # Builds the object from hash

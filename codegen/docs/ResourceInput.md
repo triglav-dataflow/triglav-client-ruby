@@ -1,4 +1,4 @@
-# TriglavClientBase::Resource
+# TriglavClientBase::ResourceInput
 
 ## Properties
 Name | Type | Description | Notes
@@ -8,8 +8,5 @@ Name | Type | Description | Notes
 **cluster_id** | **Integer** |  | 
 **consumable** | **BOOLEAN** |  | [optional] 
 **notifiable** | **BOOLEAN** |  | [optional] 
-**id** | **Integer** |  | [optional] 
-**created_at** | **Integer** |  | [optional] 
-**updated_at** | **Integer** |  | [optional] 
 
 
