@@ -25,26 +25,50 @@ require 'date'
 
 module TriglavClientBase
 
-  class AccessToken
-    attr_accessor :access_token
+  class Credential
+    attr_accessor :name
 
-    # unix timestamp
-    attr_accessor :expires_at
+    attr_accessor :password
 
+    attr_accessor :authenticator
+
+    class EnumAttributeValidator
+      attr_reader :datatype
+      attr_reader :allowable_values
+
+      def initialize(datatype, allowable_values)
+        @allowable_values = allowable_values.map do |value|
+          case datatype.to_s
+          when /Integer/i
+            value.to_i
+          when /Float/i
+            value.to_f
+          else
+            value
+          end
+        end
+      end
+
+      def valid?(value)
+        !value || allowable_values.include?(value)
+      end
+    end
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'access_token' => :'access_token',
-        :'expires_at' => :'expires_at'
+        :'name' => :'name',
+        :'password' => :'password',
+        :'authenticator' => :'authenticator'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'access_token' => :'String',
-        :'expires_at' => :'Integer'
+        :'name' => :'String',
+        :'password' => :'String',
+        :'authenticator' => :'String'
       }
     end
 
@@ -56,12 +80,16 @@ module TriglavClientBase
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'access_token')
-        self.access_token = attributes[:'access_token']
+      if attributes.has_key?(:'name')
+        self.name = attributes[:'name']
       end
 
-      if attributes.has_key?(:'expires_at')
-        self.expires_at = attributes[:'expires_at']
+      if attributes.has_key?(:'password')
+        self.password = attributes[:'password']
+      end
+
+      if attributes.has_key?(:'authenticator')
+        self.authenticator = attributes[:'authenticator']
       end
 
     end
@@ -76,7 +104,22 @@ module TriglavClientBase
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @name.nil?
+      return false if @password.nil?
+      return false if @authenticator.nil?
+      authenticator_validator = EnumAttributeValidator.new('String', ["local", "ldap"])
+      return false unless authenticator_validator.valid?(@authenticator)
       return true
+    end
+
+    # Custom attribute writer method checking allowed values (enum).
+    # @param [Object] authenticator Object to be assigned
+    def authenticator=(authenticator)
+      validator = EnumAttributeValidator.new('String', ["local", "ldap"])
+      unless validator.valid?(authenticator)
+        fail ArgumentError, "invalid value for 'authenticator', must be one of #{validator.allowable_values}."
+      end
+      @authenticator = authenticator
     end
 
     # Checks equality by comparing each attribute.
@@ -84,8 +127,9 @@ module TriglavClientBase
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          access_token == o.access_token &&
-          expires_at == o.expires_at
+          name == o.name &&
+          password == o.password &&
+          authenticator == o.authenticator
     end
 
     # @see the `==` method
@@ -97,7 +141,7 @@ module TriglavClientBase
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [access_token, expires_at].hash
+      [name, password, authenticator].hash
     end
 
     # Builds the object from hash

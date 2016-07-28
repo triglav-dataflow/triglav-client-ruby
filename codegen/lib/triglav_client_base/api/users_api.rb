@@ -24,7 +24,7 @@ limitations under the License.
 require "uri"
 
 module TriglavClientBase
-  class ResourceApi
+  class UsersApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -32,28 +32,28 @@ module TriglavClientBase
     end
 
     # 
-    # Creates a new resource
-    # @param resource Resource to add
+    # Creates a new user in the store
+    # @param user User to add to the store
     # @param [Hash] opts the optional parameters
-    # @return [Resource]
-    def add_resource(resource, opts = {})
-      data, _status_code, _headers = add_resource_with_http_info(resource, opts)
+    # @return [User]
+    def add_user(user, opts = {})
+      data, _status_code, _headers = add_user_with_http_info(user, opts)
       return data
     end
 
     # 
-    # Creates a new resource
-    # @param resource Resource to add
+    # Creates a new user in the store
+    # @param user User to add to the store
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
-    def add_resource_with_http_info(resource, opts = {})
+    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    def add_user_with_http_info(user, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourceApi.add_resource ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.add_user ..."
       end
-      # verify the required parameter 'resource' is set
-      fail ArgumentError, "Missing the required parameter 'resource' when calling ResourceApi.add_resource" if resource.nil?
+      # verify the required parameter 'user' is set
+      fail ArgumentError, "Missing the required parameter 'user' when calling UsersApi.add_user" if user.nil?
       # resource path
-      local_var_path = "/resources".sub('{format}','json')
+      local_var_path = "/users".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -73,44 +73,44 @@ module TriglavClientBase
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(resource)
-      auth_names = []
+      post_body = @api_client.object_to_http_body(user)
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Resource')
+        :return_type => 'User')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourceApi#add_resource\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#add_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # 
-    # Deletes single resource
-    # @param id_or_uri ID or URI of resource to fetch
+    # Deletes single user
+    # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_resource_by_id_or_uri(id_or_uri, opts = {})
-      delete_resource_by_id_or_uri_with_http_info(id_or_uri, opts)
+    def delete_user_by_id(id, opts = {})
+      delete_user_by_id_with_http_info(id, opts)
       return nil
     end
 
     # 
-    # Deletes single resource
-    # @param id_or_uri ID or URI of resource to fetch
+    # Deletes single user
+    # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_resource_by_id_or_uri_with_http_info(id_or_uri, opts = {})
+    def delete_user_by_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourceApi.delete_resource_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.delete_user_by_id ..."
       end
-      # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourceApi.delete_resource_by_id_or_uri" if id_or_uri.nil?
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.delete_user_by_id" if id.nil?
       # resource path
-      local_var_path = "/resources/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
+      local_var_path = "/users/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
 
       # query parameters
       query_params = {}
@@ -131,7 +131,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -139,34 +139,34 @@ module TriglavClientBase
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourceApi#delete_resource_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#delete_user_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # 
-    # Returns a single resource
-    # @param id_or_uri ID or URI of resource to fetch
+    # Returns a single user
+    # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Resource]
-    def find_resource_by_id_or_uri(id_or_uri, opts = {})
-      data, _status_code, _headers = find_resource_by_id_or_uri_with_http_info(id_or_uri, opts)
+    # @return [User]
+    def find_user_by_id(id, opts = {})
+      data, _status_code, _headers = find_user_by_id_with_http_info(id, opts)
       return data
     end
 
     # 
-    # Returns a single resource
-    # @param id_or_uri ID or URI of resource to fetch
+    # Returns a single user
+    # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
-    def find_resource_by_id_or_uri_with_http_info(id_or_uri, opts = {})
+    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    def find_user_by_id_with_http_info(id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourceApi.find_resource_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.find_user_by_id ..."
       end
-      # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourceApi.find_resource_by_id_or_uri" if id_or_uri.nil?
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.find_user_by_id" if id.nil?
       # resource path
-      local_var_path = "/resources/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
+      local_var_path = "/users/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
 
       # query parameters
       query_params = {}
@@ -187,57 +187,42 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Resource')
+        :return_type => 'User')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourceApi#find_resource_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#find_user_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # 
-    # Returns all resources from the system
-    # @param cluster_id ID of Cluster
-    # @param consumable Consuamble
-    # @param notifiable Notifiable
+    # Returns all users from the system that the user has access to
     # @param [Hash] opts the optional parameters
-    # @return [Array<ResourceEach>]
-    def find_resources(cluster_id, consumable, notifiable, opts = {})
-      data, _status_code, _headers = find_resources_with_http_info(cluster_id, consumable, notifiable, opts)
+    # @return [Array<UserEach>]
+    def find_users(opts = {})
+      data, _status_code, _headers = find_users_with_http_info(opts)
       return data
     end
 
     # 
-    # Returns all resources from the system
-    # @param cluster_id ID of Cluster
-    # @param consumable Consuamble
-    # @param notifiable Notifiable
+    # Returns all users from the system that the user has access to
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<ResourceEach>, Fixnum, Hash)>] Array<ResourceEach> data, response status code and response headers
-    def find_resources_with_http_info(cluster_id, consumable, notifiable, opts = {})
+    # @return [Array<(Array<UserEach>, Fixnum, Hash)>] Array<UserEach> data, response status code and response headers
+    def find_users_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourceApi.find_resources ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.find_users ..."
       end
-      # verify the required parameter 'cluster_id' is set
-      fail ArgumentError, "Missing the required parameter 'cluster_id' when calling ResourceApi.find_resources" if cluster_id.nil?
-      # verify the required parameter 'consumable' is set
-      fail ArgumentError, "Missing the required parameter 'consumable' when calling ResourceApi.find_resources" if consumable.nil?
-      # verify the required parameter 'notifiable' is set
-      fail ArgumentError, "Missing the required parameter 'notifiable' when calling ResourceApi.find_resources" if notifiable.nil?
       # resource path
-      local_var_path = "/resources".sub('{format}','json')
+      local_var_path = "/users".sub('{format}','json')
 
       # query parameters
       query_params = {}
-      query_params[:'cluster_id'] = cluster_id
-      query_params[:'consumable'] = consumable
-      query_params[:'notifiable'] = notifiable
 
       # header parameters
       header_params = {}
@@ -255,47 +240,47 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<ResourceEach>')
+        :return_type => 'Array<UserEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourceApi#find_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#find_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
 
     # 
-    # Updates a single resource
-    # @param id_or_uri ID or URI of resource to fetch
-    # @param resource Resource parameters to update
+    # Updates a single user
+    # @param id ID of user to fetch
+    # @param user User parameters to update
     # @param [Hash] opts the optional parameters
-    # @return [Resource]
-    def update_resource_by_id_or_uri(id_or_uri, resource, opts = {})
-      data, _status_code, _headers = update_resource_by_id_or_uri_with_http_info(id_or_uri, resource, opts)
+    # @return [User]
+    def update_user_by_id(id, user, opts = {})
+      data, _status_code, _headers = update_user_by_id_with_http_info(id, user, opts)
       return data
     end
 
     # 
-    # Updates a single resource
-    # @param id_or_uri ID or URI of resource to fetch
-    # @param resource Resource parameters to update
+    # Updates a single user
+    # @param id ID of user to fetch
+    # @param user User parameters to update
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Resource, Fixnum, Hash)>] Resource data, response status code and response headers
-    def update_resource_by_id_or_uri_with_http_info(id_or_uri, resource, opts = {})
+    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    def update_user_by_id_with_http_info(id, user, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourceApi.update_resource_by_id_or_uri ..."
+        @api_client.config.logger.debug "Calling API: UsersApi.update_user_by_id ..."
       end
-      # verify the required parameter 'id_or_uri' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_uri' when calling ResourceApi.update_resource_by_id_or_uri" if id_or_uri.nil?
-      # verify the required parameter 'resource' is set
-      fail ArgumentError, "Missing the required parameter 'resource' when calling ResourceApi.update_resource_by_id_or_uri" if resource.nil?
+      # verify the required parameter 'id' is set
+      fail ArgumentError, "Missing the required parameter 'id' when calling UsersApi.update_user_by_id" if id.nil?
+      # verify the required parameter 'user' is set
+      fail ArgumentError, "Missing the required parameter 'user' when calling UsersApi.update_user_by_id" if user.nil?
       # resource path
-      local_var_path = "/resources/{id_or_uri}".sub('{format}','json').sub('{' + 'id_or_uri' + '}', id_or_uri.to_s)
+      local_var_path = "/users/{id}".sub('{format}','json').sub('{' + 'id' + '}', id.to_s)
 
       # query parameters
       query_params = {}
@@ -315,17 +300,17 @@ module TriglavClientBase
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(resource)
-      auth_names = []
+      post_body = @api_client.object_to_http_body(user)
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Resource')
+        :return_type => 'User')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourceApi#update_resource_by_id_or_uri\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: UsersApi#update_user_by_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

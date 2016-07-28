@@ -46,10 +46,32 @@ describe 'AuthApi' do
   # unit tests for create_token
   # 
   # Creates a new token
-  # @param auth 
+  # @param credential 
   # @param [Hash] opts the optional parameters
-  # @return [AccessToken]
+  # @return [AccessTokenStruct]
   describe 'create_token test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for delete_token
+  # 
+  # Deletes (Expires) a token of header
+  # @param [Hash] opts the optional parameters
+  # @return [nil]
+  describe 'delete_token test' do
+    it "should work" do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
+  # unit tests for me
+  # 
+  # Returns a user property of the access_token
+  # @param [Hash] opts the optional parameters
+  # @return [User]
+  describe 'me test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

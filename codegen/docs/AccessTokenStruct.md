@@ -1,4 +1,4 @@
-# TriglavClientBase::AccessToken
+# TriglavClientBase::AccessTokenStruct
 
 ## Properties
 Name | Type | Description | Notes

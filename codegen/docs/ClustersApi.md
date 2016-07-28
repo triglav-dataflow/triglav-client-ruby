@@ -1,14 +1,14 @@
-# TriglavClientBase::ClusterApi
+# TriglavClientBase::ClustersApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_cluster**](ClusterApi.md#add_cluster) | **POST** /clusters | 
-[**delete_cluster_by_id_or_name**](ClusterApi.md#delete_cluster_by_id_or_name) | **DELETE** /clusters/{id_or_name} | 
-[**find_cluster_by_id_or_name**](ClusterApi.md#find_cluster_by_id_or_name) | **GET** /clusters/{id_or_name} | 
-[**find_clusters**](ClusterApi.md#find_clusters) | **GET** /clusters | 
-[**update_cluster_by_id_or_name**](ClusterApi.md#update_cluster_by_id_or_name) | **PATCH** /clusters/{id_or_name} | 
+[**add_cluster**](ClustersApi.md#add_cluster) | **POST** /clusters | 
+[**delete_cluster_by_id_or_name**](ClustersApi.md#delete_cluster_by_id_or_name) | **DELETE** /clusters/{id_or_name} | 
+[**find_cluster_by_id_or_name**](ClustersApi.md#find_cluster_by_id_or_name) | **GET** /clusters/{id_or_name} | 
+[**find_clusters**](ClustersApi.md#find_clusters) | **GET** /clusters | 
+[**update_cluster_by_id_or_name**](ClustersApi.md#update_cluster_by_id_or_name) | **PATCH** /clusters/{id_or_name} | 
 
 
 # **add_cluster**
@@ -22,8 +22,15 @@ Creates a new cluster
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ClusterApi.new
+api_instance = TriglavClientBase::ClustersApi.new
 
 cluster = TriglavClientBase::ClusterInput.new # ClusterInput | Cluster to add
 
@@ -32,7 +39,7 @@ begin
   result = api_instance.add_cluster(cluster)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClusterApi->add_cluster: #{e}"
+  puts "Exception when calling ClustersApi->add_cluster: #{e}"
 end
 ```
 
@@ -48,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -68,8 +75,15 @@ Deletes single cluster
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ClusterApi.new
+api_instance = TriglavClientBase::ClustersApi.new
 
 id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 
@@ -77,7 +91,7 @@ id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 begin
   api_instance.delete_cluster_by_id_or_name(id_or_name)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClusterApi->delete_cluster_by_id_or_name: #{e}"
+  puts "Exception when calling ClustersApi->delete_cluster_by_id_or_name: #{e}"
 end
 ```
 
@@ -93,7 +107,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -113,8 +127,15 @@ Returns a single cluster
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ClusterApi.new
+api_instance = TriglavClientBase::ClustersApi.new
 
 id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 
@@ -123,7 +144,7 @@ begin
   result = api_instance.find_cluster_by_id_or_name(id_or_name)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClusterApi->find_cluster_by_id_or_name: #{e}"
+  puts "Exception when calling ClustersApi->find_cluster_by_id_or_name: #{e}"
 end
 ```
 
@@ -139,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -159,14 +180,21 @@ Returns all clusters from the system
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ClusterApi.new
+api_instance = TriglavClientBase::ClustersApi.new
 
 begin
   result = api_instance.find_clusters
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClusterApi->find_clusters: #{e}"
+  puts "Exception when calling ClustersApi->find_clusters: #{e}"
 end
 ```
 
@@ -179,7 +207,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -199,8 +227,15 @@ Updates a single cluster
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ClusterApi.new
+api_instance = TriglavClientBase::ClustersApi.new
 
 id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 
@@ -211,7 +246,7 @@ begin
   result = api_instance.update_cluster_by_id_or_name(id_or_name, cluster)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ClusterApi->update_cluster_by_id_or_name: #{e}"
+  puts "Exception when calling ClustersApi->update_cluster_by_id_or_name: #{e}"
 end
 ```
 
@@ -228,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

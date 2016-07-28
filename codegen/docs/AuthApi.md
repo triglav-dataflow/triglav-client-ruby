@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_token**
-> AccessToken create_token(auth)
+> AccessTokenStruct create_token(credential)
 
 
 
@@ -23,11 +23,11 @@ require 'triglav_client_base'
 
 api_instance = TriglavClientBase::AuthApi.new
 
-auth = TriglavClientBase::AuthInput.new # AuthInput | 
+credential = TriglavClientBase::Credential.new # Credential | 
 
 
 begin
-  result = api_instance.create_token(auth)
+  result = api_instance.create_token(credential)
   p result
 rescue TriglavClientBase::ApiError => e
   puts "Exception when calling AuthApi->create_token: #{e}"
@@ -38,11 +38,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **auth** | [**AuthInput**](AuthInput.md)|  | 
+ **credential** | [**Credential**](Credential.md)|  | 
 
 ### Return type
 
-[**AccessToken**](AccessToken.md)
+[**AccessTokenStruct**](AccessTokenStruct.md)
 
 ### Authorization
 
@@ -56,34 +56,35 @@ No authorization required
 
 
 # **delete_token**
-> delete_token(authorization)
+> delete_token
 
 
 
-Deletes (Expires) a token
+Deletes (Expires) a token of header
 
 ### Example
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
 api_instance = TriglavClientBase::AuthApi.new
 
-authorization = "authorization_example" # String | token #{access_token}
-
-
 begin
-  api_instance.delete_token(authorization)
+  api_instance.delete_token
 rescue TriglavClientBase::ApiError => e
   puts "Exception when calling AuthApi->delete_token: #{e}"
 end
 ```
 
 ### Parameters
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **authorization** | **String**| token #{access_token} | 
+This endpoint does not need any parameter.
 
 ### Return type
 
@@ -91,7 +92,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -111,6 +112,13 @@ Returns a user property of the access_token
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
 api_instance = TriglavClientBase::AuthApi.new
 
@@ -131,7 +139,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

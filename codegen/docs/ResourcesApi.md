@@ -1,14 +1,14 @@
-# TriglavClientBase::ResourceApi
+# TriglavClientBase::ResourcesApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_resource**](ResourceApi.md#add_resource) | **POST** /resources | 
-[**delete_resource_by_id_or_uri**](ResourceApi.md#delete_resource_by_id_or_uri) | **DELETE** /resources/{id_or_uri} | 
-[**find_resource_by_id_or_uri**](ResourceApi.md#find_resource_by_id_or_uri) | **GET** /resources/{id_or_uri} | 
-[**find_resources**](ResourceApi.md#find_resources) | **GET** /resources | 
-[**update_resource_by_id_or_uri**](ResourceApi.md#update_resource_by_id_or_uri) | **PATCH** /resources/{id_or_uri} | 
+[**add_resource**](ResourcesApi.md#add_resource) | **POST** /resources | 
+[**delete_resource_by_id_or_uri**](ResourcesApi.md#delete_resource_by_id_or_uri) | **DELETE** /resources/{id_or_uri} | 
+[**find_resource_by_id_or_uri**](ResourcesApi.md#find_resource_by_id_or_uri) | **GET** /resources/{id_or_uri} | 
+[**find_resources**](ResourcesApi.md#find_resources) | **GET** /resources | 
+[**update_resource_by_id_or_uri**](ResourcesApi.md#update_resource_by_id_or_uri) | **PATCH** /resources/{id_or_uri} | 
 
 
 # **add_resource**
@@ -22,8 +22,15 @@ Creates a new resource
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ResourceApi.new
+api_instance = TriglavClientBase::ResourcesApi.new
 
 resource = TriglavClientBase::ResourceInput.new # ResourceInput | Resource to add
 
@@ -32,7 +39,7 @@ begin
   result = api_instance.add_resource(resource)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourceApi->add_resource: #{e}"
+  puts "Exception when calling ResourcesApi->add_resource: #{e}"
 end
 ```
 
@@ -48,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -68,8 +75,15 @@ Deletes single resource
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ResourceApi.new
+api_instance = TriglavClientBase::ResourcesApi.new
 
 id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 
@@ -77,7 +91,7 @@ id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 begin
   api_instance.delete_resource_by_id_or_uri(id_or_uri)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourceApi->delete_resource_by_id_or_uri: #{e}"
+  puts "Exception when calling ResourcesApi->delete_resource_by_id_or_uri: #{e}"
 end
 ```
 
@@ -93,7 +107,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -113,8 +127,15 @@ Returns a single resource
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ResourceApi.new
+api_instance = TriglavClientBase::ResourcesApi.new
 
 id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 
@@ -123,7 +144,7 @@ begin
   result = api_instance.find_resource_by_id_or_uri(id_or_uri)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourceApi->find_resource_by_id_or_uri: #{e}"
+  puts "Exception when calling ResourcesApi->find_resource_by_id_or_uri: #{e}"
 end
 ```
 
@@ -139,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -159,8 +180,15 @@ Returns all resources from the system
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ResourceApi.new
+api_instance = TriglavClientBase::ResourcesApi.new
 
 cluster_id = 56 # Integer | ID of Cluster
 
@@ -173,7 +201,7 @@ begin
   result = api_instance.find_resources(cluster_id, consumable, notifiable)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourceApi->find_resources: #{e}"
+  puts "Exception when calling ResourcesApi->find_resources: #{e}"
 end
 ```
 
@@ -191,7 +219,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -211,8 +239,15 @@ Updates a single resource
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::ResourceApi.new
+api_instance = TriglavClientBase::ResourcesApi.new
 
 id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 
@@ -223,7 +258,7 @@ begin
   result = api_instance.update_resource_by_id_or_uri(id_or_uri, resource)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling ResourceApi->update_resource_by_id_or_uri: #{e}"
+  puts "Exception when calling ResourcesApi->update_resource_by_id_or_uri: #{e}"
 end
 ```
 
@@ -240,7 +275,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

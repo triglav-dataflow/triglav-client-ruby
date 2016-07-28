@@ -43,13 +43,13 @@ describe 'ErrorModel' do
       expect(@instance).to be_instance_of(TriglavClientBase::ErrorModel)
     end
   end
-  describe 'test attribute "code"' do
+  describe 'test attribute "error"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end
   end
 
-  describe 'test attribute "message"' do
+  describe 'test attribute "backtrace"' do
     it 'should work' do
        # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
     end

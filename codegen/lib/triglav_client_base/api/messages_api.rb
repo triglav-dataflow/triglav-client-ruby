@@ -24,7 +24,7 @@ limitations under the License.
 require "uri"
 
 module TriglavClientBase
-  class MessageApi
+  class MessagesApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -52,12 +52,12 @@ module TriglavClientBase
     # @return [Array<(Array<MessageEach>, Fixnum, Hash)>] Array<MessageEach> data, response status code and response headers
     def fetch_messages_with_http_info(resource_uri, offset, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessageApi.fetch_messages ..."
+        @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
       end
       # verify the required parameter 'resource_uri' is set
-      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessageApi.fetch_messages" if resource_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.fetch_messages" if resource_uri.nil?
       # verify the required parameter 'offset' is set
-      fail ArgumentError, "Missing the required parameter 'offset' when calling MessageApi.fetch_messages" if offset.nil?
+      fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.fetch_messages" if offset.nil?
       # resource path
       local_var_path = "/messages".sub('{format}','json')
 
@@ -83,7 +83,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -92,7 +92,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Array<MessageEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageApi#fetch_messages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#fetch_messages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -118,14 +118,14 @@ module TriglavClientBase
     # @return [Array<(Message, Fixnum, Hash)>] Message data, response status code and response headers
     def send_message_with_http_info(resource_uri, datetime, message, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessageApi.send_message ..."
+        @api_client.config.logger.debug "Calling API: MessagesApi.send_message ..."
       end
       # verify the required parameter 'resource_uri' is set
-      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessageApi.send_message" if resource_uri.nil?
+      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.send_message" if resource_uri.nil?
       # verify the required parameter 'datetime' is set
-      fail ArgumentError, "Missing the required parameter 'datetime' when calling MessageApi.send_message" if datetime.nil?
+      fail ArgumentError, "Missing the required parameter 'datetime' when calling MessagesApi.send_message" if datetime.nil?
       # verify the required parameter 'message' is set
-      fail ArgumentError, "Missing the required parameter 'message' when calling MessageApi.send_message" if message.nil?
+      fail ArgumentError, "Missing the required parameter 'message' when calling MessagesApi.send_message" if message.nil?
       # resource path
       local_var_path = "/messages".sub('{format}','json')
 
@@ -150,7 +150,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = @api_client.object_to_http_body(message)
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -159,7 +159,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Message')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessageApi#send_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#send_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

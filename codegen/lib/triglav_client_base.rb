@@ -28,11 +28,11 @@ require 'triglav_client_base/version'
 require 'triglav_client_base/configuration'
 
 # Models
-require 'triglav_client_base/models/access_token'
-require 'triglav_client_base/models/auth_input'
+require 'triglav_client_base/models/access_token_struct'
 require 'triglav_client_base/models/cluster'
 require 'triglav_client_base/models/cluster_each'
 require 'triglav_client_base/models/cluster_input'
+require 'triglav_client_base/models/credential'
 require 'triglav_client_base/models/error_model'
 require 'triglav_client_base/models/job'
 require 'triglav_client_base/models/job_each'
@@ -49,11 +49,11 @@ require 'triglav_client_base/models/user_input'
 
 # APIs
 require 'triglav_client_base/api/auth_api'
-require 'triglav_client_base/api/cluster_api'
-require 'triglav_client_base/api/job_api'
-require 'triglav_client_base/api/message_api'
-require 'triglav_client_base/api/resource_api'
-require 'triglav_client_base/api/user_api'
+require 'triglav_client_base/api/clusters_api'
+require 'triglav_client_base/api/jobs_api'
+require 'triglav_client_base/api/messages_api'
+require 'triglav_client_base/api/resources_api'
+require 'triglav_client_base/api/users_api'
 
 module TriglavClientBase
   class << self

@@ -1,4 +1,4 @@
-# TriglavClientBase::AuthInput
+# TriglavClientBase::Credential
 
 ## Properties
 Name | Type | Description | Notes

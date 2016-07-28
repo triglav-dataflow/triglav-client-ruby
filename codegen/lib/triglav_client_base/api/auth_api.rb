@@ -33,25 +33,25 @@ module TriglavClientBase
 
     # 
     # Creates a new token
-    # @param auth 
+    # @param credential 
     # @param [Hash] opts the optional parameters
-    # @return [AccessToken]
-    def create_token(auth, opts = {})
-      data, _status_code, _headers = create_token_with_http_info(auth, opts)
+    # @return [AccessTokenStruct]
+    def create_token(credential, opts = {})
+      data, _status_code, _headers = create_token_with_http_info(credential, opts)
       return data
     end
 
     # 
     # Creates a new token
-    # @param auth 
+    # @param credential 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AccessToken, Fixnum, Hash)>] AccessToken data, response status code and response headers
-    def create_token_with_http_info(auth, opts = {})
+    # @return [Array<(AccessTokenStruct, Fixnum, Hash)>] AccessTokenStruct data, response status code and response headers
+    def create_token_with_http_info(credential, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AuthApi.create_token ..."
       end
-      # verify the required parameter 'auth' is set
-      fail ArgumentError, "Missing the required parameter 'auth' when calling AuthApi.create_token" if auth.nil?
+      # verify the required parameter 'credential' is set
+      fail ArgumentError, "Missing the required parameter 'credential' when calling AuthApi.create_token" if credential.nil?
       # resource path
       local_var_path = "/auth/token".sub('{format}','json')
 
@@ -73,7 +73,7 @@ module TriglavClientBase
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(auth)
+      post_body = @api_client.object_to_http_body(credential)
       auth_names = []
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -81,7 +81,7 @@ module TriglavClientBase
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AccessToken')
+        :return_type => 'AccessTokenStruct')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AuthApi#create_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -89,26 +89,22 @@ module TriglavClientBase
     end
 
     # 
-    # Deletes (Expires) a token
-    # @param authorization token #{access_token}
+    # Deletes (Expires) a token of header
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def delete_token(authorization, opts = {})
-      delete_token_with_http_info(authorization, opts)
+    def delete_token(opts = {})
+      delete_token_with_http_info(opts)
       return nil
     end
 
     # 
-    # Deletes (Expires) a token
-    # @param authorization token #{access_token}
+    # Deletes (Expires) a token of header
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def delete_token_with_http_info(authorization, opts = {})
+    def delete_token_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AuthApi.delete_token ..."
       end
-      # verify the required parameter 'authorization' is set
-      fail ArgumentError, "Missing the required parameter 'authorization' when calling AuthApi.delete_token" if authorization.nil?
       # resource path
       local_var_path = "/auth/token".sub('{format}','json')
 
@@ -125,14 +121,13 @@ module TriglavClientBase
       # HTTP header 'Content-Type'
       local_header_content_type = ['application/json']
       header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
-      header_params[:'Authorization'] = authorization
 
       # form parameters
       form_params = {}
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -184,7 +179,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,

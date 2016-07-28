@@ -1,11 +1,11 @@
-# TriglavClientBase::MessageApi
+# TriglavClientBase::MessagesApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetch_messages**](MessageApi.md#fetch_messages) | **GET** /messages | 
-[**send_message**](MessageApi.md#send_message) | **POST** /messages | 
+[**fetch_messages**](MessagesApi.md#fetch_messages) | **GET** /messages | 
+[**send_message**](MessagesApi.md#send_message) | **POST** /messages | 
 
 
 # **fetch_messages**
@@ -19,8 +19,15 @@ Fetches messages
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::MessageApi.new
+api_instance = TriglavClientBase::MessagesApi.new
 
 resource_uri = "resource_uri_example" # String | URI of Resource
 
@@ -34,7 +41,7 @@ begin
   result = api_instance.fetch_messages(resource_uri, offset, opts)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling MessageApi->fetch_messages: #{e}"
+  puts "Exception when calling MessagesApi->fetch_messages: #{e}"
 end
 ```
 
@@ -52,7 +59,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -72,8 +79,15 @@ Enqueues a new message
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::MessageApi.new
+api_instance = TriglavClientBase::MessagesApi.new
 
 resource_uri = "resource_uri_example" # String | URI of Resource
 
@@ -86,7 +100,7 @@ begin
   result = api_instance.send_message(resource_uri, datetime, message)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling MessageApi->send_message: #{e}"
+  puts "Exception when calling MessagesApi->send_message: #{e}"
 end
 ```
 
@@ -104,7 +118,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

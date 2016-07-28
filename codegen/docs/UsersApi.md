@@ -1,14 +1,14 @@
-# TriglavClientBase::UserApi
+# TriglavClientBase::UsersApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_user**](UserApi.md#add_user) | **POST** /users | 
-[**delete_user_by_id**](UserApi.md#delete_user_by_id) | **DELETE** /users/{id} | 
-[**find_user_by_id**](UserApi.md#find_user_by_id) | **GET** /users/{id} | 
-[**find_users**](UserApi.md#find_users) | **GET** /users | 
-[**update_user_by_id**](UserApi.md#update_user_by_id) | **PATCH** /users/{id} | 
+[**add_user**](UsersApi.md#add_user) | **POST** /users | 
+[**delete_user_by_id**](UsersApi.md#delete_user_by_id) | **DELETE** /users/{id} | 
+[**find_user_by_id**](UsersApi.md#find_user_by_id) | **GET** /users/{id} | 
+[**find_users**](UsersApi.md#find_users) | **GET** /users | 
+[**update_user_by_id**](UsersApi.md#update_user_by_id) | **PATCH** /users/{id} | 
 
 
 # **add_user**
@@ -22,8 +22,15 @@ Creates a new user in the store
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::UserApi.new
+api_instance = TriglavClientBase::UsersApi.new
 
 user = TriglavClientBase::UserInput.new # UserInput | User to add to the store
 
@@ -32,7 +39,7 @@ begin
   result = api_instance.add_user(user)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UserApi->add_user: #{e}"
+  puts "Exception when calling UsersApi->add_user: #{e}"
 end
 ```
 
@@ -48,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -68,8 +75,15 @@ Deletes single user
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::UserApi.new
+api_instance = TriglavClientBase::UsersApi.new
 
 id = 789 # Integer | ID of user to fetch
 
@@ -77,7 +91,7 @@ id = 789 # Integer | ID of user to fetch
 begin
   api_instance.delete_user_by_id(id)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UserApi->delete_user_by_id: #{e}"
+  puts "Exception when calling UsersApi->delete_user_by_id: #{e}"
 end
 ```
 
@@ -93,7 +107,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -113,8 +127,15 @@ Returns a single user
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::UserApi.new
+api_instance = TriglavClientBase::UsersApi.new
 
 id = 789 # Integer | ID of user to fetch
 
@@ -123,7 +144,7 @@ begin
   result = api_instance.find_user_by_id(id)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UserApi->find_user_by_id: #{e}"
+  puts "Exception when calling UsersApi->find_user_by_id: #{e}"
 end
 ```
 
@@ -139,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -159,14 +180,21 @@ Returns all users from the system that the user has access to
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::UserApi.new
+api_instance = TriglavClientBase::UsersApi.new
 
 begin
   result = api_instance.find_users
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UserApi->find_users: #{e}"
+  puts "Exception when calling UsersApi->find_users: #{e}"
 end
 ```
 
@@ -179,7 +207,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -199,8 +227,15 @@ Updates a single user
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::UserApi.new
+api_instance = TriglavClientBase::UsersApi.new
 
 id = 789 # Integer | ID of user to fetch
 
@@ -211,7 +246,7 @@ begin
   result = api_instance.update_user_by_id(id, user)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling UserApi->update_user_by_id: #{e}"
+  puts "Exception when calling UsersApi->update_user_by_id: #{e}"
 end
 ```
 
@@ -228,7 +263,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 

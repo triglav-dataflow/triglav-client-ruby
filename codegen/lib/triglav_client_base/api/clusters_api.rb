@@ -24,7 +24,7 @@ limitations under the License.
 require "uri"
 
 module TriglavClientBase
-  class ClusterApi
+  class ClustersApi
     attr_accessor :api_client
 
     def initialize(api_client = ApiClient.default)
@@ -48,10 +48,10 @@ module TriglavClientBase
     # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
     def add_cluster_with_http_info(cluster, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClusterApi.add_cluster ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.add_cluster ..."
       end
       # verify the required parameter 'cluster' is set
-      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClusterApi.add_cluster" if cluster.nil?
+      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClustersApi.add_cluster" if cluster.nil?
       # resource path
       local_var_path = "/clusters".sub('{format}','json')
 
@@ -74,7 +74,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = @api_client.object_to_http_body(cluster)
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -83,7 +83,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Cluster')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClusterApi#add_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#add_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -105,10 +105,10 @@ module TriglavClientBase
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def delete_cluster_by_id_or_name_with_http_info(id_or_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClusterApi.delete_cluster_by_id_or_name ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.delete_cluster_by_id_or_name ..."
       end
       # verify the required parameter 'id_or_name' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClusterApi.delete_cluster_by_id_or_name" if id_or_name.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.delete_cluster_by_id_or_name" if id_or_name.nil?
       # resource path
       local_var_path = "/clusters/{id_or_name}".sub('{format}','json').sub('{' + 'id_or_name' + '}', id_or_name.to_s)
 
@@ -131,7 +131,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -139,7 +139,7 @@ module TriglavClientBase
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClusterApi#delete_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#delete_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -161,10 +161,10 @@ module TriglavClientBase
     # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
     def find_cluster_by_id_or_name_with_http_info(id_or_name, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClusterApi.find_cluster_by_id_or_name ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.find_cluster_by_id_or_name ..."
       end
       # verify the required parameter 'id_or_name' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClusterApi.find_cluster_by_id_or_name" if id_or_name.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.find_cluster_by_id_or_name" if id_or_name.nil?
       # resource path
       local_var_path = "/clusters/{id_or_name}".sub('{format}','json').sub('{' + 'id_or_name' + '}', id_or_name.to_s)
 
@@ -187,7 +187,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -196,7 +196,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Cluster')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClusterApi#find_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#find_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -216,7 +216,7 @@ module TriglavClientBase
     # @return [Array<(Array<ClusterEach>, Fixnum, Hash)>] Array<ClusterEach> data, response status code and response headers
     def find_clusters_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClusterApi.find_clusters ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.find_clusters ..."
       end
       # resource path
       local_var_path = "/clusters".sub('{format}','json')
@@ -240,7 +240,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = nil
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -249,7 +249,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Array<ClusterEach>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClusterApi#find_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#find_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -273,12 +273,12 @@ module TriglavClientBase
     # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
     def update_cluster_by_id_or_name_with_http_info(id_or_name, cluster, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ClusterApi.update_cluster_by_id_or_name ..."
+        @api_client.config.logger.debug "Calling API: ClustersApi.update_cluster_by_id_or_name ..."
       end
       # verify the required parameter 'id_or_name' is set
-      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClusterApi.update_cluster_by_id_or_name" if id_or_name.nil?
+      fail ArgumentError, "Missing the required parameter 'id_or_name' when calling ClustersApi.update_cluster_by_id_or_name" if id_or_name.nil?
       # verify the required parameter 'cluster' is set
-      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClusterApi.update_cluster_by_id_or_name" if cluster.nil?
+      fail ArgumentError, "Missing the required parameter 'cluster' when calling ClustersApi.update_cluster_by_id_or_name" if cluster.nil?
       # resource path
       local_var_path = "/clusters/{id_or_name}".sub('{format}','json').sub('{' + 'id_or_name' + '}', id_or_name.to_s)
 
@@ -301,7 +301,7 @@ module TriglavClientBase
 
       # http body (model)
       post_body = @api_client.object_to_http_body(cluster)
-      auth_names = []
+      auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:PATCH, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
@@ -310,7 +310,7 @@ module TriglavClientBase
         :auth_names => auth_names,
         :return_type => 'Cluster')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ClusterApi#update_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ClustersApi#update_cluster_by_id_or_name\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

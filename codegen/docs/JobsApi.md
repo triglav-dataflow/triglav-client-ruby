@@ -1,13 +1,13 @@
-# TriglavClientBase::JobApi
+# TriglavClientBase::JobsApi
 
 All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**create_or_update_job**](JobApi.md#create_or_update_job) | **PATCH** /jobs | 
-[**delete_job_by_id_or_uri**](JobApi.md#delete_job_by_id_or_uri) | **DELETE** /jobs/{id_or_uri} | 
-[**find_job_by_id_or_uri**](JobApi.md#find_job_by_id_or_uri) | **GET** /jobs/{id_or_uri} | 
-[**find_jobs**](JobApi.md#find_jobs) | **GET** /jobs | 
+[**create_or_update_job**](JobsApi.md#create_or_update_job) | **PATCH** /jobs | 
+[**delete_job_by_id_or_uri**](JobsApi.md#delete_job_by_id_or_uri) | **DELETE** /jobs/{id_or_uri} | 
+[**find_job_by_id_or_uri**](JobsApi.md#find_job_by_id_or_uri) | **GET** /jobs/{id_or_uri} | 
+[**find_jobs**](JobsApi.md#find_jobs) | **GET** /jobs | 
 
 
 # **create_or_update_job**
@@ -21,8 +21,15 @@ Creates or Updates a single job
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::JobApi.new
+api_instance = TriglavClientBase::JobsApi.new
 
 job = TriglavClientBase::JobInput.new # JobInput | Job parameters
 
@@ -31,7 +38,7 @@ begin
   result = api_instance.create_or_update_job(job)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobApi->create_or_update_job: #{e}"
+  puts "Exception when calling JobsApi->create_or_update_job: #{e}"
 end
 ```
 
@@ -47,7 +54,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -67,8 +74,15 @@ Deletes single job
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::JobApi.new
+api_instance = TriglavClientBase::JobsApi.new
 
 id_or_uri = "id_or_uri_example" # String | ID or URI of job to fetch
 
@@ -76,7 +90,7 @@ id_or_uri = "id_or_uri_example" # String | ID or URI of job to fetch
 begin
   api_instance.delete_job_by_id_or_uri(id_or_uri)
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobApi->delete_job_by_id_or_uri: #{e}"
+  puts "Exception when calling JobsApi->delete_job_by_id_or_uri: #{e}"
 end
 ```
 
@@ -92,7 +106,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -112,8 +126,15 @@ Returns a single job
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::JobApi.new
+api_instance = TriglavClientBase::JobsApi.new
 
 id_or_uri = "id_or_uri_example" # String | ID or URI of job to fetch
 
@@ -122,7 +143,7 @@ begin
   result = api_instance.find_job_by_id_or_uri(id_or_uri)
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobApi->find_job_by_id_or_uri: #{e}"
+  puts "Exception when calling JobsApi->find_job_by_id_or_uri: #{e}"
 end
 ```
 
@@ -138,7 +159,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
@@ -158,14 +179,21 @@ Returns all jobs
 ```ruby
 # load the gem
 require 'triglav_client_base'
+# setup authorization
+TriglavClientBase.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
 
-api_instance = TriglavClientBase::JobApi.new
+api_instance = TriglavClientBase::JobsApi.new
 
 begin
   result = api_instance.find_jobs
   p result
 rescue TriglavClientBase::ApiError => e
-  puts "Exception when calling JobApi->find_jobs: #{e}"
+  puts "Exception when calling JobsApi->find_jobs: #{e}"
 end
 ```
 
@@ -178,7 +206,7 @@ This endpoint does not need any parameter.
 
 ### Authorization
 
-No authorization required
+[api_key](../README.md#api_key)
 
 ### HTTP request headers
 
