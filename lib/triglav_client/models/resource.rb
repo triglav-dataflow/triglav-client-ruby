@@ -30,7 +30,7 @@ module TriglavClient
 
     attr_accessor :description
 
-    attr_accessor :cluster_id
+    attr_accessor :cluster_name
 
     attr_accessor :consumable
 
@@ -48,7 +48,7 @@ module TriglavClient
       {
         :'uri' => :'uri',
         :'description' => :'description',
-        :'cluster_id' => :'cluster_id',
+        :'cluster_name' => :'cluster_name',
         :'consumable' => :'consumable',
         :'notifiable' => :'notifiable',
         :'id' => :'id',
@@ -62,7 +62,7 @@ module TriglavClient
       {
         :'uri' => :'String',
         :'description' => :'String',
-        :'cluster_id' => :'Integer',
+        :'cluster_name' => :'Integer',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN',
         :'id' => :'Integer',
@@ -87,8 +87,8 @@ module TriglavClient
         self.description = attributes[:'description']
       end
 
-      if attributes.has_key?(:'cluster_id')
-        self.cluster_id = attributes[:'cluster_id']
+      if attributes.has_key?(:'cluster_name')
+        self.cluster_name = attributes[:'cluster_name']
       end
 
       if attributes.has_key?(:'consumable')
@@ -124,7 +124,7 @@ module TriglavClient
     # @return true if the model is valid
     def valid?
       return false if @uri.nil?
-      return false if @cluster_id.nil?
+      return false if @cluster_name.nil?
       return true
     end
 
@@ -135,7 +135,7 @@ module TriglavClient
       self.class == o.class &&
           uri == o.uri &&
           description == o.description &&
-          cluster_id == o.cluster_id &&
+          cluster_name == o.cluster_name &&
           consumable == o.consumable &&
           notifiable == o.notifiable &&
           id == o.id &&
@@ -152,7 +152,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, description, cluster_id, consumable, notifiable, id, created_at, updated_at].hash
+      [uri, description, cluster_name, consumable, notifiable, id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

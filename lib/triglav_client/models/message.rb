@@ -33,7 +33,7 @@ module TriglavClient
     # Datetime formatted by ISO 8601
     attr_accessor :datetime
 
-    attr_accessor :params
+    attr_accessor :conditions
 
     attr_accessor :payload
 
@@ -48,7 +48,7 @@ module TriglavClient
         :'id' => :'id',
         :'resource_uri' => :'resource_uri',
         :'datetime' => :'datetime',
-        :'params' => :'params',
+        :'conditions' => :'conditions',
         :'payload' => :'payload',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
@@ -61,7 +61,7 @@ module TriglavClient
         :'id' => :'Integer',
         :'resource_uri' => :'String',
         :'datetime' => :'String',
-        :'params' => :'String',
+        :'conditions' => :'String',
         :'payload' => :'String',
         :'created_at' => :'Integer',
         :'updated_at' => :'Integer'
@@ -88,8 +88,8 @@ module TriglavClient
         self.datetime = attributes[:'datetime']
       end
 
-      if attributes.has_key?(:'params')
-        self.params = attributes[:'params']
+      if attributes.has_key?(:'conditions')
+        self.conditions = attributes[:'conditions']
       end
 
       if attributes.has_key?(:'payload')
@@ -127,7 +127,7 @@ module TriglavClient
           id == o.id &&
           resource_uri == o.resource_uri &&
           datetime == o.datetime &&
-          params == o.params &&
+          conditions == o.conditions &&
           payload == o.payload &&
           created_at == o.created_at &&
           updated_at == o.updated_at
@@ -142,7 +142,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, resource_uri, datetime, params, payload, created_at, updated_at].hash
+      [id, resource_uri, datetime, conditions, payload, created_at, updated_at].hash
     end
 
     # Builds the object from hash

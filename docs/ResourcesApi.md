@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 
 # **list_resources**
-> Array&lt;ResourceEach&gt; list_resources(cluster_id, consumable, notifiable)
+> Array&lt;ResourceEach&gt; list_resources(cluster_name, consumable, notifiable)
 
 
 
@@ -190,7 +190,7 @@ end
 
 api_instance = TriglavClient::ResourcesApi.new
 
-cluster_id = 56 # Integer | ID of Cluster
+cluster_name = "cluster_name_example" # String | Name of Cluster
 
 consumable = true # BOOLEAN | Consuamble
 
@@ -198,7 +198,7 @@ notifiable = true # BOOLEAN | Notifiable
 
 
 begin
-  result = api_instance.list_resources(cluster_id, consumable, notifiable)
+  result = api_instance.list_resources(cluster_name, consumable, notifiable)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling ResourcesApi->list_resources: #{e}"
@@ -209,7 +209,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cluster_id** | **Integer**| ID of Cluster | 
+ **cluster_name** | **String**| Name of Cluster | 
  **consumable** | **BOOLEAN**| Consuamble | 
  **notifiable** | **BOOLEAN**| Notifiable | 
 

@@ -203,29 +203,29 @@ module TriglavClient
 
     # 
     # Returns all resources from the system
-    # @param cluster_id ID of Cluster
+    # @param cluster_name Name of Cluster
     # @param consumable Consuamble
     # @param notifiable Notifiable
     # @param [Hash] opts the optional parameters
     # @return [Array<ResourceEach>]
-    def list_resources(cluster_id, consumable, notifiable, opts = {})
-      data, _status_code, _headers = list_resources_with_http_info(cluster_id, consumable, notifiable, opts)
+    def list_resources(cluster_name, consumable, notifiable, opts = {})
+      data, _status_code, _headers = list_resources_with_http_info(cluster_name, consumable, notifiable, opts)
       return data
     end
 
     # 
     # Returns all resources from the system
-    # @param cluster_id ID of Cluster
+    # @param cluster_name Name of Cluster
     # @param consumable Consuamble
     # @param notifiable Notifiable
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ResourceEach>, Fixnum, Hash)>] Array<ResourceEach> data, response status code and response headers
-    def list_resources_with_http_info(cluster_id, consumable, notifiable, opts = {})
+    def list_resources_with_http_info(cluster_name, consumable, notifiable, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ResourcesApi.list_resources ..."
       end
-      # verify the required parameter 'cluster_id' is set
-      fail ArgumentError, "Missing the required parameter 'cluster_id' when calling ResourcesApi.list_resources" if cluster_id.nil?
+      # verify the required parameter 'cluster_name' is set
+      fail ArgumentError, "Missing the required parameter 'cluster_name' when calling ResourcesApi.list_resources" if cluster_name.nil?
       # verify the required parameter 'consumable' is set
       fail ArgumentError, "Missing the required parameter 'consumable' when calling ResourcesApi.list_resources" if consumable.nil?
       # verify the required parameter 'notifiable' is set
@@ -235,7 +235,7 @@ module TriglavClient
 
       # query parameters
       query_params = {}
-      query_params[:'cluster_id'] = cluster_id
+      query_params[:'cluster_name'] = cluster_name
       query_params[:'consumable'] = consumable
       query_params[:'notifiable'] = notifiable
 
