@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_resource**
-> Resource create_resource(resource)
+> ResourceResponse create_resource(resource)
 
 
 
@@ -32,7 +32,7 @@ end
 
 api_instance = TriglavClient::ResourcesApi.new
 
-resource = TriglavClient::ResourceInput.new # ResourceInput | Resource to add
+resource = TriglavClient::ResourceRequest.new # ResourceRequest | Resource to add
 
 
 begin
@@ -47,11 +47,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resource** | [**ResourceInput**](ResourceInput.md)| Resource to add | 
+ **resource** | [**ResourceRequest**](ResourceRequest.md)| Resource to add | 
 
 ### Return type
 
-[**Resource**](Resource.md)
+[**ResourceResponse**](ResourceResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ nil (empty response body)
 
 
 # **get_resource**
-> Resource get_resource(id_or_uri)
+> ResourceResponse get_resource(id_or_uri)
 
 
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Resource**](Resource.md)
+[**ResourceResponse**](ResourceResponse.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 
 # **list_resources**
-> Array&lt;ResourceEach&gt; list_resources(cluster_name, consumable, notifiable)
+> Array&lt;ResourceEachResponse&gt; list_resources(cluster_name, consumable, notifiable)
 
 
 
@@ -215,7 +215,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;ResourceEach&gt;**](ResourceEach.md)
+[**Array&lt;ResourceEachResponse&gt;**](ResourceEachResponse.md)
 
 ### Authorization
 
@@ -229,7 +229,7 @@ Name | Type | Description  | Notes
 
 
 # **update_resource**
-> Resource update_resource(id_or_uri, resource)
+> ResourceResponse update_resource(id_or_uri, resource)
 
 
 
@@ -251,7 +251,7 @@ api_instance = TriglavClient::ResourcesApi.new
 
 id_or_uri = "id_or_uri_example" # String | ID or URI of resource to fetch
 
-resource = TriglavClient::ResourceInput.new # ResourceInput | Resource parameters to update
+resource = TriglavClient::ResourceRequest.new # ResourceRequest | Resource parameters to update
 
 
 begin
@@ -267,11 +267,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_or_uri** | **String**| ID or URI of resource to fetch | 
- **resource** | [**ResourceInput**](ResourceInput.md)| Resource parameters to update | 
+ **resource** | [**ResourceRequest**](ResourceRequest.md)| Resource parameters to update | 
 
 ### Return type
 
-[**Resource**](Resource.md)
+[**ResourceResponse**](ResourceResponse.md)
 
 ### Authorization
 

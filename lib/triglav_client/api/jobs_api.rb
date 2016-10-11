@@ -35,7 +35,7 @@ module TriglavClient
     # Creates or Updates a single job
     # @param job Job parameters
     # @param [Hash] opts the optional parameters
-    # @return [Job]
+    # @return [JobResponse]
     def create_or_update_job(job, opts = {})
       data, _status_code, _headers = create_or_update_job_with_http_info(job, opts)
       return data
@@ -45,7 +45,7 @@ module TriglavClient
     # Creates or Updates a single job
     # @param job Job parameters
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Job, Fixnum, Hash)>] Job data, response status code and response headers
+    # @return [Array<(JobResponse, Fixnum, Hash)>] JobResponse data, response status code and response headers
     def create_or_update_job_with_http_info(job, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: JobsApi.create_or_update_job ..."
@@ -81,7 +81,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Job')
+        :return_type => 'JobResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: JobsApi#create_or_update_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -148,7 +148,7 @@ module TriglavClient
     # Returns a single job
     # @param id_or_uri ID or URI of job to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Job]
+    # @return [JobResponse]
     def get_job(id_or_uri, opts = {})
       data, _status_code, _headers = get_job_with_http_info(id_or_uri, opts)
       return data
@@ -158,7 +158,7 @@ module TriglavClient
     # Returns a single job
     # @param id_or_uri ID or URI of job to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Job, Fixnum, Hash)>] Job data, response status code and response headers
+    # @return [Array<(JobResponse, Fixnum, Hash)>] JobResponse data, response status code and response headers
     def get_job_with_http_info(id_or_uri, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: JobsApi.get_job ..."
@@ -194,7 +194,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Job')
+        :return_type => 'JobResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: JobsApi#get_job\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -204,7 +204,7 @@ module TriglavClient
     # 
     # Returns all jobs
     # @param [Hash] opts the optional parameters
-    # @return [Array<JobEach>]
+    # @return [Array<JobEachResponse>]
     def list_jobs(opts = {})
       data, _status_code, _headers = list_jobs_with_http_info(opts)
       return data
@@ -213,7 +213,7 @@ module TriglavClient
     # 
     # Returns all jobs
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<JobEach>, Fixnum, Hash)>] Array<JobEach> data, response status code and response headers
+    # @return [Array<(Array<JobEachResponse>, Fixnum, Hash)>] Array<JobEachResponse> data, response status code and response headers
     def list_jobs_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: JobsApi.list_jobs ..."
@@ -247,7 +247,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<JobEach>')
+        :return_type => 'Array<JobEachResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: JobsApi#list_jobs\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

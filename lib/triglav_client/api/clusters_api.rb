@@ -35,7 +35,7 @@ module TriglavClient
     # Creates a new cluster
     # @param cluster Cluster to add
     # @param [Hash] opts the optional parameters
-    # @return [Cluster]
+    # @return [ClusterResponse]
     def create_cluster(cluster, opts = {})
       data, _status_code, _headers = create_cluster_with_http_info(cluster, opts)
       return data
@@ -45,7 +45,7 @@ module TriglavClient
     # Creates a new cluster
     # @param cluster Cluster to add
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
+    # @return [Array<(ClusterResponse, Fixnum, Hash)>] ClusterResponse data, response status code and response headers
     def create_cluster_with_http_info(cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ClustersApi.create_cluster ..."
@@ -81,7 +81,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Cluster')
+        :return_type => 'ClusterResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ClustersApi#create_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -148,7 +148,7 @@ module TriglavClient
     # Returns a single cluster
     # @param id_or_name ID or Name of cluster to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Cluster]
+    # @return [ClusterResponse]
     def get_cluster(id_or_name, opts = {})
       data, _status_code, _headers = get_cluster_with_http_info(id_or_name, opts)
       return data
@@ -158,7 +158,7 @@ module TriglavClient
     # Returns a single cluster
     # @param id_or_name ID or Name of cluster to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
+    # @return [Array<(ClusterResponse, Fixnum, Hash)>] ClusterResponse data, response status code and response headers
     def get_cluster_with_http_info(id_or_name, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ClustersApi.get_cluster ..."
@@ -194,7 +194,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Cluster')
+        :return_type => 'ClusterResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ClustersApi#get_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -204,7 +204,7 @@ module TriglavClient
     # 
     # Returns all clusters from the system
     # @param [Hash] opts the optional parameters
-    # @return [Array<ClusterEach>]
+    # @return [Array<ClusterEachResponse>]
     def list_clusters(opts = {})
       data, _status_code, _headers = list_clusters_with_http_info(opts)
       return data
@@ -213,7 +213,7 @@ module TriglavClient
     # 
     # Returns all clusters from the system
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<ClusterEach>, Fixnum, Hash)>] Array<ClusterEach> data, response status code and response headers
+    # @return [Array<(Array<ClusterEachResponse>, Fixnum, Hash)>] Array<ClusterEachResponse> data, response status code and response headers
     def list_clusters_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ClustersApi.list_clusters ..."
@@ -247,7 +247,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<ClusterEach>')
+        :return_type => 'Array<ClusterEachResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ClustersApi#list_clusters\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -259,7 +259,7 @@ module TriglavClient
     # @param id_or_name ID or Name of cluster to fetch
     # @param cluster Cluster parameters to update
     # @param [Hash] opts the optional parameters
-    # @return [Cluster]
+    # @return [ClusterResponse]
     def update_cluster(id_or_name, cluster, opts = {})
       data, _status_code, _headers = update_cluster_with_http_info(id_or_name, cluster, opts)
       return data
@@ -270,7 +270,7 @@ module TriglavClient
     # @param id_or_name ID or Name of cluster to fetch
     # @param cluster Cluster parameters to update
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Cluster, Fixnum, Hash)>] Cluster data, response status code and response headers
+    # @return [Array<(ClusterResponse, Fixnum, Hash)>] ClusterResponse data, response status code and response headers
     def update_cluster_with_http_info(id_or_name, cluster, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ClustersApi.update_cluster ..."
@@ -308,7 +308,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Cluster')
+        :return_type => 'ClusterResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ClustersApi#update_cluster\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

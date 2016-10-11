@@ -37,7 +37,7 @@ module TriglavClient
     # @param offset Offset ID for Messages to fetch from
     # @param [Hash] opts the optional parameters
     # @option opts [String] :datetime Datetime formatted by ISO 8601
-    # @return [Array<MessageEach>]
+    # @return [Array<MessageEachResponse>]
     def fetch_messages(resource_uri, offset, opts = {})
       data, _status_code, _headers = fetch_messages_with_http_info(resource_uri, offset, opts)
       return data
@@ -49,7 +49,7 @@ module TriglavClient
     # @param offset Offset ID for Messages to fetch from
     # @param [Hash] opts the optional parameters
     # @option opts [String] :datetime Datetime formatted by ISO 8601
-    # @return [Array<(Array<MessageEach>, Fixnum, Hash)>] Array<MessageEach> data, response status code and response headers
+    # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
     def fetch_messages_with_http_info(resource_uri, offset, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
@@ -90,7 +90,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<MessageEach>')
+        :return_type => 'Array<MessageEachResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MessagesApi#fetch_messages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -103,7 +103,7 @@ module TriglavClient
     # @param datetime Datetime formatted by ISO 8601
     # @param message Message to add
     # @param [Hash] opts the optional parameters
-    # @return [Message]
+    # @return [MessageResponse]
     def send_message(resource_uri, datetime, message, opts = {})
       data, _status_code, _headers = send_message_with_http_info(resource_uri, datetime, message, opts)
       return data
@@ -115,7 +115,7 @@ module TriglavClient
     # @param datetime Datetime formatted by ISO 8601
     # @param message Message to add
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Message, Fixnum, Hash)>] Message data, response status code and response headers
+    # @return [Array<(MessageResponse, Fixnum, Hash)>] MessageResponse data, response status code and response headers
     def send_message_with_http_info(resource_uri, datetime, message, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.send_message ..."
@@ -157,7 +157,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Message')
+        :return_type => 'MessageResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MessagesApi#send_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

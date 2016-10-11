@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **create_token**
-> AccessTokenStruct create_token(credential)
+> TokenResponse create_token(credential)
 
 
 
@@ -42,7 +42,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**AccessTokenStruct**](AccessTokenStruct.md)
+[**TokenResponse**](TokenResponse.md)
 
 ### Authorization
 

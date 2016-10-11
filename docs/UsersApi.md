@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_user**
-> User create_user(user)
+> UserResponse create_user(user)
 
 
 
@@ -32,7 +32,7 @@ end
 
 api_instance = TriglavClient::UsersApi.new
 
-user = TriglavClient::UserInput.new # UserInput | User to add to the store
+user = TriglavClient::UserRequest.new # UserRequest | User to add to the store
 
 
 begin
@@ -47,11 +47,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **user** | [**UserInput**](UserInput.md)| User to add to the store | 
+ **user** | [**UserRequest**](UserRequest.md)| User to add to the store | 
 
 ### Return type
 
-[**User**](User.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ nil (empty response body)
 
 
 # **get_user**
-> User get_user(id)
+> UserResponse get_user(id)
 
 
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**User**](User.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 
 # **list_users**
-> Array&lt;UserEach&gt; list_users
+> Array&lt;UserEachResponse&gt; list_users
 
 
 
@@ -203,7 +203,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;UserEach&gt;**](UserEach.md)
+[**Array&lt;UserEachResponse&gt;**](UserEachResponse.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ This endpoint does not need any parameter.
 
 
 # **update_user**
-> User update_user(id, user)
+> UserResponse update_user(id, user)
 
 
 
@@ -239,7 +239,7 @@ api_instance = TriglavClient::UsersApi.new
 
 id = 789 # Integer | ID of user to fetch
 
-user = TriglavClient::UserInput.new # UserInput | User parameters to update
+user = TriglavClient::UserRequest.new # UserRequest | User parameters to update
 
 
 begin
@@ -255,11 +255,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id** | **Integer**| ID of user to fetch | 
- **user** | [**UserInput**](UserInput.md)| User parameters to update | 
+ **user** | [**UserRequest**](UserRequest.md)| User parameters to update | 
 
 ### Return type
 
-[**User**](User.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 

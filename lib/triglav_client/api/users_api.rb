@@ -35,7 +35,7 @@ module TriglavClient
     # Creates a new user in the store
     # @param user User to add to the store
     # @param [Hash] opts the optional parameters
-    # @return [User]
+    # @return [UserResponse]
     def create_user(user, opts = {})
       data, _status_code, _headers = create_user_with_http_info(user, opts)
       return data
@@ -45,7 +45,7 @@ module TriglavClient
     # Creates a new user in the store
     # @param user User to add to the store
     # @param [Hash] opts the optional parameters
-    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    # @return [Array<(UserResponse, Fixnum, Hash)>] UserResponse data, response status code and response headers
     def create_user_with_http_info(user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: UsersApi.create_user ..."
@@ -81,7 +81,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'User')
+        :return_type => 'UserResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersApi#create_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -148,7 +148,7 @@ module TriglavClient
     # Returns a single user
     # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
-    # @return [User]
+    # @return [UserResponse]
     def get_user(id, opts = {})
       data, _status_code, _headers = get_user_with_http_info(id, opts)
       return data
@@ -158,7 +158,7 @@ module TriglavClient
     # Returns a single user
     # @param id ID of user to fetch
     # @param [Hash] opts the optional parameters
-    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    # @return [Array<(UserResponse, Fixnum, Hash)>] UserResponse data, response status code and response headers
     def get_user_with_http_info(id, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: UsersApi.get_user ..."
@@ -194,7 +194,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'User')
+        :return_type => 'UserResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersApi#get_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -204,7 +204,7 @@ module TriglavClient
     # 
     # Returns all users from the system that the user has access to
     # @param [Hash] opts the optional parameters
-    # @return [Array<UserEach>]
+    # @return [Array<UserEachResponse>]
     def list_users(opts = {})
       data, _status_code, _headers = list_users_with_http_info(opts)
       return data
@@ -213,7 +213,7 @@ module TriglavClient
     # 
     # Returns all users from the system that the user has access to
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<UserEach>, Fixnum, Hash)>] Array<UserEach> data, response status code and response headers
+    # @return [Array<(Array<UserEachResponse>, Fixnum, Hash)>] Array<UserEachResponse> data, response status code and response headers
     def list_users_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: UsersApi.list_users ..."
@@ -247,7 +247,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<UserEach>')
+        :return_type => 'Array<UserEachResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersApi#list_users\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -259,7 +259,7 @@ module TriglavClient
     # @param id ID of user to fetch
     # @param user User parameters to update
     # @param [Hash] opts the optional parameters
-    # @return [User]
+    # @return [UserResponse]
     def update_user(id, user, opts = {})
       data, _status_code, _headers = update_user_with_http_info(id, user, opts)
       return data
@@ -270,7 +270,7 @@ module TriglavClient
     # @param id ID of user to fetch
     # @param user User parameters to update
     # @param [Hash] opts the optional parameters
-    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    # @return [Array<(UserResponse, Fixnum, Hash)>] UserResponse data, response status code and response headers
     def update_user_with_http_info(id, user, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: UsersApi.update_user ..."
@@ -308,7 +308,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'User')
+        :return_type => 'UserResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: UsersApi#update_user\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

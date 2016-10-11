@@ -48,7 +48,7 @@ describe 'ResourcesApi' do
   # Creates a new resource
   # @param resource Resource to add
   # @param [Hash] opts the optional parameters
-  # @return [Resource]
+  # @return [ResourceResponse]
   describe 'create_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -72,7 +72,7 @@ describe 'ResourcesApi' do
   # Returns a single resource
   # @param id_or_uri ID or URI of resource to fetch
   # @param [Hash] opts the optional parameters
-  # @return [Resource]
+  # @return [ResourceResponse]
   describe 'get_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -82,11 +82,11 @@ describe 'ResourcesApi' do
   # unit tests for list_resources
   # 
   # Returns all resources from the system
-  # @param cluster_id ID of Cluster
+  # @param cluster_name Name of Cluster
   # @param consumable Consuamble
   # @param notifiable Notifiable
   # @param [Hash] opts the optional parameters
-  # @return [Array<ResourceEach>]
+  # @return [Array<ResourceEachResponse>]
   describe 'list_resources test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -99,7 +99,7 @@ describe 'ResourcesApi' do
   # @param id_or_uri ID or URI of resource to fetch
   # @param resource Resource parameters to update
   # @param [Hash] opts the optional parameters
-  # @return [Resource]
+  # @return [ResourceResponse]
   describe 'update_resource test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

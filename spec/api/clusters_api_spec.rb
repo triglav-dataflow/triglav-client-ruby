@@ -48,7 +48,7 @@ describe 'ClustersApi' do
   # Creates a new cluster
   # @param cluster Cluster to add
   # @param [Hash] opts the optional parameters
-  # @return [Cluster]
+  # @return [ClusterResponse]
   describe 'create_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -72,7 +72,7 @@ describe 'ClustersApi' do
   # Returns a single cluster
   # @param id_or_name ID or Name of cluster to fetch
   # @param [Hash] opts the optional parameters
-  # @return [Cluster]
+  # @return [ClusterResponse]
   describe 'get_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -83,7 +83,7 @@ describe 'ClustersApi' do
   # 
   # Returns all clusters from the system
   # @param [Hash] opts the optional parameters
-  # @return [Array<ClusterEach>]
+  # @return [Array<ClusterEachResponse>]
   describe 'list_clusters test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -96,7 +96,7 @@ describe 'ClustersApi' do
   # @param id_or_name ID or Name of cluster to fetch
   # @param cluster Cluster parameters to update
   # @param [Hash] opts the optional parameters
-  # @return [Cluster]
+  # @return [ClusterResponse]
   describe 'update_cluster test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

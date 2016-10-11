@@ -11,7 +11,7 @@ Method | HTTP request | Description
 
 
 # **create_or_update_job**
-> Job create_or_update_job(job)
+> JobResponse create_or_update_job(job)
 
 
 
@@ -31,7 +31,7 @@ end
 
 api_instance = TriglavClient::JobsApi.new
 
-job = TriglavClient::JobInput.new # JobInput | Job parameters
+job = TriglavClient::JobRequest.new # JobRequest | Job parameters
 
 
 begin
@@ -46,11 +46,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **job** | [**JobInput**](JobInput.md)| Job parameters | 
+ **job** | [**JobRequest**](JobRequest.md)| Job parameters | 
 
 ### Return type
 
-[**Job**](Job.md)
+[**JobResponse**](JobResponse.md)
 
 ### Authorization
 
@@ -116,7 +116,7 @@ nil (empty response body)
 
 
 # **get_job**
-> Job get_job(id_or_uri)
+> JobResponse get_job(id_or_uri)
 
 
 
@@ -155,7 +155,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Job**](Job.md)
+[**JobResponse**](JobResponse.md)
 
 ### Authorization
 
@@ -169,7 +169,7 @@ Name | Type | Description  | Notes
 
 
 # **list_jobs**
-> Array&lt;JobEach&gt; list_jobs
+> Array&lt;JobEachResponse&gt; list_jobs
 
 
 
@@ -202,7 +202,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;JobEach&gt;**](JobEach.md)
+[**Array&lt;JobEachResponse&gt;**](JobEachResponse.md)
 
 ### Authorization
 

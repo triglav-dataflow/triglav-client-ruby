@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **create_cluster**
-> Cluster create_cluster(cluster)
+> ClusterResponse create_cluster(cluster)
 
 
 
@@ -32,7 +32,7 @@ end
 
 api_instance = TriglavClient::ClustersApi.new
 
-cluster = TriglavClient::ClusterInput.new # ClusterInput | Cluster to add
+cluster = TriglavClient::ClusterRequest.new # ClusterRequest | Cluster to add
 
 
 begin
@@ -47,11 +47,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **cluster** | [**ClusterInput**](ClusterInput.md)| Cluster to add | 
+ **cluster** | [**ClusterRequest**](ClusterRequest.md)| Cluster to add | 
 
 ### Return type
 
-[**Cluster**](Cluster.md)
+[**ClusterResponse**](ClusterResponse.md)
 
 ### Authorization
 
@@ -117,7 +117,7 @@ nil (empty response body)
 
 
 # **get_cluster**
-> Cluster get_cluster(id_or_name)
+> ClusterResponse get_cluster(id_or_name)
 
 
 
@@ -156,7 +156,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Cluster**](Cluster.md)
+[**ClusterResponse**](ClusterResponse.md)
 
 ### Authorization
 
@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 
 # **list_clusters**
-> Array&lt;ClusterEach&gt; list_clusters
+> Array&lt;ClusterEachResponse&gt; list_clusters
 
 
 
@@ -203,7 +203,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**Array&lt;ClusterEach&gt;**](ClusterEach.md)
+[**Array&lt;ClusterEachResponse&gt;**](ClusterEachResponse.md)
 
 ### Authorization
 
@@ -217,7 +217,7 @@ This endpoint does not need any parameter.
 
 
 # **update_cluster**
-> Cluster update_cluster(id_or_name, cluster)
+> ClusterResponse update_cluster(id_or_name, cluster)
 
 
 
@@ -239,7 +239,7 @@ api_instance = TriglavClient::ClustersApi.new
 
 id_or_name = "id_or_name_example" # String | ID or Name of cluster to fetch
 
-cluster = TriglavClient::ClusterInput.new # ClusterInput | Cluster parameters to update
+cluster = TriglavClient::ClusterRequest.new # ClusterRequest | Cluster parameters to update
 
 
 begin
@@ -255,11 +255,11 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **id_or_name** | **String**| ID or Name of cluster to fetch | 
- **cluster** | [**ClusterInput**](ClusterInput.md)| Cluster parameters to update | 
+ **cluster** | [**ClusterRequest**](ClusterRequest.md)| Cluster parameters to update | 
 
 ### Return type
 
-[**Cluster**](Cluster.md)
+[**ClusterResponse**](ClusterResponse.md)
 
 ### Authorization
 

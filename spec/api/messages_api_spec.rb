@@ -50,7 +50,7 @@ describe 'MessagesApi' do
   # @param offset Offset ID for Messages to fetch from
   # @param [Hash] opts the optional parameters
   # @option opts [String] :datetime Datetime formatted by ISO 8601
-  # @return [Array<MessageEach>]
+  # @return [Array<MessageEachResponse>]
   describe 'fetch_messages test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -64,7 +64,7 @@ describe 'MessagesApi' do
   # @param datetime Datetime formatted by ISO 8601
   # @param message Message to add
   # @param [Hash] opts the optional parameters
-  # @return [Message]
+  # @return [MessageResponse]
   describe 'send_message test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

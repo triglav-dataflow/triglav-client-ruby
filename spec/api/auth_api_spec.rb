@@ -48,7 +48,7 @@ describe 'AuthApi' do
   # Creates a new token
   # @param credential 
   # @param [Hash] opts the optional parameters
-  # @return [AccessTokenStruct]
+  # @return [TokenResponse]
   describe 'create_token test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

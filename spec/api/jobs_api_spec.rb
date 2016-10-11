@@ -48,7 +48,7 @@ describe 'JobsApi' do
   # Creates or Updates a single job
   # @param job Job parameters
   # @param [Hash] opts the optional parameters
-  # @return [Job]
+  # @return [JobResponse]
   describe 'create_or_update_job test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -72,7 +72,7 @@ describe 'JobsApi' do
   # Returns a single job
   # @param id_or_uri ID or URI of job to fetch
   # @param [Hash] opts the optional parameters
-  # @return [Job]
+  # @return [JobResponse]
   describe 'get_job test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -83,7 +83,7 @@ describe 'JobsApi' do
   # 
   # Returns all jobs
   # @param [Hash] opts the optional parameters
-  # @return [Array<JobEach>]
+  # @return [Array<JobEachResponse>]
   describe 'list_jobs test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

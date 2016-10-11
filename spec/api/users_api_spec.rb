@@ -48,7 +48,7 @@ describe 'UsersApi' do
   # Creates a new user in the store
   # @param user User to add to the store
   # @param [Hash] opts the optional parameters
-  # @return [User]
+  # @return [UserResponse]
   describe 'create_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -72,7 +72,7 @@ describe 'UsersApi' do
   # Returns a single user
   # @param id ID of user to fetch
   # @param [Hash] opts the optional parameters
-  # @return [User]
+  # @return [UserResponse]
   describe 'get_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -83,7 +83,7 @@ describe 'UsersApi' do
   # 
   # Returns all users from the system that the user has access to
   # @param [Hash] opts the optional parameters
-  # @return [Array<UserEach>]
+  # @return [Array<UserEachResponse>]
   describe 'list_users test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -96,7 +96,7 @@ describe 'UsersApi' do
   # @param id ID of user to fetch
   # @param user User parameters to update
   # @param [Hash] opts the optional parameters
-  # @return [User]
+  # @return [UserResponse]
   describe 'update_user test' do
     it "should work" do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

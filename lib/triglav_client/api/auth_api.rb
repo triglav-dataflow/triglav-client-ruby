@@ -35,7 +35,7 @@ module TriglavClient
     # Creates a new token
     # @param credential 
     # @param [Hash] opts the optional parameters
-    # @return [AccessTokenStruct]
+    # @return [TokenResponse]
     def create_token(credential, opts = {})
       data, _status_code, _headers = create_token_with_http_info(credential, opts)
       return data
@@ -45,7 +45,7 @@ module TriglavClient
     # Creates a new token
     # @param credential 
     # @param [Hash] opts the optional parameters
-    # @return [Array<(AccessTokenStruct, Fixnum, Hash)>] AccessTokenStruct data, response status code and response headers
+    # @return [Array<(TokenResponse, Fixnum, Hash)>] TokenResponse data, response status code and response headers
     def create_token_with_http_info(credential, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AuthApi.create_token ..."
@@ -81,7 +81,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'AccessTokenStruct')
+        :return_type => 'TokenResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AuthApi#create_token\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

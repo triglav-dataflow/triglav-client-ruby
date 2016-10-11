@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **fetch_messages**
-> Array&lt;MessageEach&gt; fetch_messages(resource_uri, offset, opts)
+> Array&lt;MessageEachResponse&gt; fetch_messages(resource_uri, offset, opts)
 
 
 
@@ -55,7 +55,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;MessageEach&gt;**](MessageEach.md)
+[**Array&lt;MessageEachResponse&gt;**](MessageEachResponse.md)
 
 ### Authorization
 
@@ -69,7 +69,7 @@ Name | Type | Description  | Notes
 
 
 # **send_message**
-> Message send_message(resource_uri, datetime, message)
+> MessageResponse send_message(resource_uri, datetime, message)
 
 
 
@@ -93,7 +93,7 @@ resource_uri = "resource_uri_example" # String | URI of Resource
 
 datetime = "datetime_example" # String | Datetime formatted by ISO 8601
 
-message = TriglavClient::MessageInput.new # MessageInput | Message to add
+message = TriglavClient::MessageRequest.new # MessageRequest | Message to add
 
 
 begin
@@ -110,11 +110,11 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resource_uri** | **String**| URI of Resource | 
  **datetime** | **String**| Datetime formatted by ISO 8601 | 
- **message** | [**MessageInput**](MessageInput.md)| Message to add | 
+ **message** | [**MessageRequest**](MessageRequest.md)| Message to add | 
 
 ### Return type
 
-[**Message**](Message.md)
+[**MessageResponse**](MessageResponse.md)
 
 ### Authorization
 
