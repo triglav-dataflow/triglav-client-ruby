@@ -1,0 +1,4 @@
+source "http://rubygems.org"
+
+gem 'triglav_client', path: '..'
+gem 'pry-nav'
