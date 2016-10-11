@@ -27,7 +27,7 @@ module TriglavClient
 
   class MessageRequest
     # Any json string
-    attr_accessor :params
+    attr_accessor :conditions
 
     # Any json string
     attr_accessor :payload
@@ -36,7 +36,7 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'params' => :'params',
+        :'conditions' => :'conditions',
         :'payload' => :'payload'
       }
     end
@@ -44,7 +44,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'params' => :'String',
+        :'conditions' => :'String',
         :'payload' => :'String'
       }
     end
@@ -57,8 +57,8 @@ module TriglavClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'params')
-        self.params = attributes[:'params']
+      if attributes.has_key?(:'conditions')
+        self.conditions = attributes[:'conditions']
       end
 
       if attributes.has_key?(:'payload')
@@ -85,7 +85,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          params == o.params &&
+          conditions == o.conditions &&
           payload == o.payload
     end
 
@@ -98,7 +98,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [params, payload].hash
+      [conditions, payload].hash
     end
 
     # Builds the object from hash

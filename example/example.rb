@@ -13,12 +13,14 @@ begin
   result = auth_api.create_token(credential)
   if result
     access_token = result.access_token
-    TriglavClient.configure do |config|
-      config.api_key['Authorization'] = access_token
-    end
+   #  TriglavClient.configure do |config|
+   #    config.api_key['Authorization'] = access_token
+   #  end
   end
   puts "me: #{auth_api.me}"
 rescue TriglavClient::ApiError => e
+  require 'pry'
+  binding.pry
   puts "Exception when calling AuthApi->create_token: #{e}"
 end
 
