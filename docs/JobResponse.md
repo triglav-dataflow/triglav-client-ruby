@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **contact_id** | **Integer** |  | [optional] 
 **created_at** | **Integer** |  | [optional] 
 **updated_at** | **Integer** |  | [optional] 
-**input_resources** | [**Array&lt;Resource&gt;**](Resource.md) | New resources are created if it does not exit. Need to use Resource API to update | [optional] 
-**output_resources** | [**Array&lt;Resource&gt;**](Resource.md) | New resources are created if it does not exit. Need to use Resource API to update | [optional] 
+**input_resources** | [**Array&lt;ResourceResponse&gt;**](ResourceResponse.md) | New resources are created if it does not exit. Need to use Resource API to update | [optional] 
+**output_resources** | [**Array&lt;ResourceResponse&gt;**](ResourceResponse.md) | New resources are created if it does not exit. Need to use Resource API to update | [optional] 
 
 

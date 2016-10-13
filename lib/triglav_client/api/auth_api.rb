@@ -143,7 +143,7 @@ module TriglavClient
     # 
     # Returns a user property of the access_token
     # @param [Hash] opts the optional parameters
-    # @return [User]
+    # @return [UserResponse]
     def me(opts = {})
       data, _status_code, _headers = me_with_http_info(opts)
       return data
@@ -152,7 +152,7 @@ module TriglavClient
     # 
     # Returns a user property of the access_token
     # @param [Hash] opts the optional parameters
-    # @return [Array<(User, Fixnum, Hash)>] User data, response status code and response headers
+    # @return [Array<(UserResponse, Fixnum, Hash)>] UserResponse data, response status code and response headers
     def me_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: AuthApi.me ..."
@@ -186,7 +186,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'User')
+        :return_type => 'UserResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: AuthApi#me\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

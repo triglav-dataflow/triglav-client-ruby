@@ -53,7 +53,7 @@ module TriglavClient
       {
         :'uri' => :'String',
         :'description' => :'String',
-        :'cluster_name' => :'Integer',
+        :'cluster_name' => :'String',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN'
       }

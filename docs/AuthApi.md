@@ -102,7 +102,7 @@ nil (empty response body)
 
 
 # **me**
-> User me
+> UserResponse me
 
 
 
@@ -135,7 +135,7 @@ This endpoint does not need any parameter.
 
 ### Return type
 
-[**User**](User.md)
+[**UserResponse**](UserResponse.md)
 
 ### Authorization
 
