@@ -28,7 +28,6 @@ module TriglavClient
   class TokenResponse
     attr_accessor :access_token
 
-    # unix timestamp
     attr_accessor :expires_at
 
 
@@ -44,7 +43,7 @@ module TriglavClient
     def self.swagger_types
       {
         :'access_token' => :'String',
-        :'expires_at' => :'Integer'
+        :'expires_at' => :'DateTime'
       }
     end
 
