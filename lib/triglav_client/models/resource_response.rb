@@ -66,8 +66,8 @@ module TriglavClient
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN',
         :'id' => :'Integer',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'created_at' => :'DateTime',
+        :'updated_at' => :'DateTime'
       }
     end
 

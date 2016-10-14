@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **datetime** | **String** | Datetime formatted by ISO 8601 | [optional] 
 **conditions** | **String** |  | [optional] 
 **payload** | **String** |  | [optional] 
-**created_at** | **Integer** |  | [optional] 
-**updated_at** | **Integer** |  | [optional] 
+**created_at** | **DateTime** |  | [optional] 
+**updated_at** | **DateTime** |  | [optional] 
 
 

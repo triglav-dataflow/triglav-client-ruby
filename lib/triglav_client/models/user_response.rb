@@ -88,8 +88,8 @@ module TriglavClient
         :'authenticator' => :'String',
         :'groups' => :'Array<String>',
         :'email' => :'String',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'created_at' => :'DateTime',
+        :'updated_at' => :'DateTime'
       }
     end
 

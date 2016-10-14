@@ -62,8 +62,8 @@ module TriglavClient
         :'id' => :'Integer',
         :'uri' => :'String',
         :'contact_id' => :'Integer',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer',
+        :'created_at' => :'DateTime',
+        :'updated_at' => :'DateTime',
         :'input_resources' => :'Array<ResourceResponse>',
         :'output_resources' => :'Array<ResourceResponse>'
       }

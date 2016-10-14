@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **consumable** | **BOOLEAN** |  | [optional] 
 **notifiable** | **BOOLEAN** |  | [optional] 
 **id** | **Integer** |  | [optional] 
-**created_at** | **Integer** |  | [optional] 
-**updated_at** | **Integer** |  | [optional] 
+**created_at** | **DateTime** |  | [optional] 
+**updated_at** | **DateTime** |  | [optional] 
 
 
