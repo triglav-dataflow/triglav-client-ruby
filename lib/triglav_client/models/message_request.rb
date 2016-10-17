@@ -26,17 +26,24 @@ require 'date'
 module TriglavClient
 
   class MessageRequest
-    # Any json string
-    attr_accessor :conditions
+    attr_accessor :resource_uri
 
-    # Any json string
+    attr_accessor :resource_unit
+
+    attr_accessor :resource_time
+
+    attr_accessor :resource_timezone
+
     attr_accessor :payload
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'conditions' => :'conditions',
+        :'resource_uri' => :'resource_uri',
+        :'resource_unit' => :'resource_unit',
+        :'resource_time' => :'resource_time',
+        :'resource_timezone' => :'resource_timezone',
         :'payload' => :'payload'
       }
     end
@@ -44,7 +51,10 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'conditions' => :'String',
+        :'resource_uri' => :'String',
+        :'resource_unit' => :'String',
+        :'resource_time' => :'Integer',
+        :'resource_timezone' => :'String',
         :'payload' => :'String'
       }
     end
@@ -57,8 +67,20 @@ module TriglavClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'conditions')
-        self.conditions = attributes[:'conditions']
+      if attributes.has_key?(:'resource_uri')
+        self.resource_uri = attributes[:'resource_uri']
+      end
+
+      if attributes.has_key?(:'resource_unit')
+        self.resource_unit = attributes[:'resource_unit']
+      end
+
+      if attributes.has_key?(:'resource_time')
+        self.resource_time = attributes[:'resource_time']
+      end
+
+      if attributes.has_key?(:'resource_timezone')
+        self.resource_timezone = attributes[:'resource_timezone']
       end
 
       if attributes.has_key?(:'payload')
@@ -77,6 +99,10 @@ module TriglavClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
+      return false if @resource_uri.nil?
+      return false if @resource_unit.nil?
+      return false if @resource_time.nil?
+      return false if @resource_timezone.nil?
       return true
     end
 
@@ -85,7 +111,10 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          conditions == o.conditions &&
+          resource_uri == o.resource_uri &&
+          resource_unit == o.resource_unit &&
+          resource_time == o.resource_time &&
+          resource_timezone == o.resource_timezone &&
           payload == o.payload
     end
 
@@ -98,7 +127,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [conditions, payload].hash
+      [resource_uri, resource_unit, resource_time, resource_timezone, payload].hash
     end
 
     # Builds the object from hash

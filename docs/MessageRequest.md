@@ -3,7 +3,10 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**conditions** | **String** | Any json string | [optional] 
-**payload** | **String** | Any json string | [optional] 
+**resource_uri** | **String** |  | 
+**resource_unit** | **String** |  | 
+**resource_time** | **Integer** |  | 
+**resource_timezone** | **String** |  | 
+**payload** | **String** |  | [optional] 
 
 

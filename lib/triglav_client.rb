@@ -28,6 +28,7 @@ require 'triglav_client/version'
 require 'triglav_client/configuration'
 
 # Models
+require 'triglav_client/models/bulkinsert_response'
 require 'triglav_client/models/credential'
 require 'triglav_client/models/error_model'
 require 'triglav_client/models/job_each_response'

@@ -3,13 +3,12 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
-**resource_uri** | **String** |  | [optional] 
-**resource_unit** | **String** |  | [optional] 
-**resource_time** | **Integer** |  | [optional] 
-**resource_timezone** | **String** |  | [optional] 
-**conditions** | **String** |  | [optional] 
+**resource_uri** | **String** |  | 
+**resource_unit** | **String** |  | 
+**resource_time** | **Integer** |  | 
+**resource_timezone** | **String** |  | 
 **payload** | **String** |  | [optional] 
+**id** | **Integer** |  | [optional] 
 **created_at** | **DateTime** |  | [optional] 
 **updated_at** | **DateTime** |  | [optional] 
 

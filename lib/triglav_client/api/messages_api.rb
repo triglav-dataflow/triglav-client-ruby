@@ -34,35 +34,35 @@ module TriglavClient
     # 
     # Fetches messages
     # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
-    # @param resource_uri URI of Resource
+    # @param resource_uris URIs of Resource
     # @param [Hash] opts the optional parameters
     # @return [Array<MessageEachResponse>]
-    def fetch_messages(offset, resource_uri, opts = {})
-      data, _status_code, _headers = fetch_messages_with_http_info(offset, resource_uri, opts)
+    def fetch_messages(offset, resource_uris, opts = {})
+      data, _status_code, _headers = fetch_messages_with_http_info(offset, resource_uris, opts)
       return data
     end
 
     # 
     # Fetches messages
     # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
-    # @param resource_uri URI of Resource
+    # @param resource_uris URIs of Resource
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def fetch_messages_with_http_info(offset, resource_uri, opts = {})
+    def fetch_messages_with_http_info(offset, resource_uris, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
       end
       # verify the required parameter 'offset' is set
       fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.fetch_messages" if offset.nil?
-      # verify the required parameter 'resource_uri' is set
-      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.fetch_messages" if resource_uri.nil?
+      # verify the required parameter 'resource_uris' is set
+      fail ArgumentError, "Missing the required parameter 'resource_uris' when calling MessagesApi.fetch_messages" if resource_uris.nil?
       # resource path
       local_var_path = "/messages".sub('{format}','json')
 
       # query parameters
       query_params = {}
       query_params[:'offset'] = offset
-      query_params[:'resource_uri'] = resource_uri
+      query_params[:'resource_uris'] = resource_uris
 
       # header parameters
       header_params = {}
@@ -95,51 +95,31 @@ module TriglavClient
     end
 
     # 
-    # Enqueues a new message
-    # @param resource_uri URI of Resource
-    # @param resource_unit Unit of Resource
-    # @param resource_time Resource Time
-    # @param resource_timezone Timezone of Resource Time
-    # @param message Message to add
+    # Enqueues new messages
+    # @param messages Messages to enqueue
     # @param [Hash] opts the optional parameters
-    # @return [MessageResponse]
-    def send_message(resource_uri, resource_unit, resource_time, resource_timezone, message, opts = {})
-      data, _status_code, _headers = send_message_with_http_info(resource_uri, resource_unit, resource_time, resource_timezone, message, opts)
+    # @return [BulkinsertResponse]
+    def send_messages(messages, opts = {})
+      data, _status_code, _headers = send_messages_with_http_info(messages, opts)
       return data
     end
 
     # 
-    # Enqueues a new message
-    # @param resource_uri URI of Resource
-    # @param resource_unit Unit of Resource
-    # @param resource_time Resource Time
-    # @param resource_timezone Timezone of Resource Time
-    # @param message Message to add
+    # Enqueues new messages
+    # @param messages Messages to enqueue
     # @param [Hash] opts the optional parameters
-    # @return [Array<(MessageResponse, Fixnum, Hash)>] MessageResponse data, response status code and response headers
-    def send_message_with_http_info(resource_uri, resource_unit, resource_time, resource_timezone, message, opts = {})
+    # @return [Array<(BulkinsertResponse, Fixnum, Hash)>] BulkinsertResponse data, response status code and response headers
+    def send_messages_with_http_info(messages, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessagesApi.send_message ..."
+        @api_client.config.logger.debug "Calling API: MessagesApi.send_messages ..."
       end
-      # verify the required parameter 'resource_uri' is set
-      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.send_message" if resource_uri.nil?
-      # verify the required parameter 'resource_unit' is set
-      fail ArgumentError, "Missing the required parameter 'resource_unit' when calling MessagesApi.send_message" if resource_unit.nil?
-      # verify the required parameter 'resource_time' is set
-      fail ArgumentError, "Missing the required parameter 'resource_time' when calling MessagesApi.send_message" if resource_time.nil?
-      # verify the required parameter 'resource_timezone' is set
-      fail ArgumentError, "Missing the required parameter 'resource_timezone' when calling MessagesApi.send_message" if resource_timezone.nil?
-      # verify the required parameter 'message' is set
-      fail ArgumentError, "Missing the required parameter 'message' when calling MessagesApi.send_message" if message.nil?
+      # verify the required parameter 'messages' is set
+      fail ArgumentError, "Missing the required parameter 'messages' when calling MessagesApi.send_messages" if messages.nil?
       # resource path
       local_var_path = "/messages".sub('{format}','json')
 
       # query parameters
       query_params = {}
-      query_params[:'resource_uri'] = resource_uri
-      query_params[:'resource_unit'] = resource_unit
-      query_params[:'resource_time'] = resource_time
-      query_params[:'resource_timezone'] = resource_timezone
 
       # header parameters
       header_params = {}
@@ -156,7 +136,7 @@ module TriglavClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(message)
+      post_body = @api_client.object_to_http_body(messages)
       auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -164,9 +144,9 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'MessageResponse')
+        :return_type => 'BulkinsertResponse')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessagesApi#send_message\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: MessagesApi#send_messages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

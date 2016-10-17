@@ -5,11 +5,11 @@ All URIs are relative to *http://localhost/api/v1*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**fetch_messages**](MessagesApi.md#fetch_messages) | **GET** /messages | 
-[**send_message**](MessagesApi.md#send_message) | **POST** /messages | 
+[**send_messages**](MessagesApi.md#send_messages) | **POST** /messages | 
 
 
 # **fetch_messages**
-> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uri)
+> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uris)
 
 
 
@@ -31,11 +31,11 @@ api_instance = TriglavClient::MessagesApi.new
 
 offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
 
-resource_uri = "resource_uri_example" # String | URI of Resource
+resource_uris = "resource_uris_example" # String | URIs of Resource
 
 
 begin
-  result = api_instance.fetch_messages(offset, resource_uri)
+  result = api_instance.fetch_messages(offset, resource_uris)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->fetch_messages: #{e}"
@@ -47,7 +47,7 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
- **resource_uri** | **String**| URI of Resource | 
+ **resource_uris** | **String**| URIs of Resource | 
 
 ### Return type
 
@@ -64,12 +64,12 @@ Name | Type | Description  | Notes
 
 
 
-# **send_message**
-> MessageResponse send_message(resource_uri, resource_unit, resource_time, resource_timezone, message)
+# **send_messages**
+> BulkinsertResponse send_messages(messages)
 
 
 
-Enqueues a new message
+Enqueues new messages
 
 ### Example
 ```ruby
@@ -85,22 +85,14 @@ end
 
 api_instance = TriglavClient::MessagesApi.new
 
-resource_uri = "resource_uri_example" # String | URI of Resource
-
-resource_unit = "resource_unit_example" # String | Unit of Resource
-
-resource_time = 56 # Integer | Resource Time
-
-resource_timezone = "resource_timezone_example" # String | Timezone of Resource Time
-
-message = TriglavClient::MessageRequest.new # MessageRequest | Message to add
+messages = [TriglavClient::MessageRequest.new] # Array<MessageRequest> | Messages to enqueue
 
 
 begin
-  result = api_instance.send_message(resource_uri, resource_unit, resource_time, resource_timezone, message)
+  result = api_instance.send_messages(messages)
   p result
 rescue TriglavClient::ApiError => e
-  puts "Exception when calling MessagesApi->send_message: #{e}"
+  puts "Exception when calling MessagesApi->send_messages: #{e}"
 end
 ```
 
@@ -108,15 +100,11 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **resource_uri** | **String**| URI of Resource | 
- **resource_unit** | **String**| Unit of Resource | 
- **resource_time** | **Integer**| Resource Time | 
- **resource_timezone** | **String**| Timezone of Resource Time | 
- **message** | [**MessageRequest**](MessageRequest.md)| Message to add | 
+ **messages** | [**Array&lt;MessageRequest&gt;**](MessageRequest.md)| Messages to enqueue | 
 
 ### Return type
 
-[**MessageResponse**](MessageResponse.md)
+[**BulkinsertResponse**](BulkinsertResponse.md)
 
 ### Authorization
 
