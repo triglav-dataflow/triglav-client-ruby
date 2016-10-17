@@ -36,7 +36,6 @@ module TriglavClient
     # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
     # @param resource_uri URI of Resource
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :datetime Datetime formatted by ISO 8601. LIKE search is used.
     # @return [Array<MessageEachResponse>]
     def fetch_messages(offset, resource_uri, opts = {})
       data, _status_code, _headers = fetch_messages_with_http_info(offset, resource_uri, opts)
@@ -48,7 +47,6 @@ module TriglavClient
     # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
     # @param resource_uri URI of Resource
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :datetime Datetime formatted by ISO 8601. LIKE search is used.
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
     def fetch_messages_with_http_info(offset, resource_uri, opts = {})
       if @api_client.config.debugging
@@ -65,7 +63,6 @@ module TriglavClient
       query_params = {}
       query_params[:'offset'] = offset
       query_params[:'resource_uri'] = resource_uri
-      query_params[:'datetime'] = opts[:'datetime'] if !opts[:'datetime'].nil?
 
       # header parameters
       header_params = {}
@@ -100,30 +97,38 @@ module TriglavClient
     # 
     # Enqueues a new message
     # @param resource_uri URI of Resource
-    # @param datetime Datetime formatted by ISO 8601
+    # @param resource_unit Unit of Resource
+    # @param resource_time Resource Time
+    # @param resource_timezone Timezone of Resource Time
     # @param message Message to add
     # @param [Hash] opts the optional parameters
     # @return [MessageResponse]
-    def send_message(resource_uri, datetime, message, opts = {})
-      data, _status_code, _headers = send_message_with_http_info(resource_uri, datetime, message, opts)
+    def send_message(resource_uri, resource_unit, resource_time, resource_timezone, message, opts = {})
+      data, _status_code, _headers = send_message_with_http_info(resource_uri, resource_unit, resource_time, resource_timezone, message, opts)
       return data
     end
 
     # 
     # Enqueues a new message
     # @param resource_uri URI of Resource
-    # @param datetime Datetime formatted by ISO 8601
+    # @param resource_unit Unit of Resource
+    # @param resource_time Resource Time
+    # @param resource_timezone Timezone of Resource Time
     # @param message Message to add
     # @param [Hash] opts the optional parameters
     # @return [Array<(MessageResponse, Fixnum, Hash)>] MessageResponse data, response status code and response headers
-    def send_message_with_http_info(resource_uri, datetime, message, opts = {})
+    def send_message_with_http_info(resource_uri, resource_unit, resource_time, resource_timezone, message, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.send_message ..."
       end
       # verify the required parameter 'resource_uri' is set
       fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.send_message" if resource_uri.nil?
-      # verify the required parameter 'datetime' is set
-      fail ArgumentError, "Missing the required parameter 'datetime' when calling MessagesApi.send_message" if datetime.nil?
+      # verify the required parameter 'resource_unit' is set
+      fail ArgumentError, "Missing the required parameter 'resource_unit' when calling MessagesApi.send_message" if resource_unit.nil?
+      # verify the required parameter 'resource_time' is set
+      fail ArgumentError, "Missing the required parameter 'resource_time' when calling MessagesApi.send_message" if resource_time.nil?
+      # verify the required parameter 'resource_timezone' is set
+      fail ArgumentError, "Missing the required parameter 'resource_timezone' when calling MessagesApi.send_message" if resource_timezone.nil?
       # verify the required parameter 'message' is set
       fail ArgumentError, "Missing the required parameter 'message' when calling MessagesApi.send_message" if message.nil?
       # resource path
@@ -132,7 +137,9 @@ module TriglavClient
       # query parameters
       query_params = {}
       query_params[:'resource_uri'] = resource_uri
-      query_params[:'datetime'] = datetime
+      query_params[:'resource_unit'] = resource_unit
+      query_params[:'resource_time'] = resource_time
+      query_params[:'resource_timezone'] = resource_timezone
 
       # header parameters
       header_params = {}

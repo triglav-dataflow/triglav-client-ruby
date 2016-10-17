@@ -30,8 +30,11 @@ module TriglavClient
 
     attr_accessor :resource_uri
 
-    # Datetime formatted by ISO 8601
-    attr_accessor :datetime
+    attr_accessor :resource_unit
+
+    attr_accessor :resource_time
+
+    attr_accessor :resource_timezone
 
     attr_accessor :conditions
 
@@ -47,7 +50,9 @@ module TriglavClient
       {
         :'id' => :'id',
         :'resource_uri' => :'resource_uri',
-        :'datetime' => :'datetime',
+        :'resource_unit' => :'resource_unit',
+        :'resource_time' => :'resource_time',
+        :'resource_timezone' => :'resource_timezone',
         :'conditions' => :'conditions',
         :'payload' => :'payload',
         :'created_at' => :'created_at',
@@ -60,7 +65,9 @@ module TriglavClient
       {
         :'id' => :'Integer',
         :'resource_uri' => :'String',
-        :'datetime' => :'String',
+        :'resource_unit' => :'String',
+        :'resource_time' => :'Integer',
+        :'resource_timezone' => :'String',
         :'conditions' => :'String',
         :'payload' => :'String',
         :'created_at' => :'DateTime',
@@ -84,8 +91,16 @@ module TriglavClient
         self.resource_uri = attributes[:'resource_uri']
       end
 
-      if attributes.has_key?(:'datetime')
-        self.datetime = attributes[:'datetime']
+      if attributes.has_key?(:'resource_unit')
+        self.resource_unit = attributes[:'resource_unit']
+      end
+
+      if attributes.has_key?(:'resource_time')
+        self.resource_time = attributes[:'resource_time']
+      end
+
+      if attributes.has_key?(:'resource_timezone')
+        self.resource_timezone = attributes[:'resource_timezone']
       end
 
       if attributes.has_key?(:'conditions')
@@ -126,7 +141,9 @@ module TriglavClient
       self.class == o.class &&
           id == o.id &&
           resource_uri == o.resource_uri &&
-          datetime == o.datetime &&
+          resource_unit == o.resource_unit &&
+          resource_time == o.resource_time &&
+          resource_timezone == o.resource_timezone &&
           conditions == o.conditions &&
           payload == o.payload &&
           created_at == o.created_at &&
@@ -142,7 +159,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, resource_uri, datetime, conditions, payload, created_at, updated_at].hash
+      [id, resource_uri, resource_unit, resource_time, resource_timezone, conditions, payload, created_at, updated_at].hash
     end
 
     # Builds the object from hash

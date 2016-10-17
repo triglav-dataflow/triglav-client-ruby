@@ -32,6 +32,8 @@ module TriglavClient
 
     attr_accessor :unit
 
+    attr_accessor :timezone
+
     attr_accessor :day_span
 
     attr_accessor :consumable
@@ -45,6 +47,7 @@ module TriglavClient
         :'description' => :'description',
         :'uri' => :'uri',
         :'unit' => :'unit',
+        :'timezone' => :'timezone',
         :'day_span' => :'day_span',
         :'consumable' => :'consumable',
         :'notifiable' => :'notifiable'
@@ -57,6 +60,7 @@ module TriglavClient
         :'description' => :'String',
         :'uri' => :'String',
         :'unit' => :'String',
+        :'timezone' => :'String',
         :'day_span' => :'Integer',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN'
@@ -81,6 +85,10 @@ module TriglavClient
 
       if attributes.has_key?(:'unit')
         self.unit = attributes[:'unit']
+      end
+
+      if attributes.has_key?(:'timezone')
+        self.timezone = attributes[:'timezone']
       end
 
       if attributes.has_key?(:'day_span')
@@ -120,6 +128,7 @@ module TriglavClient
           description == o.description &&
           uri == o.uri &&
           unit == o.unit &&
+          timezone == o.timezone &&
           day_span == o.day_span &&
           consumable == o.consumable &&
           notifiable == o.notifiable
@@ -134,7 +143,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, uri, unit, day_span, consumable, notifiable].hash
+      [description, uri, unit, timezone, day_span, consumable, notifiable].hash
     end
 
     # Builds the object from hash

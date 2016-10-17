@@ -32,6 +32,8 @@ module TriglavClient
 
     attr_accessor :unit
 
+    attr_accessor :timezone
+
     attr_accessor :day_span
 
 
@@ -41,6 +43,7 @@ module TriglavClient
         :'id' => :'id',
         :'uri' => :'uri',
         :'unit' => :'unit',
+        :'timezone' => :'timezone',
         :'day_span' => :'day_span'
       }
     end
@@ -51,6 +54,7 @@ module TriglavClient
         :'id' => :'Integer',
         :'uri' => :'String',
         :'unit' => :'String',
+        :'timezone' => :'String',
         :'day_span' => :'Integer'
       }
     end
@@ -73,6 +77,10 @@ module TriglavClient
 
       if attributes.has_key?(:'unit')
         self.unit = attributes[:'unit']
+      end
+
+      if attributes.has_key?(:'timezone')
+        self.timezone = attributes[:'timezone']
       end
 
       if attributes.has_key?(:'day_span')
@@ -102,6 +110,7 @@ module TriglavClient
           id == o.id &&
           uri == o.uri &&
           unit == o.unit &&
+          timezone == o.timezone &&
           day_span == o.day_span
     end
 
@@ -114,7 +123,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, unit, day_span].hash
+      [id, uri, unit, timezone, day_span].hash
     end
 
     # Builds the object from hash

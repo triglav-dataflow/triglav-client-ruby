@@ -5,7 +5,9 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **Integer** |  | [optional] 
 **resource_uri** | **String** |  | [optional] 
-**datetime** | **String** | Datetime formatted by ISO 8601 | [optional] 
+**resource_unit** | **String** |  | [optional] 
+**resource_time** | **Integer** |  | [optional] 
+**resource_timezone** | **String** |  | [optional] 
 **conditions** | **String** |  | [optional] 
 **payload** | **String** |  | [optional] 
 **created_at** | **DateTime** |  | [optional] 

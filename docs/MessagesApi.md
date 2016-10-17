@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **fetch_messages**
-> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uri, opts)
+> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uri)
 
 
 
@@ -33,12 +33,9 @@ offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fet
 
 resource_uri = "resource_uri_example" # String | URI of Resource
 
-opts = { 
-  datetime: "datetime_example" # String | Datetime formatted by ISO 8601. LIKE search is used.
-}
 
 begin
-  result = api_instance.fetch_messages(offset, resource_uri, opts)
+  result = api_instance.fetch_messages(offset, resource_uri)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->fetch_messages: #{e}"
@@ -51,7 +48,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
  **resource_uri** | **String**| URI of Resource | 
- **datetime** | **String**| Datetime formatted by ISO 8601. LIKE search is used. | [optional] 
 
 ### Return type
 
@@ -69,7 +65,7 @@ Name | Type | Description  | Notes
 
 
 # **send_message**
-> MessageResponse send_message(resource_uri, datetime, message)
+> MessageResponse send_message(resource_uri, resource_unit, resource_time, resource_timezone, message)
 
 
 
@@ -91,13 +87,17 @@ api_instance = TriglavClient::MessagesApi.new
 
 resource_uri = "resource_uri_example" # String | URI of Resource
 
-datetime = "datetime_example" # String | Datetime formatted by ISO 8601
+resource_unit = "resource_unit_example" # String | Unit of Resource
+
+resource_time = 56 # Integer | Resource Time
+
+resource_timezone = "resource_timezone_example" # String | Timezone of Resource Time
 
 message = TriglavClient::MessageRequest.new # MessageRequest | Message to add
 
 
 begin
-  result = api_instance.send_message(resource_uri, datetime, message)
+  result = api_instance.send_message(resource_uri, resource_unit, resource_time, resource_timezone, message)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->send_message: #{e}"
@@ -109,7 +109,9 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **resource_uri** | **String**| URI of Resource | 
- **datetime** | **String**| Datetime formatted by ISO 8601 | 
+ **resource_unit** | **String**| Unit of Resource | 
+ **resource_time** | **Integer**| Resource Time | 
+ **resource_timezone** | **String**| Timezone of Resource Time | 
  **message** | [**MessageRequest**](MessageRequest.md)| Message to add | 
 
 ### Return type
