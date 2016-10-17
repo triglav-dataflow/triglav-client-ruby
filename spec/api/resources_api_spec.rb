@@ -82,7 +82,7 @@ describe 'ResourcesApi' do
   # unit tests for list_resources
   # 
   # Returns all resources from the system
-  # @param cluster_name Name of Cluster
+  # @param uri_prefix Prefix of Resource URI
   # @param consumable Consuamble
   # @param notifiable Notifiable
   # @param [Hash] opts the optional parameters

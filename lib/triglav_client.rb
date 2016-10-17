@@ -28,9 +28,6 @@ require 'triglav_client/version'
 require 'triglav_client/configuration'
 
 # Models
-require 'triglav_client/models/cluster_each_response'
-require 'triglav_client/models/cluster_request'
-require 'triglav_client/models/cluster_response'
 require 'triglav_client/models/credential'
 require 'triglav_client/models/error_model'
 require 'triglav_client/models/job_each_response'
@@ -49,7 +46,6 @@ require 'triglav_client/models/user_response'
 
 # APIs
 require 'triglav_client/api/auth_api'
-require 'triglav_client/api/clusters_api'
 require 'triglav_client/api/jobs_api'
 require 'triglav_client/api/messages_api'
 require 'triglav_client/api/resources_api'

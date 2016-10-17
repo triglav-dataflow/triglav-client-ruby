@@ -46,10 +46,10 @@ describe 'MessagesApi' do
   # unit tests for fetch_messages
   # 
   # Fetches messages
+  # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
   # @param resource_uri URI of Resource
-  # @param offset Offset ID for Messages to fetch from
   # @param [Hash] opts the optional parameters
-  # @option opts [String] :datetime Datetime formatted by ISO 8601
+  # @option opts [String] :datetime Datetime formatted by ISO 8601. LIKE search is used.
   # @return [Array<MessageEachResponse>]
   describe 'fetch_messages test' do
     it "should work" do
