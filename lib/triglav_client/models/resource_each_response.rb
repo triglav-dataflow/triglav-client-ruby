@@ -30,12 +30,18 @@ module TriglavClient
 
     attr_accessor :uri
 
+    attr_accessor :unit
+
+    attr_accessor :day_span
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'id' => :'id',
-        :'uri' => :'uri'
+        :'uri' => :'uri',
+        :'unit' => :'unit',
+        :'day_span' => :'day_span'
       }
     end
 
@@ -43,7 +49,9 @@ module TriglavClient
     def self.swagger_types
       {
         :'id' => :'Integer',
-        :'uri' => :'String'
+        :'uri' => :'String',
+        :'unit' => :'String',
+        :'day_span' => :'Integer'
       }
     end
 
@@ -61,6 +69,14 @@ module TriglavClient
 
       if attributes.has_key?(:'uri')
         self.uri = attributes[:'uri']
+      end
+
+      if attributes.has_key?(:'unit')
+        self.unit = attributes[:'unit']
+      end
+
+      if attributes.has_key?(:'day_span')
+        self.day_span = attributes[:'day_span']
       end
 
     end
@@ -84,7 +100,9 @@ module TriglavClient
       return true if self.equal?(o)
       self.class == o.class &&
           id == o.id &&
-          uri == o.uri
+          uri == o.uri &&
+          unit == o.unit &&
+          day_span == o.day_span
     end
 
     # @see the `==` method
@@ -96,7 +114,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri].hash
+      [id, uri, unit, day_span].hash
     end
 
     # Builds the object from hash

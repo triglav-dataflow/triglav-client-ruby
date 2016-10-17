@@ -26,11 +26,15 @@ require 'date'
 module TriglavClient
 
   class ResourceRequest
-    attr_accessor :uri
-
     attr_accessor :description
 
+    attr_accessor :uri
+
     attr_accessor :cluster_name
+
+    attr_accessor :unit
+
+    attr_accessor :day_span
 
     attr_accessor :consumable
 
@@ -40,9 +44,11 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'uri' => :'uri',
         :'description' => :'description',
+        :'uri' => :'uri',
         :'cluster_name' => :'cluster_name',
+        :'unit' => :'unit',
+        :'day_span' => :'day_span',
         :'consumable' => :'consumable',
         :'notifiable' => :'notifiable'
       }
@@ -51,9 +57,11 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'uri' => :'String',
         :'description' => :'String',
+        :'uri' => :'String',
         :'cluster_name' => :'String',
+        :'unit' => :'String',
+        :'day_span' => :'Integer',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN'
       }
@@ -67,16 +75,24 @@ module TriglavClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'uri')
-        self.uri = attributes[:'uri']
-      end
-
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
       end
 
+      if attributes.has_key?(:'uri')
+        self.uri = attributes[:'uri']
+      end
+
       if attributes.has_key?(:'cluster_name')
         self.cluster_name = attributes[:'cluster_name']
+      end
+
+      if attributes.has_key?(:'unit')
+        self.unit = attributes[:'unit']
+      end
+
+      if attributes.has_key?(:'day_span')
+        self.day_span = attributes[:'day_span']
       end
 
       if attributes.has_key?(:'consumable')
@@ -101,6 +117,7 @@ module TriglavClient
     def valid?
       return false if @uri.nil?
       return false if @cluster_name.nil?
+      return false if @unit.nil?
       return true
     end
 
@@ -109,9 +126,11 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          uri == o.uri &&
           description == o.description &&
+          uri == o.uri &&
           cluster_name == o.cluster_name &&
+          unit == o.unit &&
+          day_span == o.day_span &&
           consumable == o.consumable &&
           notifiable == o.notifiable
     end
@@ -125,7 +144,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, description, cluster_name, consumable, notifiable].hash
+      [description, uri, cluster_name, unit, day_span, consumable, notifiable].hash
     end
 
     # Builds the object from hash

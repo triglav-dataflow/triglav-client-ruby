@@ -33,38 +33,38 @@ module TriglavClient
 
     # 
     # Fetches messages
+    # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
     # @param resource_uri URI of Resource
-    # @param offset Offset ID for Messages to fetch from
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :datetime Datetime formatted by ISO 8601
+    # @option opts [String] :datetime Datetime formatted by ISO 8601. LIKE search is used.
     # @return [Array<MessageEachResponse>]
-    def fetch_messages(resource_uri, offset, opts = {})
-      data, _status_code, _headers = fetch_messages_with_http_info(resource_uri, offset, opts)
+    def fetch_messages(offset, resource_uri, opts = {})
+      data, _status_code, _headers = fetch_messages_with_http_info(offset, resource_uri, opts)
       return data
     end
 
     # 
     # Fetches messages
+    # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
     # @param resource_uri URI of Resource
-    # @param offset Offset ID for Messages to fetch from
     # @param [Hash] opts the optional parameters
-    # @option opts [String] :datetime Datetime formatted by ISO 8601
+    # @option opts [String] :datetime Datetime formatted by ISO 8601. LIKE search is used.
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def fetch_messages_with_http_info(resource_uri, offset, opts = {})
+    def fetch_messages_with_http_info(offset, resource_uri, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
       end
-      # verify the required parameter 'resource_uri' is set
-      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.fetch_messages" if resource_uri.nil?
       # verify the required parameter 'offset' is set
       fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.fetch_messages" if offset.nil?
+      # verify the required parameter 'resource_uri' is set
+      fail ArgumentError, "Missing the required parameter 'resource_uri' when calling MessagesApi.fetch_messages" if resource_uri.nil?
       # resource path
       local_var_path = "/messages".sub('{format}','json')
 
       # query parameters
       query_params = {}
-      query_params[:'resource_uri'] = resource_uri
       query_params[:'offset'] = offset
+      query_params[:'resource_uri'] = resource_uri
       query_params[:'datetime'] = opts[:'datetime'] if !opts[:'datetime'].nil?
 
       # header parameters

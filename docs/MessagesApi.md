@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 
 # **fetch_messages**
-> Array&lt;MessageEachResponse&gt; fetch_messages(resource_uri, offset, opts)
+> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uri, opts)
 
 
 
@@ -29,16 +29,16 @@ end
 
 api_instance = TriglavClient::MessagesApi.new
 
+offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
+
 resource_uri = "resource_uri_example" # String | URI of Resource
 
-offset = 56 # Integer | Offset ID for Messages to fetch from
-
 opts = { 
-  datetime: "datetime_example" # String | Datetime formatted by ISO 8601
+  datetime: "datetime_example" # String | Datetime formatted by ISO 8601. LIKE search is used.
 }
 
 begin
-  result = api_instance.fetch_messages(resource_uri, offset, opts)
+  result = api_instance.fetch_messages(offset, resource_uri, opts)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->fetch_messages: #{e}"
@@ -49,9 +49,9 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
+ **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
  **resource_uri** | **String**| URI of Resource | 
- **offset** | **Integer**| Offset ID for Messages to fetch from | 
- **datetime** | **String**| Datetime formatted by ISO 8601 | [optional] 
+ **datetime** | **String**| Datetime formatted by ISO 8601. LIKE search is used. | [optional] 
 
 ### Return type
 
