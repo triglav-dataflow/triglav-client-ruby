@@ -26,7 +26,7 @@ require 'date'
 module TriglavClient
 
   class Credential
-    attr_accessor :name
+    attr_accessor :username
 
     attr_accessor :password
 
@@ -57,7 +57,7 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'name' => :'name',
+        :'username' => :'username',
         :'password' => :'password',
         :'authenticator' => :'authenticator'
       }
@@ -66,7 +66,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'name' => :'String',
+        :'username' => :'String',
         :'password' => :'String',
         :'authenticator' => :'String'
       }
@@ -80,8 +80,8 @@ module TriglavClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'name')
-        self.name = attributes[:'name']
+      if attributes.has_key?(:'username')
+        self.username = attributes[:'username']
       end
 
       if attributes.has_key?(:'password')
@@ -104,7 +104,7 @@ module TriglavClient
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      return false if @name.nil?
+      return false if @username.nil?
       return false if @password.nil?
       return false if @authenticator.nil?
       authenticator_validator = EnumAttributeValidator.new('String', ["local", "ldap"])
@@ -127,7 +127,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          name == o.name &&
+          username == o.username &&
           password == o.password &&
           authenticator == o.authenticator
     end
@@ -141,7 +141,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [name, password, authenticator].hash
+      [username, password, authenticator].hash
     end
 
     # Builds the object from hash
