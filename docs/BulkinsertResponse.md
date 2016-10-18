@@ -3,6 +3,6 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**access_token** | **Integer** | Number of imserts | [optional] 
+**num_inserts** | **Integer** | Number of inserts | [optional] 
 
 

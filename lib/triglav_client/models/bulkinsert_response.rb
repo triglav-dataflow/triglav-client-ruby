@@ -26,21 +26,21 @@ require 'date'
 module TriglavClient
 
   class BulkinsertResponse
-    # Number of imserts
-    attr_accessor :access_token
+    # Number of inserts
+    attr_accessor :num_inserts
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'access_token' => :'access_token'
+        :'num_inserts' => :'num_inserts'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'access_token' => :'Integer'
+        :'num_inserts' => :'Integer'
       }
     end
 
@@ -52,8 +52,8 @@ module TriglavClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'access_token')
-        self.access_token = attributes[:'access_token']
+      if attributes.has_key?(:'num_inserts')
+        self.num_inserts = attributes[:'num_inserts']
       end
 
     end
@@ -76,7 +76,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          access_token == o.access_token
+          num_inserts == o.num_inserts
     end
 
     # @see the `==` method
@@ -88,7 +88,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [access_token].hash
+      [num_inserts].hash
     end
 
     # Builds the object from hash
