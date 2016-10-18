@@ -28,16 +28,22 @@ module TriglavClient
   class ResourceResponse
     attr_accessor :description
 
+    # URI of Resource
     attr_accessor :uri
 
+    # Time unit of resource to monitor such as daily, or hourly
     attr_accessor :unit
 
+    # Timezone of resource time, that is, timezone of %Y-%m-%d for hdfs://path/to/%Y-%m-%d such as +09:00
     attr_accessor :timezone
 
-    attr_accessor :day_span
+    # Time span of resource to monitor. default is 32 for daily, 32*24 (32 days) for hourly
+    attr_accessor :watch_span
 
+    # True if this resource should be consumed
     attr_accessor :consumable
 
+    # True if this resource should be notified, that is, monitor agent is not necessary
     attr_accessor :notifiable
 
     attr_accessor :id
@@ -54,7 +60,7 @@ module TriglavClient
         :'uri' => :'uri',
         :'unit' => :'unit',
         :'timezone' => :'timezone',
-        :'day_span' => :'day_span',
+        :'watch_span' => :'watch_span',
         :'consumable' => :'consumable',
         :'notifiable' => :'notifiable',
         :'id' => :'id',
@@ -70,7 +76,7 @@ module TriglavClient
         :'uri' => :'String',
         :'unit' => :'String',
         :'timezone' => :'String',
-        :'day_span' => :'Integer',
+        :'watch_span' => :'Integer',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN',
         :'id' => :'Integer',
@@ -103,8 +109,8 @@ module TriglavClient
         self.timezone = attributes[:'timezone']
       end
 
-      if attributes.has_key?(:'day_span')
-        self.day_span = attributes[:'day_span']
+      if attributes.has_key?(:'watch_span')
+        self.watch_span = attributes[:'watch_span']
       end
 
       if attributes.has_key?(:'consumable')
@@ -153,7 +159,7 @@ module TriglavClient
           uri == o.uri &&
           unit == o.unit &&
           timezone == o.timezone &&
-          day_span == o.day_span &&
+          watch_span == o.watch_span &&
           consumable == o.consumable &&
           notifiable == o.notifiable &&
           id == o.id &&
@@ -170,7 +176,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, uri, unit, timezone, day_span, consumable, notifiable, id, created_at, updated_at].hash
+      [description, uri, unit, timezone, watch_span, consumable, notifiable, id, created_at, updated_at].hash
     end
 
     # Builds the object from hash

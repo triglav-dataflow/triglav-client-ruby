@@ -7,6 +7,6 @@ Name | Type | Description | Notes
 **uri** | **String** |  | [optional] 
 **unit** | **String** |  | [optional] 
 **timezone** | **String** |  | [optional] 
-**day_span** | **Integer** |  | [optional] 
+**watch_span** | **Integer** |  | [optional] 
 
 

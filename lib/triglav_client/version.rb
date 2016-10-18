@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module TriglavClient
-  VERSION = "0.1.10"
+  VERSION = "0.1.11"
 end
