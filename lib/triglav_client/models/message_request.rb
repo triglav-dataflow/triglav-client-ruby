@@ -26,14 +26,19 @@ require 'date'
 module TriglavClient
 
   class MessageRequest
+    # URI of Resource
     attr_accessor :resource_uri
 
+    # Time unit of resource to monitor such as daily, or hourly
     attr_accessor :resource_unit
 
+    # Time of Resource in unix timestamp such as 1476025200 (2016-10-10 in +09:00)
     attr_accessor :resource_time
 
+    # Timezone of resource time, that is, timezone of %Y-%m-%d for hdfs://path/to/%Y-%m-%d such as +09:00
     attr_accessor :resource_timezone
 
+    # Any json string
     attr_accessor :payload
 
 

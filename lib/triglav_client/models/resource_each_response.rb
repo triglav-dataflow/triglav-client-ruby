@@ -34,7 +34,7 @@ module TriglavClient
 
     attr_accessor :timezone
 
-    attr_accessor :watch_span
+    attr_accessor :span_in_days
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -44,7 +44,7 @@ module TriglavClient
         :'uri' => :'uri',
         :'unit' => :'unit',
         :'timezone' => :'timezone',
-        :'watch_span' => :'watch_span'
+        :'span_in_days' => :'span_in_days'
       }
     end
 
@@ -55,7 +55,7 @@ module TriglavClient
         :'uri' => :'String',
         :'unit' => :'String',
         :'timezone' => :'String',
-        :'watch_span' => :'Integer'
+        :'span_in_days' => :'Integer'
       }
     end
 
@@ -83,8 +83,8 @@ module TriglavClient
         self.timezone = attributes[:'timezone']
       end
 
-      if attributes.has_key?(:'watch_span')
-        self.watch_span = attributes[:'watch_span']
+      if attributes.has_key?(:'span_in_days')
+        self.span_in_days = attributes[:'span_in_days']
       end
 
     end
@@ -111,7 +111,7 @@ module TriglavClient
           uri == o.uri &&
           unit == o.unit &&
           timezone == o.timezone &&
-          watch_span == o.watch_span
+          span_in_days == o.span_in_days
     end
 
     # @see the `==` method
@@ -123,7 +123,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, unit, timezone, watch_span].hash
+      [id, uri, unit, timezone, span_in_days].hash
     end
 
     # Builds the object from hash

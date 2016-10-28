@@ -38,7 +38,7 @@ module TriglavClient
     attr_accessor :timezone
 
     # Time span of resource to monitor. default is 32 for daily, 32*24 (32 days) for hourly
-    attr_accessor :watch_span
+    attr_accessor :span_in_days
 
     # True if this resource should be consumed
     attr_accessor :consumable
@@ -54,7 +54,7 @@ module TriglavClient
         :'uri' => :'uri',
         :'unit' => :'unit',
         :'timezone' => :'timezone',
-        :'watch_span' => :'watch_span',
+        :'span_in_days' => :'span_in_days',
         :'consumable' => :'consumable',
         :'notifiable' => :'notifiable'
       }
@@ -67,7 +67,7 @@ module TriglavClient
         :'uri' => :'String',
         :'unit' => :'String',
         :'timezone' => :'String',
-        :'watch_span' => :'Integer',
+        :'span_in_days' => :'Integer',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN'
       }
@@ -97,8 +97,8 @@ module TriglavClient
         self.timezone = attributes[:'timezone']
       end
 
-      if attributes.has_key?(:'watch_span')
-        self.watch_span = attributes[:'watch_span']
+      if attributes.has_key?(:'span_in_days')
+        self.span_in_days = attributes[:'span_in_days']
       end
 
       if attributes.has_key?(:'consumable')
@@ -135,7 +135,7 @@ module TriglavClient
           uri == o.uri &&
           unit == o.unit &&
           timezone == o.timezone &&
-          watch_span == o.watch_span &&
+          span_in_days == o.span_in_days &&
           consumable == o.consumable &&
           notifiable == o.notifiable
     end
@@ -149,7 +149,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, uri, unit, timezone, watch_span, consumable, notifiable].hash
+      [description, uri, unit, timezone, span_in_days, consumable, notifiable].hash
     end
 
     # Builds the object from hash
