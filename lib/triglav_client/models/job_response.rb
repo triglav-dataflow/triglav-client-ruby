@@ -32,15 +32,15 @@ module TriglavClient
 
     attr_accessor :contact_id
 
+    # Input resources
+    attr_accessor :input_resources
+
+    # Output resources
+    attr_accessor :output_resources
+
     attr_accessor :created_at
 
     attr_accessor :updated_at
-
-    # New resources are created if it does not exit. Need to use Resource API to update
-    attr_accessor :input_resources
-
-    # New resources are created if it does not exit. Need to use Resource API to update
-    attr_accessor :output_resources
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -49,10 +49,10 @@ module TriglavClient
         :'id' => :'id',
         :'uri' => :'uri',
         :'contact_id' => :'contact_id',
-        :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at',
         :'input_resources' => :'input_resources',
-        :'output_resources' => :'output_resources'
+        :'output_resources' => :'output_resources',
+        :'created_at' => :'created_at',
+        :'updated_at' => :'updated_at'
       }
     end
 
@@ -62,10 +62,10 @@ module TriglavClient
         :'id' => :'Integer',
         :'uri' => :'String',
         :'contact_id' => :'Integer',
-        :'created_at' => :'DateTime',
-        :'updated_at' => :'DateTime',
         :'input_resources' => :'Array<ResourceResponse>',
-        :'output_resources' => :'Array<ResourceResponse>'
+        :'output_resources' => :'Array<ResourceResponse>',
+        :'created_at' => :'DateTime',
+        :'updated_at' => :'DateTime'
       }
     end
 
@@ -89,14 +89,6 @@ module TriglavClient
         self.contact_id = attributes[:'contact_id']
       end
 
-      if attributes.has_key?(:'created_at')
-        self.created_at = attributes[:'created_at']
-      end
-
-      if attributes.has_key?(:'updated_at')
-        self.updated_at = attributes[:'updated_at']
-      end
-
       if attributes.has_key?(:'input_resources')
         if (value = attributes[:'input_resources']).is_a?(Array)
           self.input_resources = value
@@ -107,6 +99,14 @@ module TriglavClient
         if (value = attributes[:'output_resources']).is_a?(Array)
           self.output_resources = value
         end
+      end
+
+      if attributes.has_key?(:'created_at')
+        self.created_at = attributes[:'created_at']
+      end
+
+      if attributes.has_key?(:'updated_at')
+        self.updated_at = attributes[:'updated_at']
       end
 
     end
@@ -132,10 +132,10 @@ module TriglavClient
           id == o.id &&
           uri == o.uri &&
           contact_id == o.contact_id &&
-          created_at == o.created_at &&
-          updated_at == o.updated_at &&
           input_resources == o.input_resources &&
-          output_resources == o.output_resources
+          output_resources == o.output_resources &&
+          created_at == o.created_at &&
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -147,7 +147,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, contact_id, created_at, updated_at, input_resources, output_resources].hash
+      [id, uri, contact_id, input_resources, output_resources, created_at, updated_at].hash
     end
 
     # Builds the object from hash

@@ -26,21 +26,22 @@ require 'date'
 module TriglavClient
 
   class ResourceEachResponse
-    attr_accessor :id
-
+    # resource uri
     attr_accessor :uri
 
+    # 'daily' or 'hourly', and 'daily,hourly'
     attr_accessor :unit
 
+    # timezone of the format [+-]HH:MM
     attr_accessor :timezone
 
+    # span in days
     attr_accessor :span_in_days
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'id' => :'id',
         :'uri' => :'uri',
         :'unit' => :'unit',
         :'timezone' => :'timezone',
@@ -51,7 +52,6 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'id' => :'Integer',
         :'uri' => :'String',
         :'unit' => :'String',
         :'timezone' => :'String',
@@ -66,10 +66,6 @@ module TriglavClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
-
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
 
       if attributes.has_key?(:'uri')
         self.uri = attributes[:'uri']
@@ -107,7 +103,6 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          id == o.id &&
           uri == o.uri &&
           unit == o.unit &&
           timezone == o.timezone &&
@@ -123,7 +118,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, unit, timezone, span_in_days].hash
+      [uri, unit, timezone, span_in_days].hash
     end
 
     # Builds the object from hash

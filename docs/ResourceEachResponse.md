@@ -3,10 +3,9 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **Integer** |  | [optional] 
-**uri** | **String** |  | [optional] 
-**unit** | **String** |  | [optional] 
-**timezone** | **String** |  | [optional] 
-**span_in_days** | **Integer** |  | [optional] 
+**uri** | **String** | resource uri | [optional] 
+**unit** | **String** | &#39;daily&#39; or &#39;hourly&#39;, and &#39;daily,hourly&#39; | [optional] 
+**timezone** | **String** | timezone of the format [+-]HH:MM | [optional] 
+**span_in_days** | **Integer** | span in days | [optional] 
 
 

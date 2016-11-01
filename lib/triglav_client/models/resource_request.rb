@@ -26,6 +26,8 @@ require 'date'
 module TriglavClient
 
   class ResourceRequest
+    attr_accessor :id
+
     attr_accessor :description
 
     # URI of Resource
@@ -37,7 +39,7 @@ module TriglavClient
     # Timezone of resource time, that is, timezone of %Y-%m-%d for hdfs://path/to/%Y-%m-%d such as +09:00
     attr_accessor :timezone
 
-    # Time span of resource to monitor. default is 32 for daily, 32*24 (32 days) for hourly
+    # Time span of resource to monitor, default is 32
     attr_accessor :span_in_days
 
     # True if this resource should be consumed
@@ -50,6 +52,7 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'description' => :'description',
         :'uri' => :'uri',
         :'unit' => :'unit',
@@ -63,6 +66,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'Integer',
         :'description' => :'String',
         :'uri' => :'String',
         :'unit' => :'String',
@@ -80,6 +84,10 @@ module TriglavClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
@@ -122,7 +130,6 @@ module TriglavClient
     # @return true if the model is valid
     def valid?
       return false if @uri.nil?
-      return false if @unit.nil?
       return true
     end
 
@@ -131,6 +138,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           description == o.description &&
           uri == o.uri &&
           unit == o.unit &&
@@ -149,7 +157,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, uri, unit, timezone, span_in_days, consumable, notifiable].hash
+      [id, description, uri, unit, timezone, span_in_days, consumable, notifiable].hash
     end
 
     # Builds the object from hash

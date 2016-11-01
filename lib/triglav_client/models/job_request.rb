@@ -26,20 +26,23 @@ require 'date'
 module TriglavClient
 
   class JobRequest
+    attr_accessor :id
+
     attr_accessor :uri
 
     attr_accessor :contact_id
 
-    # New resources are created if it does not exit. Need to use Resource API to update
+    # New resources are created if id is not given. Update if id is given
     attr_accessor :input_resources
 
-    # New resources are created if it does not exit. Need to use Resource API to update
+    # New resources are created if id is not given. Update if id is given
     attr_accessor :output_resources
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'uri' => :'uri',
         :'contact_id' => :'contact_id',
         :'input_resources' => :'input_resources',
@@ -50,6 +53,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'Integer',
         :'uri' => :'String',
         :'contact_id' => :'Integer',
         :'input_resources' => :'Array<ResourceRequest>',
@@ -64,6 +68,10 @@ module TriglavClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'uri')
         self.uri = attributes[:'uri']
@@ -105,6 +113,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           uri == o.uri &&
           contact_id == o.contact_id &&
           input_resources == o.input_resources &&
@@ -120,7 +129,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, contact_id, input_resources, output_resources].hash
+      [id, uri, contact_id, input_resources, output_resources].hash
     end
 
     # Builds the object from hash

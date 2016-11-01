@@ -26,6 +26,8 @@ require 'date'
 module TriglavClient
 
   class ResourceResponse
+    attr_accessor :id
+
     attr_accessor :description
 
     # URI of Resource
@@ -37,7 +39,7 @@ module TriglavClient
     # Timezone of resource time, that is, timezone of %Y-%m-%d for hdfs://path/to/%Y-%m-%d such as +09:00
     attr_accessor :timezone
 
-    # Time span of resource to monitor. default is 32 for daily, 32*24 (32 days) for hourly
+    # Time span of resource to monitor, default is 32
     attr_accessor :span_in_days
 
     # True if this resource should be consumed
@@ -45,8 +47,6 @@ module TriglavClient
 
     # True if this resource should be notified, that is, monitor agent is not necessary
     attr_accessor :notifiable
-
-    attr_accessor :id
 
     attr_accessor :created_at
 
@@ -56,6 +56,7 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'description' => :'description',
         :'uri' => :'uri',
         :'unit' => :'unit',
@@ -63,7 +64,6 @@ module TriglavClient
         :'span_in_days' => :'span_in_days',
         :'consumable' => :'consumable',
         :'notifiable' => :'notifiable',
-        :'id' => :'id',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -72,6 +72,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'Integer',
         :'description' => :'String',
         :'uri' => :'String',
         :'unit' => :'String',
@@ -79,7 +80,6 @@ module TriglavClient
         :'span_in_days' => :'Integer',
         :'consumable' => :'BOOLEAN',
         :'notifiable' => :'BOOLEAN',
-        :'id' => :'Integer',
         :'created_at' => :'DateTime',
         :'updated_at' => :'DateTime'
       }
@@ -92,6 +92,10 @@ module TriglavClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'description')
         self.description = attributes[:'description']
@@ -121,10 +125,6 @@ module TriglavClient
         self.notifiable = attributes[:'notifiable']
       end
 
-      if attributes.has_key?(:'id')
-        self.id = attributes[:'id']
-      end
-
       if attributes.has_key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
@@ -146,7 +146,6 @@ module TriglavClient
     # @return true if the model is valid
     def valid?
       return false if @uri.nil?
-      return false if @unit.nil?
       return true
     end
 
@@ -155,6 +154,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           description == o.description &&
           uri == o.uri &&
           unit == o.unit &&
@@ -162,7 +162,6 @@ module TriglavClient
           span_in_days == o.span_in_days &&
           consumable == o.consumable &&
           notifiable == o.notifiable &&
-          id == o.id &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -176,7 +175,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [description, uri, unit, timezone, span_in_days, consumable, notifiable, id, created_at, updated_at].hash
+      [id, description, uri, unit, timezone, span_in_days, consumable, notifiable, created_at, updated_at].hash
     end
 
     # Builds the object from hash
