@@ -205,11 +205,10 @@ module TriglavClient
     # Returns all resources from the system
     # @param uri_prefix Prefix of Resource URI
     # @param consumable Consuamble
-    # @param notifiable Notifiable
     # @param [Hash] opts the optional parameters
     # @return [Array<ResourceEachResponse>]
-    def list_resources(uri_prefix, consumable, notifiable, opts = {})
-      data, _status_code, _headers = list_resources_with_http_info(uri_prefix, consumable, notifiable, opts)
+    def list_resources(uri_prefix, consumable, opts = {})
+      data, _status_code, _headers = list_resources_with_http_info(uri_prefix, consumable, opts)
       return data
     end
 
@@ -217,10 +216,9 @@ module TriglavClient
     # Returns all resources from the system
     # @param uri_prefix Prefix of Resource URI
     # @param consumable Consuamble
-    # @param notifiable Notifiable
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ResourceEachResponse>, Fixnum, Hash)>] Array<ResourceEachResponse> data, response status code and response headers
-    def list_resources_with_http_info(uri_prefix, consumable, notifiable, opts = {})
+    def list_resources_with_http_info(uri_prefix, consumable, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ResourcesApi.list_resources ..."
       end
@@ -228,8 +226,6 @@ module TriglavClient
       fail ArgumentError, "Missing the required parameter 'uri_prefix' when calling ResourcesApi.list_resources" if uri_prefix.nil?
       # verify the required parameter 'consumable' is set
       fail ArgumentError, "Missing the required parameter 'consumable' when calling ResourcesApi.list_resources" if consumable.nil?
-      # verify the required parameter 'notifiable' is set
-      fail ArgumentError, "Missing the required parameter 'notifiable' when calling ResourcesApi.list_resources" if notifiable.nil?
       # resource path
       local_var_path = "/resources".sub('{format}','json')
 
@@ -237,7 +233,6 @@ module TriglavClient
       query_params = {}
       query_params[:'uri_prefix'] = uri_prefix
       query_params[:'consumable'] = consumable
-      query_params[:'notifiable'] = notifiable
 
       # header parameters
       header_params = {}

@@ -170,7 +170,7 @@ Name | Type | Description  | Notes
 
 
 # **list_resources**
-> Array&lt;ResourceEachResponse&gt; list_resources(uri_prefix, consumable, notifiable)
+> Array&lt;ResourceEachResponse&gt; list_resources(uri_prefix, consumable)
 
 
 
@@ -194,11 +194,9 @@ uri_prefix = "uri_prefix_example" # String | Prefix of Resource URI
 
 consumable = true # BOOLEAN | Consuamble
 
-notifiable = true # BOOLEAN | Notifiable
-
 
 begin
-  result = api_instance.list_resources(uri_prefix, consumable, notifiable)
+  result = api_instance.list_resources(uri_prefix, consumable)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling ResourcesApi->list_resources: #{e}"
@@ -211,7 +209,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **uri_prefix** | **String**| Prefix of Resource URI | 
  **consumable** | **BOOLEAN**| Consuamble | 
- **notifiable** | **BOOLEAN**| Notifiable | 
 
 ### Return type
 
