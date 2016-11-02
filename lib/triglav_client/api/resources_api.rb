@@ -202,37 +202,88 @@ module TriglavClient
     end
 
     # 
-    # Returns all resources from the system
+    # Returns resources required to be monitored
     # @param uri_prefix Prefix of Resource URI
-    # @param consumable Consuamble
     # @param [Hash] opts the optional parameters
     # @return [Array<ResourceEachResponse>]
-    def list_resources(uri_prefix, consumable, opts = {})
-      data, _status_code, _headers = list_resources_with_http_info(uri_prefix, consumable, opts)
+    def list_mon_resources(uri_prefix, opts = {})
+      data, _status_code, _headers = list_mon_resources_with_http_info(uri_prefix, opts)
       return data
     end
 
     # 
-    # Returns all resources from the system
+    # Returns resources required to be monitored
     # @param uri_prefix Prefix of Resource URI
-    # @param consumable Consuamble
     # @param [Hash] opts the optional parameters
     # @return [Array<(Array<ResourceEachResponse>, Fixnum, Hash)>] Array<ResourceEachResponse> data, response status code and response headers
-    def list_resources_with_http_info(uri_prefix, consumable, opts = {})
+    def list_mon_resources_with_http_info(uri_prefix, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: ResourcesApi.list_mon_resources ..."
+      end
+      # verify the required parameter 'uri_prefix' is set
+      fail ArgumentError, "Missing the required parameter 'uri_prefix' when calling ResourcesApi.list_mon_resources" if uri_prefix.nil?
+      # resource path
+      local_var_path = "/mon_resources".sub('{format}','json')
+
+      # query parameters
+      query_params = {}
+      query_params[:'uri_prefix'] = uri_prefix
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'Array<ResourceEachResponse>')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: ResourcesApi#list_mon_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # 
+    # Returns all resources
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :uri_prefix Prefix of Resource URI
+    # @return [Array<ResourceEachResponse>]
+    def list_resources(opts = {})
+      data, _status_code, _headers = list_resources_with_http_info(opts)
+      return data
+    end
+
+    # 
+    # Returns all resources
+    # @param [Hash] opts the optional parameters
+    # @option opts [String] :uri_prefix Prefix of Resource URI
+    # @return [Array<(Array<ResourceEachResponse>, Fixnum, Hash)>] Array<ResourceEachResponse> data, response status code and response headers
+    def list_resources_with_http_info(opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ResourcesApi.list_resources ..."
       end
-      # verify the required parameter 'uri_prefix' is set
-      fail ArgumentError, "Missing the required parameter 'uri_prefix' when calling ResourcesApi.list_resources" if uri_prefix.nil?
-      # verify the required parameter 'consumable' is set
-      fail ArgumentError, "Missing the required parameter 'consumable' when calling ResourcesApi.list_resources" if consumable.nil?
       # resource path
       local_var_path = "/resources".sub('{format}','json')
 
       # query parameters
       query_params = {}
-      query_params[:'uri_prefix'] = uri_prefix
-      query_params[:'consumable'] = consumable
+      query_params[:'uri_prefix'] = opts[:'uri_prefix'] if !opts[:'uri_prefix'].nil?
 
       # header parameters
       header_params = {}

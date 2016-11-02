@@ -42,6 +42,12 @@ module TriglavClient
     # Time span of resource to monitor, default is 32
     attr_accessor :span_in_days
 
+    # True if this resource should be consumed. Input resources are automatically set to true, and output resources are set to false
+    attr_accessor :consumable
+
+    # True if a job notifies its end of task to triglav for this resource, that is, monitoring in agent is not necessary
+    attr_accessor :notifiable
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -51,7 +57,9 @@ module TriglavClient
         :'uri' => :'uri',
         :'unit' => :'unit',
         :'timezone' => :'timezone',
-        :'span_in_days' => :'span_in_days'
+        :'span_in_days' => :'span_in_days',
+        :'consumable' => :'consumable',
+        :'notifiable' => :'notifiable'
       }
     end
 
@@ -63,7 +71,9 @@ module TriglavClient
         :'uri' => :'String',
         :'unit' => :'String',
         :'timezone' => :'String',
-        :'span_in_days' => :'Integer'
+        :'span_in_days' => :'Integer',
+        :'consumable' => :'BOOLEAN',
+        :'notifiable' => :'BOOLEAN'
       }
     end
 
@@ -99,6 +109,14 @@ module TriglavClient
         self.span_in_days = attributes[:'span_in_days']
       end
 
+      if attributes.has_key?(:'consumable')
+        self.consumable = attributes[:'consumable']
+      end
+
+      if attributes.has_key?(:'notifiable')
+        self.notifiable = attributes[:'notifiable']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -125,7 +143,9 @@ module TriglavClient
           uri == o.uri &&
           unit == o.unit &&
           timezone == o.timezone &&
-          span_in_days == o.span_in_days
+          span_in_days == o.span_in_days &&
+          consumable == o.consumable &&
+          notifiable == o.notifiable
     end
 
     # @see the `==` method
@@ -137,7 +157,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, description, uri, unit, timezone, span_in_days].hash
+      [id, description, uri, unit, timezone, span_in_days, consumable, notifiable].hash
     end
 
     # Builds the object from hash

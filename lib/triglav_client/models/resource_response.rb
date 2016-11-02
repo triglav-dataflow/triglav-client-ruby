@@ -42,12 +42,15 @@ module TriglavClient
     # Time span of resource to monitor, default is 32
     attr_accessor :span_in_days
 
+    # True if this resource should be consumed. Input resources are automatically set to true, and output resources are set to false
+    attr_accessor :consumable
+
+    # True if a job notifies its end of task to triglav for this resource, that is, monitoring in agent is not necessary
+    attr_accessor :notifiable
+
     attr_accessor :created_at
 
     attr_accessor :updated_at
-
-    # True if this resource should be consumed (if in input_resources)
-    attr_accessor :consumable
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
@@ -59,9 +62,10 @@ module TriglavClient
         :'unit' => :'unit',
         :'timezone' => :'timezone',
         :'span_in_days' => :'span_in_days',
+        :'consumable' => :'consumable',
+        :'notifiable' => :'notifiable',
         :'created_at' => :'created_at',
-        :'updated_at' => :'updated_at',
-        :'consumable' => :'consumable'
+        :'updated_at' => :'updated_at'
       }
     end
 
@@ -74,9 +78,10 @@ module TriglavClient
         :'unit' => :'String',
         :'timezone' => :'String',
         :'span_in_days' => :'Integer',
+        :'consumable' => :'BOOLEAN',
+        :'notifiable' => :'BOOLEAN',
         :'created_at' => :'DateTime',
-        :'updated_at' => :'DateTime',
-        :'consumable' => :'BOOLEAN'
+        :'updated_at' => :'DateTime'
       }
     end
 
@@ -112,16 +117,20 @@ module TriglavClient
         self.span_in_days = attributes[:'span_in_days']
       end
 
+      if attributes.has_key?(:'consumable')
+        self.consumable = attributes[:'consumable']
+      end
+
+      if attributes.has_key?(:'notifiable')
+        self.notifiable = attributes[:'notifiable']
+      end
+
       if attributes.has_key?(:'created_at')
         self.created_at = attributes[:'created_at']
       end
 
       if attributes.has_key?(:'updated_at')
         self.updated_at = attributes[:'updated_at']
-      end
-
-      if attributes.has_key?(:'consumable')
-        self.consumable = attributes[:'consumable']
       end
 
     end
@@ -151,9 +160,10 @@ module TriglavClient
           unit == o.unit &&
           timezone == o.timezone &&
           span_in_days == o.span_in_days &&
+          consumable == o.consumable &&
+          notifiable == o.notifiable &&
           created_at == o.created_at &&
-          updated_at == o.updated_at &&
-          consumable == o.consumable
+          updated_at == o.updated_at
     end
 
     # @see the `==` method
@@ -165,7 +175,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, description, uri, unit, timezone, span_in_days, created_at, updated_at, consumable].hash
+      [id, description, uri, unit, timezone, span_in_days, consumable, notifiable, created_at, updated_at].hash
     end
 
     # Builds the object from hash

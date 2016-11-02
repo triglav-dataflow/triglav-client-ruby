@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**create_resource**](ResourcesApi.md#create_resource) | **POST** /resources | 
 [**delete_resource**](ResourcesApi.md#delete_resource) | **DELETE** /resources/{id_or_uri} | 
 [**get_resource**](ResourcesApi.md#get_resource) | **GET** /resources/{id_or_uri} | 
+[**list_mon_resources**](ResourcesApi.md#list_mon_resources) | **GET** /mon_resources | 
 [**list_resources**](ResourcesApi.md#list_resources) | **GET** /resources | 
 [**update_resource**](ResourcesApi.md#update_resource) | **PATCH** /resources/{id_or_uri} | 
 
@@ -169,12 +170,12 @@ Name | Type | Description  | Notes
 
 
 
-# **list_resources**
-> Array&lt;ResourceEachResponse&gt; list_resources(uri_prefix, consumable)
+# **list_mon_resources**
+> Array&lt;ResourceEachResponse&gt; list_mon_resources(uri_prefix)
 
 
 
-Returns all resources from the system
+Returns resources required to be monitored
 
 ### Example
 ```ruby
@@ -192,11 +193,63 @@ api_instance = TriglavClient::ResourcesApi.new
 
 uri_prefix = "uri_prefix_example" # String | Prefix of Resource URI
 
-consumable = true # BOOLEAN | Consuamble
-
 
 begin
-  result = api_instance.list_resources(uri_prefix, consumable)
+  result = api_instance.list_mon_resources(uri_prefix)
+  p result
+rescue TriglavClient::ApiError => e
+  puts "Exception when calling ResourcesApi->list_mon_resources: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **uri_prefix** | **String**| Prefix of Resource URI | 
+
+### Return type
+
+[**Array&lt;ResourceEachResponse&gt;**](ResourceEachResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **list_resources**
+> Array&lt;ResourceEachResponse&gt; list_resources(opts)
+
+
+
+Returns all resources
+
+### Example
+```ruby
+# load the gem
+require 'triglav_client'
+# setup authorization
+TriglavClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = TriglavClient::ResourcesApi.new
+
+opts = { 
+  uri_prefix: "uri_prefix_example" # String | Prefix of Resource URI
+}
+
+begin
+  result = api_instance.list_resources(opts)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling ResourcesApi->list_resources: #{e}"
@@ -207,8 +260,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **uri_prefix** | **String**| Prefix of Resource URI | 
- **consumable** | **BOOLEAN**| Consuamble | 
+ **uri_prefix** | **String**| Prefix of Resource URI | [optional] 
 
 ### Return type
 
