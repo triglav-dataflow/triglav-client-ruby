@@ -171,7 +171,7 @@ Name | Type | Description  | Notes
 
 
 # **list_mon_resources**
-> Array&lt;ResourceEachResponse&gt; list_mon_resources(uri_prefix)
+> Array&lt;MonResourceEachResponse&gt; list_mon_resources(uri_prefix)
 
 
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;ResourceEachResponse&gt;**](ResourceEachResponse.md)
+[**Array&lt;MonResourceEachResponse&gt;**](MonResourceEachResponse.md)
 
 ### Authorization
 

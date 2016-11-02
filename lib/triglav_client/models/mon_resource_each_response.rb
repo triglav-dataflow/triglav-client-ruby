@@ -25,11 +25,11 @@ require 'date'
 
 module TriglavClient
 
-  class ResourceEachResponse
+  class MonResourceEachResponse
     # resource uri
     attr_accessor :uri
 
-    # 'daily' or 'hourly'
+    # 'daily' or 'hourly', and 'daily,hourly'
     attr_accessor :unit
 
     # timezone of the format [+-]HH:MM
@@ -38,12 +38,6 @@ module TriglavClient
     # span in days
     attr_accessor :span_in_days
 
-    # True if this resource should be consumed
-    attr_accessor :consumable
-
-    # True if a job notifies its end of task to triglav for this resource, that is, monitoring in agent is not necessary
-    attr_accessor :notifiable
-
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
@@ -51,9 +45,7 @@ module TriglavClient
         :'uri' => :'uri',
         :'unit' => :'unit',
         :'timezone' => :'timezone',
-        :'span_in_days' => :'span_in_days',
-        :'consumable' => :'consumable',
-        :'notifiable' => :'notifiable'
+        :'span_in_days' => :'span_in_days'
       }
     end
 
@@ -63,9 +55,7 @@ module TriglavClient
         :'uri' => :'String',
         :'unit' => :'String',
         :'timezone' => :'String',
-        :'span_in_days' => :'Integer',
-        :'consumable' => :'BOOLEAN',
-        :'notifiable' => :'BOOLEAN'
+        :'span_in_days' => :'Integer'
       }
     end
 
@@ -93,14 +83,6 @@ module TriglavClient
         self.span_in_days = attributes[:'span_in_days']
       end
 
-      if attributes.has_key?(:'consumable')
-        self.consumable = attributes[:'consumable']
-      end
-
-      if attributes.has_key?(:'notifiable')
-        self.notifiable = attributes[:'notifiable']
-      end
-
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -124,9 +106,7 @@ module TriglavClient
           uri == o.uri &&
           unit == o.unit &&
           timezone == o.timezone &&
-          span_in_days == o.span_in_days &&
-          consumable == o.consumable &&
-          notifiable == o.notifiable
+          span_in_days == o.span_in_days
     end
 
     # @see the `==` method
@@ -138,7 +118,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [uri, unit, timezone, span_in_days, consumable, notifiable].hash
+      [uri, unit, timezone, span_in_days].hash
     end
 
     # Builds the object from hash

@@ -205,7 +205,7 @@ module TriglavClient
     # Returns resources required to be monitored
     # @param uri_prefix Prefix of Resource URI
     # @param [Hash] opts the optional parameters
-    # @return [Array<ResourceEachResponse>]
+    # @return [Array<MonResourceEachResponse>]
     def list_mon_resources(uri_prefix, opts = {})
       data, _status_code, _headers = list_mon_resources_with_http_info(uri_prefix, opts)
       return data
@@ -215,7 +215,7 @@ module TriglavClient
     # Returns resources required to be monitored
     # @param uri_prefix Prefix of Resource URI
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<ResourceEachResponse>, Fixnum, Hash)>] Array<ResourceEachResponse> data, response status code and response headers
+    # @return [Array<(Array<MonResourceEachResponse>, Fixnum, Hash)>] Array<MonResourceEachResponse> data, response status code and response headers
     def list_mon_resources_with_http_info(uri_prefix, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: ResourcesApi.list_mon_resources ..."
@@ -252,7 +252,7 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<ResourceEachResponse>')
+        :return_type => 'Array<MonResourceEachResponse>')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: ResourcesApi#list_mon_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
