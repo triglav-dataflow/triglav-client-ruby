@@ -4,7 +4,8 @@ All URIs are relative to *http://localhost/api/v1*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**fetch_messages**](MessagesApi.md#fetch_messages) | **GET** /messages | 
+[**fetch_messages**](MessagesApi.md#fetch_messages) | **POST** /fetch_messages | 
+[**list_messages**](MessagesApi.md#list_messages) | **GET** /messages | 
 [**send_messages**](MessagesApi.md#send_messages) | **POST** /messages | 
 
 
@@ -13,7 +14,7 @@ Method | HTTP request | Description
 
 
 
-Fetches messages
+Fetch messages with HTTP POST method
 
 ### Example
 ```ruby
@@ -49,6 +50,65 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
+ **limit** | **Integer**| Number of limits | 
+ **resource_uris** | **String**| URIs of Resource | 
+
+### Return type
+
+[**Array&lt;MessageEachResponse&gt;**](MessageEachResponse.md)
+
+### Authorization
+
+[api_key](../README.md#api_key)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+
+
+# **list_messages**
+> Array&lt;MessageEachResponse&gt; list_messages(offset, limit, resource_uris)
+
+
+
+List messages with HTTP GET method
+
+### Example
+```ruby
+# load the gem
+require 'triglav_client'
+# setup authorization
+TriglavClient.configure do |config|
+  # Configure API key authorization: api_key
+  config.api_key['Authorization'] = 'YOUR API KEY'
+  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
+  #config.api_key_prefix['Authorization'] = 'Bearer'
+end
+
+api_instance = TriglavClient::MessagesApi.new
+
+offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to list from
+
+limit = 56 # Integer | Number of limits
+
+resource_uris = "resource_uris_example" # String | URIs of Resource
+
+
+begin
+  result = api_instance.list_messages(offset, limit, resource_uris)
+  p result
+rescue TriglavClient::ApiError => e
+  puts "Exception when calling MessagesApi->list_messages: #{e}"
+end
+```
+
+### Parameters
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to list from | 
  **limit** | **Integer**| Number of limits | 
  **resource_uris** | **String**| URIs of Resource | 
 
