@@ -1,4 +1,4 @@
-# TriglavClient::MonResourceEachResponse
+# TriglavClient::AggregatedResourceEachResponse
 
 ## Properties
 Name | Type | Description | Notes

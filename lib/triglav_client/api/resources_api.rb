@@ -202,28 +202,28 @@ module TriglavClient
     end
 
     # 
-    # Returns resources required to be monitored
+    # Returns aggregated resources to be monitored
     # @param uri_prefix Prefix of Resource URI
     # @param [Hash] opts the optional parameters
-    # @return [Array<MonResourceEachResponse>]
-    def list_mon_resources(uri_prefix, opts = {})
-      data, _status_code, _headers = list_mon_resources_with_http_info(uri_prefix, opts)
+    # @return [Array<AggregatedResourceEachResponse>]
+    def list_aggregated_resources(uri_prefix, opts = {})
+      data, _status_code, _headers = list_aggregated_resources_with_http_info(uri_prefix, opts)
       return data
     end
 
     # 
-    # Returns resources required to be monitored
+    # Returns aggregated resources to be monitored
     # @param uri_prefix Prefix of Resource URI
     # @param [Hash] opts the optional parameters
-    # @return [Array<(Array<MonResourceEachResponse>, Fixnum, Hash)>] Array<MonResourceEachResponse> data, response status code and response headers
-    def list_mon_resources_with_http_info(uri_prefix, opts = {})
+    # @return [Array<(Array<AggregatedResourceEachResponse>, Fixnum, Hash)>] Array<AggregatedResourceEachResponse> data, response status code and response headers
+    def list_aggregated_resources_with_http_info(uri_prefix, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: ResourcesApi.list_mon_resources ..."
+        @api_client.config.logger.debug "Calling API: ResourcesApi.list_aggregated_resources ..."
       end
       # verify the required parameter 'uri_prefix' is set
-      fail ArgumentError, "Missing the required parameter 'uri_prefix' when calling ResourcesApi.list_mon_resources" if uri_prefix.nil?
+      fail ArgumentError, "Missing the required parameter 'uri_prefix' when calling ResourcesApi.list_aggregated_resources" if uri_prefix.nil?
       # resource path
-      local_var_path = "/mon_resources".sub('{format}','json')
+      local_var_path = "/aggregated_resources".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -252,9 +252,9 @@ module TriglavClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'Array<MonResourceEachResponse>')
+        :return_type => 'Array<AggregatedResourceEachResponse>')
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: ResourcesApi#list_mon_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: ResourcesApi#list_aggregated_resources\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

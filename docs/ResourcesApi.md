@@ -7,7 +7,7 @@ Method | HTTP request | Description
 [**create_resource**](ResourcesApi.md#create_resource) | **POST** /resources | 
 [**delete_resource**](ResourcesApi.md#delete_resource) | **DELETE** /resources/{id_or_uri} | 
 [**get_resource**](ResourcesApi.md#get_resource) | **GET** /resources/{id_or_uri} | 
-[**list_mon_resources**](ResourcesApi.md#list_mon_resources) | **GET** /mon_resources | 
+[**list_aggregated_resources**](ResourcesApi.md#list_aggregated_resources) | **GET** /aggregated_resources | 
 [**list_resources**](ResourcesApi.md#list_resources) | **GET** /resources | 
 [**update_resource**](ResourcesApi.md#update_resource) | **PATCH** /resources/{id_or_uri} | 
 
@@ -170,12 +170,12 @@ Name | Type | Description  | Notes
 
 
 
-# **list_mon_resources**
-> Array&lt;MonResourceEachResponse&gt; list_mon_resources(uri_prefix)
+# **list_aggregated_resources**
+> Array&lt;AggregatedResourceEachResponse&gt; list_aggregated_resources(uri_prefix)
 
 
 
-Returns resources required to be monitored
+Returns aggregated resources to be monitored
 
 ### Example
 ```ruby
@@ -195,10 +195,10 @@ uri_prefix = "uri_prefix_example" # String | Prefix of Resource URI
 
 
 begin
-  result = api_instance.list_mon_resources(uri_prefix)
+  result = api_instance.list_aggregated_resources(uri_prefix)
   p result
 rescue TriglavClient::ApiError => e
-  puts "Exception when calling ResourcesApi->list_mon_resources: #{e}"
+  puts "Exception when calling ResourcesApi->list_aggregated_resources: #{e}"
 end
 ```
 
@@ -210,7 +210,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Array&lt;MonResourceEachResponse&gt;**](MonResourceEachResponse.md)
+[**Array&lt;AggregatedResourceEachResponse&gt;**](AggregatedResourceEachResponse.md)
 
 ### Authorization
 

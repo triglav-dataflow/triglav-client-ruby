@@ -25,7 +25,7 @@ require 'date'
 
 module TriglavClient
 
-  class MonResourceEachResponse
+  class AggregatedResourceEachResponse
     # resource uri
     attr_accessor :uri
 
