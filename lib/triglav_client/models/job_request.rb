@@ -30,8 +30,6 @@ module TriglavClient
 
     attr_accessor :uri
 
-    attr_accessor :contact_id
-
     # New resources are created if id is not given. Update if id is given
     attr_accessor :input_resources
 
@@ -44,7 +42,6 @@ module TriglavClient
       {
         :'id' => :'id',
         :'uri' => :'uri',
-        :'contact_id' => :'contact_id',
         :'input_resources' => :'input_resources',
         :'output_resources' => :'output_resources'
       }
@@ -55,7 +52,6 @@ module TriglavClient
       {
         :'id' => :'Integer',
         :'uri' => :'String',
-        :'contact_id' => :'Integer',
         :'input_resources' => :'Array<ResourceRequest>',
         :'output_resources' => :'Array<ResourceRequest>'
       }
@@ -75,10 +71,6 @@ module TriglavClient
 
       if attributes.has_key?(:'uri')
         self.uri = attributes[:'uri']
-      end
-
-      if attributes.has_key?(:'contact_id')
-        self.contact_id = attributes[:'contact_id']
       end
 
       if attributes.has_key?(:'input_resources')
@@ -115,7 +107,6 @@ module TriglavClient
       self.class == o.class &&
           id == o.id &&
           uri == o.uri &&
-          contact_id == o.contact_id &&
           input_resources == o.input_resources &&
           output_resources == o.output_resources
     end
@@ -129,7 +120,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, contact_id, input_resources, output_resources].hash
+      [id, uri, input_resources, output_resources].hash
     end
 
     # Builds the object from hash
