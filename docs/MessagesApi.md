@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **fetch_messages**
-> Array&lt;MessageEachResponse&gt; fetch_messages(offset, limit, resource_uris)
+> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uris, opts)
 
 
 
@@ -32,13 +32,14 @@ api_instance = TriglavClient::MessagesApi.new
 
 offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
 
-limit = 56 # Integer | Number of limits
-
 resource_uris = "resource_uris_example" # String | URIs of Resource
 
+opts = { 
+  limit: 56 # Integer | Number of limits
+}
 
 begin
-  result = api_instance.fetch_messages(offset, limit, resource_uris)
+  result = api_instance.fetch_messages(offset, resource_uris, opts)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->fetch_messages: #{e}"
@@ -50,8 +51,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
- **limit** | **Integer**| Number of limits | 
  **resource_uris** | **String**| URIs of Resource | 
+ **limit** | **Integer**| Number of limits | [optional] 
 
 ### Return type
 
@@ -69,7 +70,7 @@ Name | Type | Description  | Notes
 
 
 # **list_messages**
-> Array&lt;MessageEachResponse&gt; list_messages(offset, limit, resource_uris)
+> Array&lt;MessageEachResponse&gt; list_messages(offset, resource_uris, opts)
 
 
 
@@ -91,13 +92,14 @@ api_instance = TriglavClient::MessagesApi.new
 
 offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to list from
 
-limit = 56 # Integer | Number of limits
-
 resource_uris = "resource_uris_example" # String | URIs of Resource
 
+opts = { 
+  limit: 56 # Integer | Number of limits
+}
 
 begin
-  result = api_instance.list_messages(offset, limit, resource_uris)
+  result = api_instance.list_messages(offset, resource_uris, opts)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->list_messages: #{e}"
@@ -109,8 +111,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to list from | 
- **limit** | **Integer**| Number of limits | 
  **resource_uris** | **String**| URIs of Resource | 
+ **limit** | **Integer**| Number of limits | [optional] 
 
 ### Return type
 

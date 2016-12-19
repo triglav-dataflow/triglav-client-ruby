@@ -34,30 +34,28 @@ module TriglavClient
     # 
     # Fetch messages with HTTP POST method
     # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
-    # @param limit Number of limits
     # @param resource_uris URIs of Resource
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Number of limits
     # @return [Array<MessageEachResponse>]
-    def fetch_messages(offset, limit, resource_uris, opts = {})
-      data, _status_code, _headers = fetch_messages_with_http_info(offset, limit, resource_uris, opts)
+    def fetch_messages(offset, resource_uris, opts = {})
+      data, _status_code, _headers = fetch_messages_with_http_info(offset, resource_uris, opts)
       return data
     end
 
     # 
     # Fetch messages with HTTP POST method
     # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
-    # @param limit Number of limits
     # @param resource_uris URIs of Resource
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Number of limits
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def fetch_messages_with_http_info(offset, limit, resource_uris, opts = {})
+    def fetch_messages_with_http_info(offset, resource_uris, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
       end
       # verify the required parameter 'offset' is set
       fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.fetch_messages" if offset.nil?
-      # verify the required parameter 'limit' is set
-      fail ArgumentError, "Missing the required parameter 'limit' when calling MessagesApi.fetch_messages" if limit.nil?
       # verify the required parameter 'resource_uris' is set
       fail ArgumentError, "Missing the required parameter 'resource_uris' when calling MessagesApi.fetch_messages" if resource_uris.nil?
       # resource path
@@ -66,8 +64,8 @@ module TriglavClient
       # query parameters
       query_params = {}
       query_params[:'offset'] = offset
-      query_params[:'limit'] = limit
       query_params[:'resource_uris'] = resource_uris
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 
       # header parameters
       header_params = {}
@@ -102,30 +100,28 @@ module TriglavClient
     # 
     # List messages with HTTP GET method
     # @param offset Offset (Greater than or equal to) ID for Messages to list from
-    # @param limit Number of limits
     # @param resource_uris URIs of Resource
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Number of limits
     # @return [Array<MessageEachResponse>]
-    def list_messages(offset, limit, resource_uris, opts = {})
-      data, _status_code, _headers = list_messages_with_http_info(offset, limit, resource_uris, opts)
+    def list_messages(offset, resource_uris, opts = {})
+      data, _status_code, _headers = list_messages_with_http_info(offset, resource_uris, opts)
       return data
     end
 
     # 
     # List messages with HTTP GET method
     # @param offset Offset (Greater than or equal to) ID for Messages to list from
-    # @param limit Number of limits
     # @param resource_uris URIs of Resource
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Number of limits
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def list_messages_with_http_info(offset, limit, resource_uris, opts = {})
+    def list_messages_with_http_info(offset, resource_uris, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.list_messages ..."
       end
       # verify the required parameter 'offset' is set
       fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.list_messages" if offset.nil?
-      # verify the required parameter 'limit' is set
-      fail ArgumentError, "Missing the required parameter 'limit' when calling MessagesApi.list_messages" if limit.nil?
       # verify the required parameter 'resource_uris' is set
       fail ArgumentError, "Missing the required parameter 'resource_uris' when calling MessagesApi.list_messages" if resource_uris.nil?
       # resource path
@@ -134,8 +130,8 @@ module TriglavClient
       # query parameters
       query_params = {}
       query_params[:'offset'] = offset
-      query_params[:'limit'] = limit
       query_params[:'resource_uris'] = resource_uris
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
 
       # header parameters
       header_params = {}
