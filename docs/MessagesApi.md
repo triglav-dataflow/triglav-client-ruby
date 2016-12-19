@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **fetch_messages**
-> Array&lt;MessageEachResponse&gt; fetch_messages(offset, resource_uris, opts)
+> Array&lt;MessageEachResponse&gt; fetch_messages(offset, opts)
 
 
 
@@ -32,14 +32,13 @@ api_instance = TriglavClient::MessagesApi.new
 
 offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
 
-resource_uris = "resource_uris_example" # String | URIs of Resource
-
 opts = { 
-  limit: 56 # Integer | Number of limits
+  limit: 56, # Integer | Number of limits
+  resource_uris: "resource_uris_example" # String | URIs of Resource
 }
 
 begin
-  result = api_instance.fetch_messages(offset, resource_uris, opts)
+  result = api_instance.fetch_messages(offset, opts)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->fetch_messages: #{e}"
@@ -51,8 +50,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
- **resource_uris** | **String**| URIs of Resource | 
  **limit** | **Integer**| Number of limits | [optional] 
+ **resource_uris** | **String**| URIs of Resource | [optional] 
 
 ### Return type
 
@@ -70,7 +69,7 @@ Name | Type | Description  | Notes
 
 
 # **list_messages**
-> Array&lt;MessageEachResponse&gt; list_messages(offset, resource_uris, opts)
+> Array&lt;MessageEachResponse&gt; list_messages(offset, opts)
 
 
 
@@ -92,14 +91,13 @@ api_instance = TriglavClient::MessagesApi.new
 
 offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to list from
 
-resource_uris = "resource_uris_example" # String | URIs of Resource
-
 opts = { 
-  limit: 56 # Integer | Number of limits
+  limit: 56, # Integer | Number of limits
+  resource_uris: "resource_uris_example" # String | URIs of Resource
 }
 
 begin
-  result = api_instance.list_messages(offset, resource_uris, opts)
+  result = api_instance.list_messages(offset, opts)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->list_messages: #{e}"
@@ -111,8 +109,8 @@ end
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to list from | 
- **resource_uris** | **String**| URIs of Resource | 
  **limit** | **Integer**| Number of limits | [optional] 
+ **resource_uris** | **String**| URIs of Resource | [optional] 
 
 ### Return type
 
