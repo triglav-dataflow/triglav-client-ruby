@@ -33,37 +33,30 @@ module TriglavClient
 
     # 
     # Fetch messages with HTTP POST method
-    # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
+    # @param fetch_request Fetch Request
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number of limits
-    # @option opts [String] :resource_uris URIs of Resource
     # @return [Array<MessageEachResponse>]
-    def fetch_messages(offset, opts = {})
-      data, _status_code, _headers = fetch_messages_with_http_info(offset, opts)
+    def fetch_messages(fetch_request, opts = {})
+      data, _status_code, _headers = fetch_messages_with_http_info(fetch_request, opts)
       return data
     end
 
     # 
     # Fetch messages with HTTP POST method
-    # @param offset Offset (Greater than or equal to) ID for Messages to fetch from
+    # @param fetch_request Fetch Request
     # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number of limits
-    # @option opts [String] :resource_uris URIs of Resource
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def fetch_messages_with_http_info(offset, opts = {})
+    def fetch_messages_with_http_info(fetch_request, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
       end
-      # verify the required parameter 'offset' is set
-      fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.fetch_messages" if offset.nil?
+      # verify the required parameter 'fetch_request' is set
+      fail ArgumentError, "Missing the required parameter 'fetch_request' when calling MessagesApi.fetch_messages" if fetch_request.nil?
       # resource path
       local_var_path = "/fetch_messages".sub('{format}','json')
 
       # query parameters
       query_params = {}
-      query_params[:'offset'] = offset
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'resource_uris'] = opts[:'resource_uris'] if !opts[:'resource_uris'].nil?
 
       # header parameters
       header_params = {}
@@ -80,7 +73,7 @@ module TriglavClient
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = @api_client.object_to_http_body(fetch_request)
       auth_names = ['api_key']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,

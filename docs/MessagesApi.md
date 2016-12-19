@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **fetch_messages**
-> Array&lt;MessageEachResponse&gt; fetch_messages(offset, opts)
+> Array&lt;MessageEachResponse&gt; fetch_messages(fetch_request)
 
 
 
@@ -30,15 +30,11 @@ end
 
 api_instance = TriglavClient::MessagesApi.new
 
-offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
+fetch_request = TriglavClient::MessageFetchRequest.new # MessageFetchRequest | Fetch Request
 
-opts = { 
-  limit: 56, # Integer | Number of limits
-  resource_uris: "resource_uris_example" # String | URIs of Resource
-}
 
 begin
-  result = api_instance.fetch_messages(offset, opts)
+  result = api_instance.fetch_messages(fetch_request)
   p result
 rescue TriglavClient::ApiError => e
   puts "Exception when calling MessagesApi->fetch_messages: #{e}"
@@ -49,9 +45,7 @@ end
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to fetch from | 
- **limit** | **Integer**| Number of limits | [optional] 
- **resource_uris** | **String**| URIs of Resource | [optional] 
+ **fetch_request** | [**MessageFetchRequest**](MessageFetchRequest.md)| Fetch Request | 
 
 ### Return type
 
