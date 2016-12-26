@@ -89,6 +89,59 @@ module TriglavClient
     end
 
     # 
+    # Get the current last message id which would be used as a first offset to fetch messages
+    # @param [Hash] opts the optional parameters
+    # @return [LastMessageIdResponse]
+    def get_last_message_id(opts = {})
+      data, _status_code, _headers = get_last_message_id_with_http_info(opts)
+      return data
+    end
+
+    # 
+    # Get the current last message id which would be used as a first offset to fetch messages
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(LastMessageIdResponse, Fixnum, Hash)>] LastMessageIdResponse data, response status code and response headers
+    def get_last_message_id_with_http_info(opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "Calling API: MessagesApi.get_last_message_id ..."
+      end
+      # resource path
+      local_var_path = "/messages/last_id".sub('{format}','json')
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+
+      # HTTP header 'Accept' (if needed)
+      local_header_accept = ['application/json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
+
+      # HTTP header 'Content-Type'
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['api_key']
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'LastMessageIdResponse')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: MessagesApi#get_last_message_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+
+    # 
     # List messages with HTTP GET method
     # @param offset Offset (Greater than or equal to) ID for Messages to list from
     # @param [Hash] opts the optional parameters

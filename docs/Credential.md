@@ -5,6 +5,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **username** | **String** |  | 
 **password** | **String** |  | 
-**authenticator** | **String** |  | 
+**authenticator** | **String** |  | [optional] 
 
 
