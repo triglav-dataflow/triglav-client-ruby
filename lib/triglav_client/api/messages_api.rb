@@ -147,6 +147,8 @@ module TriglavClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of limits
     # @option opts [String] :resource_uris URIs of Resource
+    # @option opts [String] :resource_unit Resource Unit such as daily, hourly, or singular. Required if resource_time is given
+    # @option opts [Integer] :resource_time Resource Time in UNIX Timestamp
     # @return [Array<MessageEachResponse>]
     def list_messages(offset, opts = {})
       data, _status_code, _headers = list_messages_with_http_info(offset, opts)
@@ -159,6 +161,8 @@ module TriglavClient
     # @param [Hash] opts the optional parameters
     # @option opts [Integer] :limit Number of limits
     # @option opts [String] :resource_uris URIs of Resource
+    # @option opts [String] :resource_unit Resource Unit such as daily, hourly, or singular. Required if resource_time is given
+    # @option opts [Integer] :resource_time Resource Time in UNIX Timestamp
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
     def list_messages_with_http_info(offset, opts = {})
       if @api_client.config.debugging
@@ -174,6 +178,8 @@ module TriglavClient
       query_params[:'offset'] = offset
       query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
       query_params[:'resource_uris'] = opts[:'resource_uris'] if !opts[:'resource_uris'].nil?
+      query_params[:'resource_unit'] = opts[:'resource_unit'] if !opts[:'resource_unit'].nil?
+      query_params[:'resource_time'] = opts[:'resource_time'] if !opts[:'resource_time'].nil?
 
       # header parameters
       header_params = {}

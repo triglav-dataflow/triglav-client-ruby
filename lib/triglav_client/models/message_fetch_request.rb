@@ -35,13 +35,21 @@ module TriglavClient
     # URIs of Resource
     attr_accessor :resource_uris
 
+    # Resource Unit such as daily, hourly, or singular. Required if resource_time is given
+    attr_accessor :resource_unit
+
+    # Resource Time in UNIX TIMESTAMP
+    attr_accessor :resource_time
+
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
         :'offset' => :'offset',
         :'limit' => :'limit',
-        :'resource_uris' => :'resource_uris'
+        :'resource_uris' => :'resource_uris',
+        :'resource_unit' => :'resource_unit',
+        :'resource_time' => :'resource_time'
       }
     end
 
@@ -50,7 +58,9 @@ module TriglavClient
       {
         :'offset' => :'Integer',
         :'limit' => :'Integer',
-        :'resource_uris' => :'Array<String>'
+        :'resource_uris' => :'Array<String>',
+        :'resource_unit' => :'String',
+        :'resource_time' => :'Integer'
       }
     end
 
@@ -76,6 +86,14 @@ module TriglavClient
         end
       end
 
+      if attributes.has_key?(:'resource_unit')
+        self.resource_unit = attributes[:'resource_unit']
+      end
+
+      if attributes.has_key?(:'resource_time')
+        self.resource_time = attributes[:'resource_time']
+      end
+
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
@@ -99,7 +117,9 @@ module TriglavClient
       self.class == o.class &&
           offset == o.offset &&
           limit == o.limit &&
-          resource_uris == o.resource_uris
+          resource_uris == o.resource_uris &&
+          resource_unit == o.resource_unit &&
+          resource_time == o.resource_time
     end
 
     # @see the `==` method
@@ -111,7 +131,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [offset, limit, resource_uris].hash
+      [offset, limit, resource_uris, resource_unit, resource_time].hash
     end
 
     # Builds the object from hash

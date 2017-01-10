@@ -29,7 +29,7 @@ module TriglavClient
     # URI of Resource
     attr_accessor :resource_uri
 
-    # Time unit of resource to monitor such as daily, or hourly
+    # Time unit of resource to monitor such as singular, daily, or hourly
     attr_accessor :resource_unit
 
     # Time of Resource in unix timestamp such as 1476025200 (2016-10-10 in +09:00)

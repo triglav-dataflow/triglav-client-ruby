@@ -33,7 +33,7 @@ module TriglavClient
     # URI of Resource
     attr_accessor :uri
 
-    # Time unit of resource to monitor such as daily, or hourly
+    # Time unit of resource to monitor such as singular, daily, or hourly
     attr_accessor :unit
 
     # Timezone of resource time, that is, timezone of %Y-%m-%d for hdfs://path/to/%Y-%m-%d such as +09:00

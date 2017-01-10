@@ -29,7 +29,7 @@ module TriglavClient
     # resource uri
     attr_accessor :uri
 
-    # 'daily' or 'hourly'
+    # 'singualr' or 'daily' or 'hourly'
     attr_accessor :unit
 
     # timezone of the format [+-]HH:MM

@@ -135,7 +135,9 @@ offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to lis
 
 opts = { 
   limit: 56, # Integer | Number of limits
-  resource_uris: "resource_uris_example" # String | URIs of Resource
+  resource_uris: "resource_uris_example", # String | URIs of Resource
+  resource_unit: "resource_unit_example", # String | Resource Unit such as daily, hourly, or singular. Required if resource_time is given
+  resource_time: 56 # Integer | Resource Time in UNIX Timestamp
 }
 
 begin
@@ -153,6 +155,8 @@ Name | Type | Description  | Notes
  **offset** | **Integer**| Offset (Greater than or equal to) ID for Messages to list from | 
  **limit** | **Integer**| Number of limits | [optional] 
  **resource_uris** | **String**| URIs of Resource | [optional] 
+ **resource_unit** | **String**| Resource Unit such as daily, hourly, or singular. Required if resource_time is given | [optional] 
+ **resource_time** | **Integer**| Resource Time in UNIX Timestamp | [optional] 
 
 ### Return type
 
