@@ -32,31 +32,38 @@ module TriglavClient
     end
 
     # 
-    # Fetch messages with HTTP POST method
-    # @param fetch_request Fetch Request
+    # Fetch messages
+    # @param offset Offset (Greater than or equal to) ID for Messages to list from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Number of limits
+    # @option opts [String] :resource_uris URIs of Resource
     # @return [Array<MessageEachResponse>]
-    def fetch_messages(fetch_request, opts = {})
-      data, _status_code, _headers = fetch_messages_with_http_info(fetch_request, opts)
+    def fetch_messages(offset, opts = {})
+      data, _status_code, _headers = fetch_messages_with_http_info(offset, opts)
       return data
     end
 
     # 
-    # Fetch messages with HTTP POST method
-    # @param fetch_request Fetch Request
+    # Fetch messages
+    # @param offset Offset (Greater than or equal to) ID for Messages to list from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :limit Number of limits
+    # @option opts [String] :resource_uris URIs of Resource
     # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def fetch_messages_with_http_info(fetch_request, opts = {})
+    def fetch_messages_with_http_info(offset, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug "Calling API: MessagesApi.fetch_messages ..."
       end
-      # verify the required parameter 'fetch_request' is set
-      fail ArgumentError, "Missing the required parameter 'fetch_request' when calling MessagesApi.fetch_messages" if fetch_request.nil?
+      # verify the required parameter 'offset' is set
+      fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.fetch_messages" if offset.nil?
       # resource path
-      local_var_path = "/fetch_messages".sub('{format}','json')
+      local_var_path = "/messages".sub('{format}','json')
 
       # query parameters
       query_params = {}
+      query_params[:'offset'] = offset
+      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
+      query_params[:'resource_uris'] = opts[:'resource_uris'] if !opts[:'resource_uris'].nil?
 
       # header parameters
       header_params = {}
@@ -73,9 +80,9 @@ module TriglavClient
       form_params = {}
 
       # http body (model)
-      post_body = @api_client.object_to_http_body(fetch_request)
+      post_body = nil
       auth_names = ['api_key']
-      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
         :query_params => query_params,
         :form_params => form_params,
@@ -137,70 +144,6 @@ module TriglavClient
         :return_type => 'LastMessageIdResponse')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: MessagesApi#get_last_message_id\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
-      end
-      return data, status_code, headers
-    end
-
-    # 
-    # List messages with HTTP GET method
-    # @param offset Offset (Greater than or equal to) ID for Messages to list from
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number of limits
-    # @option opts [String] :resource_uris URIs of Resource
-    # @return [Array<MessageEachResponse>]
-    def list_messages(offset, opts = {})
-      data, _status_code, _headers = list_messages_with_http_info(offset, opts)
-      return data
-    end
-
-    # 
-    # List messages with HTTP GET method
-    # @param offset Offset (Greater than or equal to) ID for Messages to list from
-    # @param [Hash] opts the optional parameters
-    # @option opts [Integer] :limit Number of limits
-    # @option opts [String] :resource_uris URIs of Resource
-    # @return [Array<(Array<MessageEachResponse>, Fixnum, Hash)>] Array<MessageEachResponse> data, response status code and response headers
-    def list_messages_with_http_info(offset, opts = {})
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: MessagesApi.list_messages ..."
-      end
-      # verify the required parameter 'offset' is set
-      fail ArgumentError, "Missing the required parameter 'offset' when calling MessagesApi.list_messages" if offset.nil?
-      # resource path
-      local_var_path = "/messages".sub('{format}','json')
-
-      # query parameters
-      query_params = {}
-      query_params[:'offset'] = offset
-      query_params[:'limit'] = opts[:'limit'] if !opts[:'limit'].nil?
-      query_params[:'resource_uris'] = opts[:'resource_uris'] if !opts[:'resource_uris'].nil?
-
-      # header parameters
-      header_params = {}
-
-      # HTTP header 'Accept' (if needed)
-      local_header_accept = ['application/json']
-      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
-
-      # HTTP header 'Content-Type'
-      local_header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
-
-      # form parameters
-      form_params = {}
-
-      # http body (model)
-      post_body = nil
-      auth_names = ['api_key']
-      data, status_code, headers = @api_client.call_api(:GET, local_var_path,
-        :header_params => header_params,
-        :query_params => query_params,
-        :form_params => form_params,
-        :body => post_body,
-        :auth_names => auth_names,
-        :return_type => 'Array<MessageEachResponse>')
-      if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: MessagesApi#list_messages\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
