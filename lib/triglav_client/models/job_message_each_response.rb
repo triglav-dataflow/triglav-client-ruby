@@ -26,6 +26,8 @@ require 'date'
 module TriglavClient
 
   class JobMessageEachResponse
+    attr_accessor :id
+
     # Job ID
     attr_accessor :job_id
 
@@ -39,6 +41,7 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'id' => :'id',
         :'job_id' => :'job_id',
         :'time' => :'time',
         :'timezone' => :'timezone'
@@ -48,6 +51,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'id' => :'Integer',
         :'job_id' => :'Integer',
         :'time' => :'Integer',
         :'timezone' => :'String'
@@ -61,6 +65,10 @@ module TriglavClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'id')
+        self.id = attributes[:'id']
+      end
 
       if attributes.has_key?(:'job_id')
         self.job_id = attributes[:'job_id']
@@ -94,6 +102,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          id == o.id &&
           job_id == o.job_id &&
           time == o.time &&
           timezone == o.timezone
@@ -108,7 +117,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [job_id, time, timezone].hash
+      [id, job_id, time, timezone].hash
     end
 
     # Builds the object from hash
