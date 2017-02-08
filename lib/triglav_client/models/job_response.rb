@@ -30,6 +30,8 @@ module TriglavClient
 
     attr_accessor :uri
 
+    attr_accessor :logical_op
+
     # Input resources
     attr_accessor :input_resources
 
@@ -46,6 +48,7 @@ module TriglavClient
       {
         :'id' => :'id',
         :'uri' => :'uri',
+        :'logical_op' => :'logical_op',
         :'input_resources' => :'input_resources',
         :'output_resources' => :'output_resources',
         :'created_at' => :'created_at',
@@ -58,6 +61,7 @@ module TriglavClient
       {
         :'id' => :'Integer',
         :'uri' => :'String',
+        :'logical_op' => :'String',
         :'input_resources' => :'Array<ResourceResponse>',
         :'output_resources' => :'Array<ResourceResponse>',
         :'created_at' => :'DateTime',
@@ -79,6 +83,10 @@ module TriglavClient
 
       if attributes.has_key?(:'uri')
         self.uri = attributes[:'uri']
+      end
+
+      if attributes.has_key?(:'logical_op')
+        self.logical_op = attributes[:'logical_op']
       end
 
       if attributes.has_key?(:'input_resources')
@@ -123,6 +131,7 @@ module TriglavClient
       self.class == o.class &&
           id == o.id &&
           uri == o.uri &&
+          logical_op == o.logical_op &&
           input_resources == o.input_resources &&
           output_resources == o.output_resources &&
           created_at == o.created_at &&
@@ -138,7 +147,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, input_resources, output_resources, created_at, updated_at].hash
+      [id, uri, logical_op, input_resources, output_resources, created_at, updated_at].hash
     end
 
     # Builds the object from hash

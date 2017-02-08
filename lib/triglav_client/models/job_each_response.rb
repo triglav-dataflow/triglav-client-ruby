@@ -30,6 +30,8 @@ module TriglavClient
 
     attr_accessor :uri
 
+    attr_accessor :logical_op
+
     attr_accessor :created_at
 
     attr_accessor :updated_at
@@ -40,6 +42,7 @@ module TriglavClient
       {
         :'id' => :'id',
         :'uri' => :'uri',
+        :'logical_op' => :'logical_op',
         :'created_at' => :'created_at',
         :'updated_at' => :'updated_at'
       }
@@ -50,6 +53,7 @@ module TriglavClient
       {
         :'id' => :'Integer',
         :'uri' => :'String',
+        :'logical_op' => :'String',
         :'created_at' => :'Integer',
         :'updated_at' => :'Integer'
       }
@@ -69,6 +73,10 @@ module TriglavClient
 
       if attributes.has_key?(:'uri')
         self.uri = attributes[:'uri']
+      end
+
+      if attributes.has_key?(:'logical_op')
+        self.logical_op = attributes[:'logical_op']
       end
 
       if attributes.has_key?(:'created_at')
@@ -101,6 +109,7 @@ module TriglavClient
       self.class == o.class &&
           id == o.id &&
           uri == o.uri &&
+          logical_op == o.logical_op &&
           created_at == o.created_at &&
           updated_at == o.updated_at
     end
@@ -114,7 +123,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [id, uri, created_at, updated_at].hash
+      [id, uri, logical_op, created_at, updated_at].hash
     end
 
     # Builds the object from hash
