@@ -30,10 +30,10 @@ end
 
 api_instance = TriglavClient::MessagesApi.new
 
-offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to list from
+offset = 789 # Integer | Offset (Greater than or equal to) ID for Messages to list from
 
 opts = { 
-  limit: 56, # Integer | Number of limits
+  limit: 789, # Integer | Number of limits
   resource_uris: "resource_uris_example" # String | URIs of Resource
 }
 

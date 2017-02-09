@@ -29,12 +29,12 @@ end
 
 api_instance = TriglavClient::JobMessagesApi.new
 
-offset = 56 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
+offset = 789 # Integer | Offset (Greater than or equal to) ID for Messages to fetch from
 
-job_id = 56 # Integer | Job ID
+job_id = 789 # Integer | Job ID
 
 opts = { 
-  limit: 56 # Integer | Number of limits
+  limit: 789 # Integer | Number of limits
 }
 
 begin

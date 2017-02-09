@@ -54,8 +54,8 @@ module TriglavClient
         :'id' => :'Integer',
         :'uri' => :'String',
         :'logical_op' => :'String',
-        :'created_at' => :'Integer',
-        :'updated_at' => :'Integer'
+        :'created_at' => :'DateTime',
+        :'updated_at' => :'DateTime'
       }
     end
 
