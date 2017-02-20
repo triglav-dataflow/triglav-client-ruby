@@ -26,6 +26,9 @@ require 'date'
 module TriglavClient
 
   class MessageRequest
+    # Universally Unique ID to be used to avoid duplicated messages
+    attr_accessor :uuid
+
     # URI of Resource
     attr_accessor :resource_uri
 
@@ -45,6 +48,7 @@ module TriglavClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        :'uuid' => :'uuid',
         :'resource_uri' => :'resource_uri',
         :'resource_unit' => :'resource_unit',
         :'resource_time' => :'resource_time',
@@ -56,6 +60,7 @@ module TriglavClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        :'uuid' => :'String',
         :'resource_uri' => :'String',
         :'resource_unit' => :'String',
         :'resource_time' => :'Integer',
@@ -71,6 +76,10 @@ module TriglavClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      if attributes.has_key?(:'uuid')
+        self.uuid = attributes[:'uuid']
+      end
 
       if attributes.has_key?(:'resource_uri')
         self.resource_uri = attributes[:'resource_uri']
@@ -116,6 +125,7 @@ module TriglavClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
+          uuid == o.uuid &&
           resource_uri == o.resource_uri &&
           resource_unit == o.resource_unit &&
           resource_time == o.resource_time &&
@@ -132,7 +142,7 @@ module TriglavClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [resource_uri, resource_unit, resource_time, resource_timezone, payload].hash
+      [uuid, resource_uri, resource_unit, resource_time, resource_timezone, payload].hash
     end
 
     # Builds the object from hash
