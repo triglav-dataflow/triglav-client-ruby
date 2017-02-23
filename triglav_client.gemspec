@@ -3,7 +3,7 @@
 =begin
 #Triglav API
 
-#Triglav API Reference
+#Triglav API
 
 OpenAPI spec version: 1.0.0
 Contact: triglav_admin_my@dena.jp
@@ -30,11 +30,11 @@ Gem::Specification.new do |s|
   s.name        = "triglav_client"
   s.version     = TriglavClient::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ["Swagger-Codegen"]
+  s.authors     = ["Triglav Team"]
   s.email       = ["triglav_admin_my@dena.jp"]
-  s.homepage    = "https://github.com/swagger-api/swagger-codegen"
-  s.summary     = "Triglav API Ruby Gem"
-  s.description = "Triglav API Reference"
+  s.homepage    = "https://github.com/triglav-dataflow/triglav-client-ruby"
+  s.summary     = "A ruby client library for Triglav API"
+  s.description = "A ruby client library for Triglav API"
   s.license     = "MIT"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
