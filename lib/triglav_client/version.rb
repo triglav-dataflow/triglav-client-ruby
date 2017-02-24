@@ -1,7 +1,7 @@
 =begin
 #Triglav API
 
-#Triglav API
+#Triglav API Reference
 
 OpenAPI spec version: 1.0.0
 Contact: triglav_admin_my@dena.jp
@@ -22,5 +22,5 @@ limitations under the License.
 =end
 
 module TriglavClient
-  VERSION = "0.1.32"
+  VERSION = "0.1.33"
 end

@@ -3,7 +3,7 @@
 =begin
 #Triglav API
 
-#Triglav API
+#Triglav API Reference
 
 OpenAPI spec version: 1.0.0
 Contact: triglav_admin_my@dena.jp
