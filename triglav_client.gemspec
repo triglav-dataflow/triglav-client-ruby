@@ -33,8 +33,8 @@ Gem::Specification.new do |s|
   s.authors     = ["Triglav Team"]
   s.email       = ["triglav_admin_my@dena.jp"]
   s.homepage    = "https://github.com/triglav-dataflow/triglav-client-ruby"
-  s.summary     = "A ruby client library for Triglav API"
-  s.description = "A ruby client library for Triglav API"
+  s.summary     = "A ruby client library for Triglav, data-driven workflow tool"
+  s.description = "A ruby client library for Triglav, data-driven workflow tool"
   s.license     = "MIT"
 
   s.add_runtime_dependency 'typhoeus', '~> 1.0', '>= 1.0.1'
